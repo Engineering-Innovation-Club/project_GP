@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class TimedSpeedBuff : TimedBuff
 {
-    private readonly PlayerController player;
+    private readonly PlayerMovementControl player;
 
     public TimedSpeedBuff(ScriptableBuff buff, GameObject obj) : base(buff, obj)
     {
         //Getting MovementComponent, replace with your own implementation
-        player = obj.GetComponent<PlayerController>();
+        player = obj.GetComponent<PlayerMovementControl>();
     }
 
     protected override void ApplyEffect()

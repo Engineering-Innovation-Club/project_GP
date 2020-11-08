@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class TimedHealthBuff : TimedBuff
 {
-    private readonly PlayerController player;
+    private readonly PlayerHealthControl player;
 
     public TimedHealthBuff(ScriptableBuff buff, GameObject obj) : base(buff, obj)
     {
-        player = obj.GetComponent<PlayerController>();
+        player = obj.GetComponent<PlayerHealthControl>();
     }
 
     protected override void ApplyEffect()

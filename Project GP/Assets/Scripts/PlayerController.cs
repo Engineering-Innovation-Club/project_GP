@@ -5,7 +5,37 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerController : MonoBehaviour
+    
 {
+    /*
+     * 
+     * 
+     * 
+     * 
+     *  DON"T USE THIS SCRIPT ANYMORE
+     *  WE HAVE PLAYERHEALTHCONTROL FOR MANAGING PLAYER HEALTH
+     *  AND PLAYER MOVEMENT CONTROL FOR MANAGING PLAYER MOVEMENT
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     *
     // Get access to the player's Rigidbody and Collider
     Rigidbody2D rbody;
     BoxCollider2D coll;
@@ -64,7 +94,6 @@ public class PlayerController : MonoBehaviour
     private GameObject currentPassThroughBlock;
     private float doubleTapDownTimer = 0.3f;
     private int doubleTapDownCount = 0;
-    private bool aboutToTouchGround = false;
 
     // animation stuff
     private bool isFacingRight;
@@ -180,9 +209,6 @@ public class PlayerController : MonoBehaviour
         if (rollTimer >= 0)
         {
             rollTimer -= Time.deltaTime;
-
-            // change sprite to something else
-            //gameObject.GetComponent<SpriteRenderer>().sprite = rollSprite;
         }
 
         else
@@ -323,7 +349,7 @@ public class PlayerController : MonoBehaviour
         // Double tap down key to go down a pass through block
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (doubleTapDownTimer > 0 && doubleTapDownCount == 1 && currentPassThroughBlock != null/*Number of Taps you want Minus One*/)
+            if (doubleTapDownTimer > 0 && doubleTapDownCount == 1 && currentPassThroughBlock != null/*Number of Taps you want Minus One*)
             {
                 currentPassThroughBlock.GetComponent<BoxCollider2D>().isTrigger = true;
                 onGround = false;
@@ -733,14 +759,6 @@ public class PlayerController : MonoBehaviour
             {
                 currentPassThroughBlock = null;
             }
-
-            if (leftHit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
-            {
-                aboutToTouchGround = true;
-            } else
-            {
-                aboutToTouchGround = false;
-            }
             return true;
         }
         // If left side isn't, check right side
@@ -754,20 +772,13 @@ public class PlayerController : MonoBehaviour
             {
                 currentPassThroughBlock = null;
             }
-            if (rightHit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
-            {
-                aboutToTouchGround = true;
-            } else
-            {
-                aboutToTouchGround = false;
-            }
+
             return true;
 
         }
         else
         {
             currentPassThroughBlock = null;
-            aboutToTouchGround = false;
         }
         return false;
     }
@@ -877,4 +888,6 @@ public class PlayerController : MonoBehaviour
         } 
         
     }
+
+  */
 }

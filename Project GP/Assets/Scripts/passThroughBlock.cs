@@ -6,7 +6,7 @@ public class passThroughBlock : MonoBehaviour
 {
     private PlatformEffector2D effector;
     private GameObject player;
-    private PlayerController playerScript;
+    private PlayerMovementControl playerScript;
     private Collider2D blockColl;
     private Collider2D playerColl;
     private bool flip = false;
@@ -17,7 +17,7 @@ public class passThroughBlock : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerColl = player.GetComponent<Collider2D>();
-        playerScript = player.GetComponent<PlayerController>();
+        playerScript = player.GetComponent<PlayerMovementControl>();
         effector = GetComponent<PlatformEffector2D>();
         blockColl = this.gameObject.GetComponent<Collider2D>();
 

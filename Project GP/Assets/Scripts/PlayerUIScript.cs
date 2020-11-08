@@ -16,7 +16,7 @@ public class PlayerUIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerController playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        PlayerHealthControl playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthControl>();
         tmpui.SetText("Health: " + playerScript.health);
     }
 }

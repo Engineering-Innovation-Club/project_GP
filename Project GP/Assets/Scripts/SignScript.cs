@@ -22,7 +22,7 @@ public class SignScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            PlayerController playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            PlayerMovementControl playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementControl>();
             playerScript.touchSign = true;
             this.tag = "IsTouching";
             transform.GetChild(0).gameObject.SetActive(true);
@@ -34,7 +34,7 @@ public class SignScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            PlayerController playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            PlayerMovementControl playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementControl>();
             playerScript.touchSign = false;
             this.tag = "Untagged";
             transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().SetText("Press F To Read Sign");

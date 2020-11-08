@@ -25,7 +25,7 @@ public class WallSwitchScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            PlayerController pScript = collision.gameObject.GetComponent<PlayerController>();
+            PlayerMovementControl pScript = collision.gameObject.GetComponent<PlayerMovementControl>();
             pScript.touchWallSwitch = true;
             this.tag = "IsTouching";
         }
@@ -35,7 +35,7 @@ public class WallSwitchScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            PlayerController pScript = collision.gameObject.GetComponent<PlayerController>();
+            PlayerMovementControl pScript = collision.gameObject.GetComponent<PlayerMovementControl>();
             pScript.touchWallSwitch = false;
             this.tag = "WallSwitch";
         }
