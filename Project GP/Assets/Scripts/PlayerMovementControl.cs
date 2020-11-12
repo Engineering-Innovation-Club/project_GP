@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerMovementControl : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerMovementControl : MonoBehaviour
     public bool isInvincible;
     public bool touchWallSwitch;
     public bool touchSign;
+    public bool isOnLadder;
 
     // Speed on moving platforms and regular move speed
     public float moveSpeed;
@@ -74,6 +76,7 @@ public class PlayerMovementControl : MonoBehaviour
         isRoll = false;
         isGrounded = false;
         isInvincible = false;
+        isOnLadder = false;
 
         moveSpeed = 5f;
         rollDelay = 0f;
@@ -173,6 +176,9 @@ public class PlayerMovementControl : MonoBehaviour
             }
         }
 
+        // Handle all ladder mechanics
+        checkLadder();
+
         // Handle all crouching mechanics
         // Honestly I have no idea how this works and even reading the code doesn't help me
         // Copy pasted from old script and hope it works
@@ -242,6 +248,35 @@ public class PlayerMovementControl : MonoBehaviour
                 // Roll Left
                 rbody.velocity = new Vector2(-moveSpeed * 1.5f, rbody.velocity.y);
             }
+        }
+    }
+
+    private void checkLadder()
+    {
+        if (isOnLadder)
+        {
+            // Checks if the "w" key is being pressed
+            if (Input.GetKey("w"))
+            {
+                rbody.velocity = new Vector3(0, 5);
+            }
+            // Checks if the "s" key is being pressed
+            else if (Input.GetKey("s"))
+            {
+                rbody.velocity = new Vector3(0, -5);
+            }
+            else
+            {
+                if(!isGrounded)
+                {
+                    rbody.gravityScale = 0;
+                    rbody.velocity = new Vector3(0, 0);
+                }
+            }
+        }
+        else
+        {
+            rbody.gravityScale = 1;
         }
     }
 
@@ -613,33 +648,23 @@ public class PlayerMovementControl : MonoBehaviour
             mpVel = collision.gameObject.GetComponent<Rigidbody2D>().velocity.x;
             onMovingPlatform = true;
         }
-
-        // Check if player is on the ground
-        if (transform.position.y >= collision.gameObject.transform.position.y + (collision.gameObject.GetComponent<BoxCollider2D>().bounds.size.y / 2))
+        else if (collision.gameObject.tag == "passThroughBlock")
         {
-            isGrounded = true;
+            currentPassThroughBlock = collision.gameObject;
         }
-    }
-
-    // Function that checks if the player collider is continually hitting something
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
+        else
         {
-            // If on top of something
+            currentPassThroughBlock = null;
+        }
+
+        // Check if player is on the ground or on a platform
+        if (collision.gameObject.GetComponent<BoxCollider2D>() != null)
+        {
             if (transform.position.y >= collision.gameObject.transform.position.y + (collision.gameObject.GetComponent<BoxCollider2D>().bounds.size.y / 2))
             {
                 isGrounded = true;
             }
-
-            // If on moving platform
-            if (collision.gameObject.CompareTag("MovingPlatform"))
-            {
-                // If they player hits a moving platform add velocity to move player along with platform
-                // Update moving platform velocity constantly
-                mpVel = collision.gameObject.GetComponent<Rigidbody2D>().velocity.x;
-            }
-        }
+        }       
     }
 
     // Function that checks when the player collider is no longer hitting something
@@ -648,6 +673,7 @@ public class PlayerMovementControl : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+            currentPassThroughBlock = null;
         }
 
     }
