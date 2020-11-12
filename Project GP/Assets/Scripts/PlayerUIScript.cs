@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerUIScript : MonoBehaviour
 {
-    TextMeshProUGUI tmpui;
-    
-    // Start is called before the first frame update
-    void Start()
+    //TextMeshProUGUI tmpui;
+    public Slider slider;
+    public Gradient gradient;
+    public Image fill;
+
+    public void SetHealth(int health)
     {
-        tmpui = GetComponent<TextMeshProUGUI>();
+        slider.value = health;
+        fill.color = gradient.Evaluate(slider.normalizedValue);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetMaxHealth(int health)
     {
-        PlayerHealthControl playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthControl>();
-        tmpui.SetText("Health: " + playerScript.health);
+        slider.maxValue = health;
+        slider.value = health;
+        fill.color = gradient.Evaluate(1f);
     }
 }

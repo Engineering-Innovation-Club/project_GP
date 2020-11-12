@@ -68,7 +68,7 @@ public class BulletScript : MonoBehaviour
             if (target == "Player")
             {
                 PlayerHealthControl playerScript = collision.gameObject.GetComponent<PlayerHealthControl>();
-                playerScript.health -= 1;
+                playerScript.hit(1);
             } else if (target == "Enemy")
             {
                 EnemyScript enemyScript = collision.gameObject.GetComponent<EnemyScript>();
