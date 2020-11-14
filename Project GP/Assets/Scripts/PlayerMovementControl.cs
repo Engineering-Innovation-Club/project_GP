@@ -100,7 +100,6 @@ public class PlayerMovementControl : MonoBehaviour
     void Update()
     {
         timers();
-        faceCrosshair();
 
         // Checks if the "d" key is being pressed
         if (Input.GetKey("d") && !isRoll)
@@ -146,7 +145,7 @@ public class PlayerMovementControl : MonoBehaviour
         }
 
         // Check if the space key is pressed
-        if (Input.GetKey("space"))
+        if (Input.GetKeyDown("space"))
         {
             jump();
         }
@@ -385,33 +384,6 @@ public class PlayerMovementControl : MonoBehaviour
             isRoll = false;
             rollTimer = rollDuration;
             isInvincible = false;
-        }
-    }
-
-    // Function that orients the player towards the crosshair
-    private void faceCrosshair()
-    {
-        // Check if crosshair is behind player
-        // if crosshair is on the right of model
-        if (transform.position.x < Camera.main.ScreenToWorldPoint(Input.mousePosition).x)
-        {
-            // if not currently facing towards the right
-            if (!isFacingRight)
-            {
-                // make model face right
-                flip();
-                isFacingRight = true;
-            }
-        }
-        else // if crosshair is behind player model
-        {
-            // if currently facing towards the right
-            if (isFacingRight)
-            {
-                // make model face left
-                flip();
-                isFacingRight = false;
-            }
         }
     }
 
@@ -660,11 +632,24 @@ public class PlayerMovementControl : MonoBehaviour
         // Check if player is on the ground or on a platform
         if (collision.gameObject.GetComponent<BoxCollider2D>() != null)
         {
-            if (transform.position.y >= collision.gameObject.transform.position.y + (collision.gameObject.GetComponent<BoxCollider2D>().bounds.size.y / 2))
+            if (collision.gameObject.tag == "Ground")
+            {
+                isGrounded = true;
+            }
+            else if (transform.position.y >= collision.gameObject.transform.position.y + (collision.gameObject.GetComponent<BoxCollider2D>().bounds.size.y / 2))
             {
                 isGrounded = true;
             }
         }       
+    }
+
+    // Function that checks if the player collider stays
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGrounded = true;
+        }
     }
 
     // Function that checks when the player collider is no longer hitting something
