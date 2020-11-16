@@ -288,7 +288,7 @@ public class PlayerMovementControl : MonoBehaviour
             isCrouchDown = true;
             crouchDownTimer = animationTimes["PlayerCrouchDown"];
             coll.offset = new Vector2(coll.offset.x, (collOffY - (collSizeY / 4f)) * 1.2f);
-            coll.size = new Vector2(coll.bounds.size.x, (collSizeY / 2f) * 1.2f);
+            coll.size = new Vector2(coll.bounds.size.x / 2, (collSizeY / 2f) * 1.2f);
         }
         else
         { // crouching up
@@ -303,7 +303,7 @@ public class PlayerMovementControl : MonoBehaviour
                 isCrouchUp = true;
                 crouchUpTimer = animationTimes["PlayerCrouchUp"];
                 coll.offset = new Vector2(coll.offset.x, collOffY);
-                coll.size = new Vector2(coll.bounds.size.x, collSizeY);
+                coll.size = new Vector2(coll.bounds.size.x / 2, collSizeY);
             }
         }
     }
@@ -614,6 +614,7 @@ public class PlayerMovementControl : MonoBehaviour
     // Function that checks when the player collider hits something
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.gameObject.tag == "MovingPlatform")
         {
             // If they player hits a moving platform add velocity to move player along with platfomr
@@ -650,6 +651,10 @@ public class PlayerMovementControl : MonoBehaviour
         {
             isGrounded = true;
         }
+        else
+        {
+            Debug.Log(collision.gameObject.name);
+        }
     }
 
     // Function that checks when the player collider is no longer hitting something
@@ -663,4 +668,3 @@ public class PlayerMovementControl : MonoBehaviour
 
     }
 }
-

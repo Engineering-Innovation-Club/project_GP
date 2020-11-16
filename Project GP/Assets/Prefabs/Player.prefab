@@ -189,7 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7382599933963768619}
   - component: {fileID: 6808658173007922302}
-  - component: {fileID: 1377685240186044142}
+  - component: {fileID: 1733230866}
   - component: {fileID: 1038297564735775461}
   - component: {fileID: 3055819626924677487}
   - component: {fileID: 7535228661937944822}
@@ -212,7 +212,7 @@ Transform:
   m_GameObject: {fileID: 567775827756639366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.1, y: -2.57, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 6751671076920210138}
   - {fileID: 5532171182134838575}
@@ -273,7 +273,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1377685240186044142
+--- !u!61 &1733230866
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,7 +286,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.96}
+  m_Offset: {x: 0.08800642, y: 0.96}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -297,7 +297,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.84, y: 1.92}
+  m_Size: {x: 0.66398704, y: 1.92}
   m_EdgeRadius: 0
 --- !u!50 &1038297564735775461
 Rigidbody2D:
@@ -386,11 +386,12 @@ MonoBehaviour:
   isInvincible: 0
   touchWallSwitch: 0
   touchSign: 0
+  isOnLadder: 0
   moveSpeed: 0
   mpVel: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!114 &567775827756639360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 0
+  playerUIScript: {fileID: 0}
 --- !u!1 &1853410826246457706
 GameObject:
   m_ObjectHideFlags: 0
