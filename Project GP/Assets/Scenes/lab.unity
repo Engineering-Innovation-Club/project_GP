@@ -1065,6 +1065,7 @@ GameObject:
   - component: {fileID: 1701430866}
   - component: {fileID: 1701430865}
   - component: {fileID: 1701430864}
+  - component: {fileID: 1701430867}
   m_Layer: 8
   m_Name: Collideable
   m_TagString: Ground
@@ -1093,7 +1094,7 @@ TilemapCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701430862}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2339,6 +2340,28 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!68 &1701430867
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701430862}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -10.899742, y: -4.0001173}
+  - {x: 47.900257, y: -4.0000534}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1733230859 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 567775827756639366, guid: 321a318bf63314647b8060e5509a0786,

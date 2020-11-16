@@ -651,10 +651,6 @@ public class PlayerMovementControl : MonoBehaviour
         {
             isGrounded = true;
         }
-        else
-        {
-            Debug.Log(collision.gameObject.name);
-        }
     }
 
     // Function that checks when the player collider is no longer hitting something
