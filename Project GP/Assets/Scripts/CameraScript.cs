@@ -8,7 +8,7 @@ public class CameraScript : MonoBehaviour
     public GameObject player;
 
     // Z-axis distance from camera to player
-    float distance = -10f;
+    float distance = -30f;
 
     // Used to create a Vector3 position, since you can't individually change the x, y, and z values of an objects position
     Vector3 pos;
@@ -29,7 +29,7 @@ public class CameraScript : MonoBehaviour
         pos.z += distance;
 
         // Change camera position to pos
-        transform.position = pos + new Vector3(0, 2, 0);
+        transform.position = pos + new Vector3(0, 3, 0);
         
     }
 }

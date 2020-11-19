@@ -429,14 +429,14 @@ public class PlayerMovementControl : MonoBehaviour
             }
         }
         // Player direction
-        if (rbody.velocity.x < 0)
+        if (rbody.velocity.x < 0 && !onMovingPlatform)
         {
             if (isFacingRight)
             {
                 flip();
             }
         }
-        else if (rbody.velocity.x > 0)
+        else if (rbody.velocity.x > 0 && !onMovingPlatform)
         {
             if (!isFacingRight)
             {
@@ -480,7 +480,7 @@ public class PlayerMovementControl : MonoBehaviour
 
 
         // On ground actions
-        if (isGrounded && !isRoll)
+        if (isGrounded && !isRoll && !onMovingPlatform)
         {
             if (rbody.velocity.x != 0)
             {
@@ -620,6 +620,7 @@ public class PlayerMovementControl : MonoBehaviour
             // If they player hits a moving platform add velocity to move player along with platfomr
             mpVel = collision.gameObject.GetComponent<Rigidbody2D>().velocity.x;
             onMovingPlatform = true;
+            isGrounded = true;
         }
         else if (collision.gameObject.tag == "passThroughBlock")
         {
@@ -651,6 +652,12 @@ public class PlayerMovementControl : MonoBehaviour
         {
             isGrounded = true;
         }
+        else if (collision.gameObject.tag == "MovingPlatform")
+        {
+            mpVel = collision.gameObject.GetComponent<Rigidbody2D>().velocity.x;
+            onMovingPlatform = true;
+            isGrounded = true;
+        }
     }
 
     // Function that checks when the player collider is no longer hitting something
@@ -661,6 +668,10 @@ public class PlayerMovementControl : MonoBehaviour
             isGrounded = false;
             currentPassThroughBlock = null;
         }
-
+        else if (collision.gameObject.tag == "MovingPlatform")
+        {
+            onMovingPlatform = false;
+            isGrounded = false;
+        }
     }
 }
