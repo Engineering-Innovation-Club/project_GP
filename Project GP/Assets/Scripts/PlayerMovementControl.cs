@@ -101,35 +101,36 @@ public class PlayerMovementControl : MonoBehaviour
     {
         timers();
 
-        // Checks if the "d" key is being pressed
-        if (Input.GetKey("d") && !isRoll)
-        {
-            // Changes the x-axis velocity of the player while retaining the y-axis velocity
-            if (isCrouching)
+        if(!PauseMenu.isPaused) {
+            // Checks if the "d" key is being pressed
+            if (Input.GetKey("d") && !isRoll)
             {
-                rbody.velocity = new Vector3(moveSpeed / 2, rbody.velocity.y);
+                // Changes the x-axis velocity of the player while retaining the y-axis velocity
+                if (isCrouching)
+                {
+                    rbody.velocity = new Vector3(moveSpeed / 2, rbody.velocity.y);
+                }
+                else
+                {
+                    rbody.velocity = new Vector2(moveSpeed, rbody.velocity.y);
+                }
             }
+            // Checks if the "a" key is being pressed
+            else if (Input.GetKey("a") && !isRoll)
+            {
+                // Changes the x-axis velocity of the player while retaining the y-axis velocity
+                if (isCrouching)
+                {
+                    rbody.velocity = new Vector3(-(moveSpeed / 2), rbody.velocity.y);
+                }
+                else
+                {
+                    rbody.velocity = new Vector2(-(moveSpeed), rbody.velocity.y);
+                }
+            }
+            // This else statement is to set the player's x-axis velocity to 0 if neither "a" nor "d" are being pressed.
+            // Without this statement, the player would glide.
             else
-            {
-                rbody.velocity = new Vector2(moveSpeed, rbody.velocity.y);
-            }
-        }
-        // Checks if the "a" key is being pressed
-        else if (Input.GetKey("a") && !isRoll)
-        {
-            // Changes the x-axis velocity of the player while retaining the y-axis velocity
-            if (isCrouching)
-            {
-                rbody.velocity = new Vector3(-(moveSpeed / 2), rbody.velocity.y);
-            }
-            else
-            {
-                rbody.velocity = new Vector2(-(moveSpeed), rbody.velocity.y);
-            }
-        }
-        // This else statement is to set the player's x-axis velocity to 0 if neither "a" nor "d" are being pressed.
-        // Without this statement, the player would glide.
-        else
         {
             if (!onMovingPlatform && !isRoll)
             {
@@ -144,6 +145,8 @@ public class PlayerMovementControl : MonoBehaviour
             }
         }
 
+        }
+            
         // Check if the space key is pressed
         if (Input.GetKeyDown("space"))
         {
