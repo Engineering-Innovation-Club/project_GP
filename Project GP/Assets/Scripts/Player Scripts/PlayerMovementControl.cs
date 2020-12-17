@@ -677,4 +677,16 @@ public class PlayerMovementControl : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    // Function that returns player position
+    public Vector3 GetPos()
+    {
+        return transform.position;
+    }
+
+    // Function that sets player position to specific vector
+    public void Spawn(Vector3 pos)
+    {
+        transform.position = pos;
+    }
 }
