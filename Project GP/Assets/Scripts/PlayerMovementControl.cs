@@ -21,6 +21,7 @@ public class PlayerMovementControl : MonoBehaviour
 
     // Speed on moving platforms and regular move speed
     public float moveSpeed;
+    public float jumpheight;
     public float mpVel;
 
     // Variables for animation handling
@@ -78,7 +79,7 @@ public class PlayerMovementControl : MonoBehaviour
         isInvincible = false;
         isOnLadder = false;
 
-        moveSpeed = 5f;
+        moveSpeed = 10f;
         rollDelay = 0f;
 
         isFacingRight = true;
@@ -220,7 +221,7 @@ public class PlayerMovementControl : MonoBehaviour
         if (isGrounded)
         {
             // Retain current x-axis velocity, while adding a bit of y-axis velocity
-            rbody.velocity = new Vector2(rbody.velocity.x, 6f);
+            rbody.velocity = new Vector2(rbody.velocity.x, jumpheight);
         }
     }
 
@@ -275,7 +276,7 @@ public class PlayerMovementControl : MonoBehaviour
         }
         else
         {
-            rbody.gravityScale = 1;
+            rbody.gravityScale = 2.5f;
         }
     }
 
