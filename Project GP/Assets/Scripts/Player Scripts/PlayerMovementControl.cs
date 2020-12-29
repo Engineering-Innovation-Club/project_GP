@@ -18,6 +18,8 @@ public class PlayerMovementControl : MonoBehaviour
     public bool touchWallSwitch;
     public bool touchSign;
     public bool isOnLadder;
+    public bool isClimbing;
+    public bool isInteracting;
 
     // Speed on moving platforms and regular move speed
     public float moveSpeed;
@@ -28,7 +30,6 @@ public class PlayerMovementControl : MonoBehaviour
     Animator animator;
 
     // Delays in certain actions
-    private float timeSinceLanding;
     private float timeSinceInteract;
     private float rollTimer;
     private float rollDelay;
@@ -42,10 +43,8 @@ public class PlayerMovementControl : MonoBehaviour
     float collOffY;
 
     // ??? All these crouching variables ????
-    bool isCrouchUp;
-    bool isCrouchDown;
-    float crouchUpTimer;
-    float crouchDownTimer;
+    public bool isCrouchUp;
+    public bool isCrouchDown;
     int toggleCrouch = -1;
 
     // Variables for pass-through platforms
@@ -54,9 +53,6 @@ public class PlayerMovementControl : MonoBehaviour
     private int doubleTapDownCount = 0;
     // LayerMask for the ground
     public LayerMask groundLayer;
-
-    // Dictionary variable that stores animation times
-    private Dictionary<string, float> animationTimes = new Dictionary<string, float>();
 
     // for some reason we have a seperate variable just for this one clip??
     // honestly what happened when we were making the first script
@@ -88,12 +84,6 @@ public class PlayerMovementControl : MonoBehaviour
         // Getting boundaries
         collSizeY = coll.size.y;
         collOffY = coll.offset.y;
-
-        // Fill animation dictionary with times
-        getAnimationTimes();
-
-        // Other variables
-        timeSinceLanding = animationTimes["Playerland"];
     }
 
     // Update is called once per frame
@@ -173,6 +163,7 @@ public class PlayerMovementControl : MonoBehaviour
                 {
                     wsScript.state = false;
                     wsScript.OpenDoor();
+                    isInteracting = true;
                     animator.SetBool("isInteracting", true);
                 }
             }
@@ -213,7 +204,7 @@ public class PlayerMovementControl : MonoBehaviour
         }
 
         // Handle animation stuff
-        animationStates();
+        //animationStates();
     }
 
     // Function that makes the player jump, provided certain conditions are ok
@@ -223,7 +214,7 @@ public class PlayerMovementControl : MonoBehaviour
         if (isGrounded)
         {
             // Retain current x-axis velocity, while adding a bit of y-axis velocity
-            rbody.velocity = new Vector2(rbody.velocity.x, 6f);
+            rbody.velocity = new Vector2(rbody.velocity.x, 8f);
         }
     }
 
@@ -260,24 +251,31 @@ public class PlayerMovementControl : MonoBehaviour
             // Checks if the "w" key is being pressed
             if (Input.GetKey("w"))
             {
+                isClimbing = true;
                 rbody.velocity = new Vector3(0, 5);
             }
             // Checks if the "s" key is being pressed
             else if (Input.GetKey("s"))
             {
+                isClimbing = true;
                 rbody.velocity = new Vector3(0, -5);
             }
             else
             {
                 if(!isGrounded)
                 {
+                    isClimbing = true;
                     rbody.gravityScale = 0;
                     rbody.velocity = new Vector3(0, 0);
+                } else
+                {
+                    isClimbing = false;
                 }
             }
         }
         else
         {
+            isClimbing = false;
             rbody.gravityScale = 1;
         }
     }
@@ -289,7 +287,6 @@ public class PlayerMovementControl : MonoBehaviour
         {
             isCrouching = true;
             isCrouchDown = true;
-            crouchDownTimer = animationTimes["PlayerCrouchDown"];
             coll.offset = new Vector2(coll.offset.x, (collOffY - (collSizeY / 4f)) * 1.2f);
             coll.size = new Vector2(coll.bounds.size.x / 2, (collSizeY / 2f) * 1.2f);
         }
@@ -304,7 +301,6 @@ public class PlayerMovementControl : MonoBehaviour
             else // crouch up
             {
                 isCrouchUp = true;
-                crouchUpTimer = animationTimes["PlayerCrouchUp"];
                 coll.offset = new Vector2(coll.offset.x, collOffY);
                 coll.size = new Vector2(coll.bounds.size.x / 2, collSizeY);
             }
@@ -358,14 +354,7 @@ public class PlayerMovementControl : MonoBehaviour
         }
     }
 
-    // Function that flips the player model
-    private void flip()
-    {
-        isFacingRight = !isFacingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
-    }
+
 
     // Function called every frame in Update() that just has all the timers nicely packaged inside
     private void timers()
@@ -390,182 +379,6 @@ public class PlayerMovementControl : MonoBehaviour
         }
     }
 
-    // Function that handles all the animation stuff
-    // No idea how this one works either
-    private void animationStates()
-    {
-        // Player interaction
-        if (animator.GetBool("isInteracting"))
-        {
-            timeSinceInteract -= Time.deltaTime;
-            if (timeSinceInteract < 0)
-            {
-                animator.SetBool("isInteracting", false);
-                timeSinceInteract = animationTimes["PlayerInteract"];
-            }
-        }
-        else
-        {
-            timeSinceInteract = animationTimes["PlayerInteract"];
-
-        }
-
-        // Player rolling
-        if (isRoll && !animator.GetBool("isRolling"))
-        {
-            float t = animationTimes["player-standing-roll"] / rollDuration;
-            animator.SetFloat("rollTime", t);
-            animator.SetBool("isRolling", true);
-        }
-        else if (!isRoll)
-        {
-
-            if (!isCrouching && animator.GetBool("isRolling"))
-            {
-                animator.SetBool("isRolling", false);
-                isCrouching = true;
-                crouch(false);
-            }
-            else
-            {
-                animator.SetBool("isRolling", false);
-            }
-        }
-        // Player direction
-        if (rbody.velocity.x < 0 && !onMovingPlatform)
-        {
-            if (isFacingRight)
-            {
-                flip();
-            }
-        }
-        else if (rbody.velocity.x > 0 && !onMovingPlatform)
-        {
-            if (!isFacingRight)
-            {
-                flip();
-            }
-        }
-
-        // crouching
-        if (isGrounded && isCrouching)
-        {
-            if (isCrouchDown)
-            {
-                animator.SetBool("isCrouchDown", true);
-                animator.SetBool("isCrouching", true);
-            }
-
-            if (isCrouchUp)
-            {
-                animator.SetBool("isCrouchUp", true);
-            }
-
-            if ((crouchDownTimer -= Time.deltaTime) < 0 && isCrouchDown)
-            {
-                animator.SetBool("isCrouchDown", false);
-                isCrouchDown = false;
-            }
-            else if (!isCrouchDown)
-            {
-                animator.SetBool("isCrouchDown", false);
-            }
-
-            if ((crouchUpTimer -= Time.deltaTime) < 0 && isCrouchUp)
-            {
-                animator.SetBool("isCrouching", false);
-                animator.SetBool("isCrouchUp", false);
-                isCrouching = false;
-                isCrouchUp = false;
-            }
-
-        }
-
-
-        // On ground actions
-        if (isGrounded && !isRoll && !onMovingPlatform)
-        {
-            if (rbody.velocity.x != 0)
-            {
-                animator.SetBool("isRunning", true);
-
-            }
-            else
-            {
-                animator.SetBool("isRunning", false);
-
-            }
-
-        }
-        else
-        {
-            animator.SetBool("isRunning", false);
-
-        }
-
-        // In air actions
-        if (!isGrounded)
-        {
-            if (rbody.velocity.y > 0)
-            {
-                animator.SetBool("isJumping", true);
-                animator.SetBool("isFalling", false);
-                animator.SetBool("isLanding", false);
-            }
-            else if (rbody.velocity.y <= 0)
-            {
-                animator.SetBool("isJumping", false);
-                animator.SetBool("isFalling", true);
-                animator.SetBool("isLanding", false);
-            }
-        }
-        else
-        {
-            if (animator.GetBool("isFalling"))
-            {
-                animator.SetBool("isLanding", true);
-                animator.SetBool("isFalling", false);
-            }
-            else if (animator.GetBool("isLanding"))
-            {
-                if (animator.GetBool("isRunning") || animator.GetBool("isJumping"))
-                {
-                    timeSinceLanding = -1f;
-                }
-                timeSinceLanding -= Time.deltaTime;
-
-                if (timeSinceLanding < 0)
-                {
-                    animator.SetBool("isLanding", false);
-                    timeSinceLanding = animationTimes["Playerland"];
-                }
-
-            }
-            else
-            {
-                timeSinceLanding = animationTimes["Playerland"];
-                animator.SetBool("isFalling", false);
-                animator.SetBool("isJumping", false);
-                animator.SetBool("isLanding", false);
-
-            }
-        }
-    }
-
-    // Function to get the length of all the animations and stores them in a dictionary
-    private void getAnimationTimes()
-    {
-        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
-        foreach (AnimationClip clip in clips)
-        {
-            animationTimes.Add(clip.name, clip.length);
-            if (clip.name == "player-standing-roll")
-            {
-                standingRollClip = clip;
-            }
-        }
-    }
-
     // Function that returns the pass-through platform if there is one
     public GameObject getCurrentPassThroughBlock()
     {
@@ -575,10 +388,11 @@ public class PlayerMovementControl : MonoBehaviour
     // Check if player is going to land on a pass through block
     private bool isPassThroughBlock()
     {
-        RaycastHit2D leftHit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, groundLayer);
-        RaycastHit2D rightHit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, groundLayer);
-        Debug.DrawRay(transform.position, new Vector3(0, -0.1f, 0), Color.green);
-        Debug.DrawRay(transform.position, new Vector3(0, -0.1f, 0), Color.green);
+        Vector3 displacement = new Vector3((coll.bounds.size.x) / 2f, 0, 0) ;
+        RaycastHit2D leftHit = Physics2D.Raycast(transform.position - displacement, Vector2.down, 0.5f, groundLayer);
+        RaycastHit2D rightHit = Physics2D.Raycast(transform.position + displacement, Vector2.down, 0.5f, groundLayer);
+        Debug.DrawRay(transform.position - displacement, new Vector3(0, -0.5f, 0), Color.green);
+        Debug.DrawRay(transform.position + displacement, new Vector3(0, -0.5f, 0), Color.green);
         // If it collides with something that isn't NULL
         if (leftHit.collider != null)
         {
@@ -628,6 +442,7 @@ public class PlayerMovementControl : MonoBehaviour
         else if (collision.gameObject.tag == "passThroughBlock")
         {
             currentPassThroughBlock = collision.gameObject;
+            isGrounded = true;
         }
         else
         {
@@ -660,7 +475,12 @@ public class PlayerMovementControl : MonoBehaviour
             mpVel = collision.gameObject.GetComponent<Rigidbody2D>().velocity.x;
             onMovingPlatform = true;
             isGrounded = true;
+        } else if (collision.gameObject.tag == "passThroughBlock")
+        {
+            isGrounded = true;
         }
+        
+
     }
 
     // Function that checks when the player collider is no longer hitting something
@@ -675,7 +495,13 @@ public class PlayerMovementControl : MonoBehaviour
         {
             onMovingPlatform = false;
             isGrounded = false;
+            mpVel = 0;
+        } else if (collision.gameObject.tag == "passThroughBlock")
+        {
+            currentPassThroughBlock = null;
+            isGrounded = false;
         }
+
     }
 
     // Function that returns player position
