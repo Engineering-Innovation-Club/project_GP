@@ -35,9 +35,6 @@ public class PlayerMovementControl : MonoBehaviour
     private float rollDelay;
     const float rollDuration = 0.5f;
 
-    // Boolean that tracks which direction the player is facing
-    private bool isFacingRight;
-
     // Collider variables for changing collider on crouch
     float collSizeY;
     float collOffY;
@@ -58,6 +55,8 @@ public class PlayerMovementControl : MonoBehaviour
     // honestly what happened when we were making the first script
     private AnimationClip standingRollClip;
 
+    public GameObject droid;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,10 +73,9 @@ public class PlayerMovementControl : MonoBehaviour
         isInvincible = false;
         isOnLadder = false;
 
-        moveSpeed = 5f;
+        moveSpeed = 7f;
         rollDelay = 0f;
 
-        isFacingRight = true;
         touchWallSwitch = false;
         touchSign = false;
 
@@ -276,7 +274,7 @@ public class PlayerMovementControl : MonoBehaviour
         else
         {
             isClimbing = false;
-            rbody.gravityScale = 1;
+            rbody.gravityScale = 1.5f;
         }
     }
 
