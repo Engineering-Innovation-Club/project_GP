@@ -2,31 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DroidScript : MonoBehaviour
+public class DroneScript : MonoBehaviour
 {
     Rigidbody2D rbody;
     BoxCollider2D coll;
 
     Animator anim;
 
+    GameObject player;
+    Vector3 playerPos;
+
     private Dictionary<string, float> animationTimes = new Dictionary<string, float>();
 
-    private const string DROID_IDLE = "droid_idle";
-    private const string DROID_WALK = "droid_walk";
-    private const string DROID_SHOOT = "droid_shoot";
-
-    private const string DROID_DEATH = "droid_death";
+    private const string DRONE_MOVE = "drone_move";
+    private const string DRONE_ALARMED = "drone_alarmed";
+    private const string DRONE_ATTACK = "drone_attack";
+    private const string DRONE_DEATH = "drone_death";
 
     private string currentAnimation;
 
     public bool isMoving;
     public bool isFacingRight;
-
     public float moveSpeed;
+    public bool isAlerted;
 
     public int health;
     public int maxHealth;
-    
+
+    private bool hitPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +38,17 @@ public class DroidScript : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
 
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerPos = player.transform.position;
+
         isMoving = false;
         moveSpeed = 5f;
-        
-        maxHealth = 1;
+
+        maxHealth = 3;
         health = maxHealth;
+
+        isAlerted = false;
+        hitPlayer = false;
 
         getAnimationTimes();
     }
@@ -51,27 +61,36 @@ public class DroidScript : MonoBehaviour
         rbody.angularDrag = 0f;
         rbody.angularVelocity = 0f;
 
-        if (rbody.velocity.x > 0) {
+        if (rbody.velocity.x > 0)
+        {
             // Moving right
             isMoving = true;
 
-            if (!isFacingRight) {
+            if (!isFacingRight)
+            {
                 flip();
             }
         }
-        else if (rbody.velocity.x < 0) {
+        else if (rbody.velocity.x < 0)
+        {
             // Moving left
             isMoving = true;
 
-            if (isFacingRight) {
+            if (isFacingRight)
+            {
                 flip();
             }
         }
-        else {
+        else
+        {
             isMoving = false;
         }
-
         animationStates();
+
+        if (!hitPlayer)
+        {
+            path();
+        }
     }
 
     // Function that flips the player model
@@ -83,31 +102,31 @@ public class DroidScript : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    private void animationStates() {
-        if (health > 0) {
-            if (isMoving) {
-                ChangeAnimationState(DROID_WALK);
+    private void animationStates()
+    {
+        if (health > 0)
+        {
+            if (isMoving)
+            {
+                ChangeAnimationState(DRONE_MOVE);
             }
-            if (!isMoving) {
-                ChangeAnimationState(DROID_IDLE);
+            if (!isMoving)
+            {
+                ChangeAnimationState(DRONE_MOVE);
             }
         }
-        else {
+        else
+        {
             // Change to death animation
-            ChangeAnimationState(DROID_DEATH);
-
-            // Change collider bounds and offset to match animation frame
-            // this shit is actually useless since the collider gets disabled literally right after
-            // but I spent a lot of time geting these numbers so just in case we use it let's leave it here
-            coll.offset = new Vector2(0.15f, 0.25f);
-            coll.size = new Vector2(2f, 0.49f);
+            ChangeAnimationState(DRONE_DEATH);
 
             // Disable collider and freeze x and y position
             coll.enabled = false;
             rbody.constraints = RigidbodyConstraints2D.FreezeAll;
         }
-        
+
     }
+
     private void getAnimationTimes()
     {
         AnimationClip[] clips = anim.runtimeAnimatorController.animationClips;
@@ -117,6 +136,7 @@ public class DroidScript : MonoBehaviour
             animationTimes.Add(clip.name, clip.length);
         }
     }
+
     public void ChangeAnimationState(string newState)
     {
         if (currentAnimation == newState) return;
@@ -124,8 +144,22 @@ public class DroidScript : MonoBehaviour
         currentAnimation = newState;
     }
 
-    public void hit(int damage) {
+    public void hit(int damage)
+    {
         health -= damage;
     }
 
+    public void path()
+    {
+        playerPos = player.transform.position;
+        transform.position = Vector2.MoveTowards(transform.position, playerPos, moveSpeed / 100);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            hitPlayer = true;
+        }
+    }
 }

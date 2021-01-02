@@ -1,7 +1,43 @@
 fileFormatVersion: 2
 guid: 80d43c47d1b14be4a9705d87a7b41047
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3310154836889504401
+    second: drone-death-Sheet_0
+  - first:
+      213: -7873327215474913469
+    second: drone-death-Sheet_1
+  - first:
+      213: -5637781744412252986
+    second: drone-death-Sheet_2
+  - first:
+      213: -6305435856323223709
+    second: drone-death-Sheet_3
+  - first:
+      213: 8427489248684131992
+    second: drone-death-Sheet_4
+  - first:
+      213: -4821547871262618592
+    second: drone-death-Sheet_5
+  - first:
+      213: -2387658293742012477
+    second: drone-death-Sheet_6
+  - first:
+      213: -9119803868846313229
+    second: drone-death-Sheet_7
+  - first:
+      213: -3266587820892905420
+    second: drone-death-Sheet_8
+  - first:
+      213: 5953158147225001599
+    second: drone-death-Sheet_9
+  - first:
+      213: 3964326836849389385
+    second: drone-death-Sheet_10
+  - first:
+      213: 5717943176764769440
+    second: drone-death-Sheet_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +68,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,7 +77,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -73,9 +109,108 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: drone-death-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 36
+        width: 90
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19a0754494800fd20800000000000000
+      internalID: 3310154836889504401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drone-death-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 24
+        width: 84
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c4202baf5392c1b0800000000000000
+      internalID: -5637781744412252986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drone-death-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 42
+        width: 78
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7fd74ae655dded0800000000000000
+      internalID: -2387658293742012477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
