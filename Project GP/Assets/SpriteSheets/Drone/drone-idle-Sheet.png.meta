@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 307e415bb35a21742b2a92bb0d8f2831
+guid: 1577477134a7bd54d978a43b1d939ec2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4514336497797827886
-    second: droid-shoot-Sheet_0
+      213: -2582611067814216567
+    second: drone-idle-Sheet_0
   - first:
-      213: 3256666632356624176
-    second: droid-shoot-Sheet_1
+      213: 8608316184283631692
+    second: drone-idle-Sheet_1
   - first:
-      213: 4612140236496854960
-    second: droid-shoot-Sheet_2
+      213: -6508552438170043061
+    second: drone-idle-Sheet_2
+  - first:
+      213: 5935454537454604822
+    second: drone-idle-Sheet_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -122,64 +125,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: droid-shoot-Sheet_0
+      name: drone-idle-Sheet_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 0
-        width: 114
-        height: 192
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 12
+        y: 66
+        width: 90
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2d02d3702526ae30800000000000000
-      internalID: 4514336497797827886
+      spriteID: 98cf0f5cae8b82cd0800000000000000
+      internalID: -2582611067814216567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: droid-shoot-Sheet_1
+      name: drone-idle-Sheet_1
       rect:
         serializedVersion: 2
-        x: 150
-        y: 0
-        width: 108
-        height: 192
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 120
+        y: 72
+        width: 90
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 037fb7d2c01023d20800000000000000
-      internalID: 3256666632356624176
+      spriteID: c40d876f5f1e67770800000000000000
+      internalID: 8608316184283631692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: droid-shoot-Sheet_2
+      name: drone-idle-Sheet_2
       rect:
         serializedVersion: 2
-        x: 282
-        y: 0
-        width: 114
-        height: 192
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 228
+        y: 78
+        width: 90
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bf5ea2eb1d910040800000000000000
-      internalID: 4612140236496854960
+      spriteID: b4d3fd09a0afca5a0800000000000000
+      internalID: -6508552438170043061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drone-idle-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 72
+        width: 90
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61256755478fe5250800000000000000
+      internalID: 5935454537454604822
       vertices: []
       indices: 
       edges: []

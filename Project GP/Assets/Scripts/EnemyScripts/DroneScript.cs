@@ -18,6 +18,7 @@ public class DroneScript : MonoBehaviour
     private const string DRONE_ALARMED = "drone_alarmed";
     private const string DRONE_ATTACK = "drone_attack";
     private const string DRONE_DEATH = "drone_death";
+    private const string DRONE_IDLE = "drone_idle";
 
     private string currentAnimation;
 
@@ -42,9 +43,9 @@ public class DroneScript : MonoBehaviour
         playerPos = player.transform.position;
 
         isMoving = false;
-        moveSpeed = 5f;
+        moveSpeed = 3f;
 
-        maxHealth = 3;
+        maxHealth = 1;
         health = maxHealth;
 
         isAlerted = false;
@@ -60,6 +61,42 @@ public class DroneScript : MonoBehaviour
         rbody.drag = 0f;
         rbody.angularDrag = 0f;
         rbody.angularVelocity = 0f;
+
+        if (Input.GetKey("left"))
+        {
+            rbody.velocity = new Vector2(-moveSpeed, 0);
+        }
+        if (Input.GetKey("right"))
+        {
+            rbody.velocity = new Vector2(moveSpeed, 0);
+        }
+        if (Input.GetKey("up"))
+        {
+            rbody.velocity = new Vector2(0, moveSpeed);
+        }
+        if (Input.GetKey("down"))
+        {
+            rbody.velocity = new Vector2(0, -moveSpeed);
+        }
+        if (Input.GetKeyDown("l"))
+        {
+            if (isAlerted)
+            {
+                isAlerted = false;
+            }
+            else
+            {
+                isAlerted = true;
+            }
+        }
+        if (Input.GetKeyDown("k"))
+        {
+            hit(1);
+        }
+        if (!Input.anyKey)
+        {
+            rbody.velocity = new Vector2(0, 0);
+        }
 
         if (rbody.velocity.x > 0)
         {
@@ -87,7 +124,7 @@ public class DroneScript : MonoBehaviour
         }
         animationStates();
 
-        if (!hitPlayer)
+        if (!hitPlayer && isAlerted)
         {
             path();
         }
@@ -106,13 +143,20 @@ public class DroneScript : MonoBehaviour
     {
         if (health > 0)
         {
-            if (isMoving)
+            if (!isAlerted)
             {
-                ChangeAnimationState(DRONE_MOVE);
+                ChangeAnimationState(DRONE_IDLE);
             }
-            if (!isMoving)
+            else if (isAlerted)
             {
-                ChangeAnimationState(DRONE_MOVE);
+                if (!isMoving)
+                {
+                    ChangeAnimationState(DRONE_ALARMED);
+                }
+                if (isMoving)
+                {
+                    ChangeAnimationState(DRONE_MOVE);
+                }
             }
         }
         else
@@ -160,6 +204,7 @@ public class DroneScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             hitPlayer = true;
+
         }
     }
 }
