@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5532171182134838575}
   - component: {fileID: 6154151586246413224}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 3082912398941386756}
   - component: {fileID: 1611765704588670680}
   - component: {fileID: 301200796394782814}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,8 @@ GameObject:
   - component: {fileID: 567775827756639360}
   - component: {fileID: 1733230860}
   - component: {fileID: 1733230862}
-  m_Layer: 0
+  - component: {fileID: 5348564333064054576}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -438,6 +439,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e6635eeab4029e4991b318998d44694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5348564333064054576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567775827756639366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0ff27c0c337cc489baf62fc27fb237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1853410826246457706
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +462,7 @@ GameObject:
   - component: {fileID: 6751671076920210138}
   - component: {fileID: 5216638628905872014}
   - component: {fileID: 7381985269265131275}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Weapon
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -551,7 +564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 567775826835735907}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PetRobotTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 772817741029550407}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shotpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

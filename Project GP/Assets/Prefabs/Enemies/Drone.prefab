@@ -15,7 +15,9 @@ GameObject:
   - component: {fileID: 4327744597398072519}
   - component: {fileID: 4327744597398072518}
   - component: {fileID: 4327744597398072513}
-  m_Layer: 0
+  - component: {fileID: -7587637117255698162}
+  - component: {fileID: 7187399757453857107}
+  m_Layer: 11
   m_Name: Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,3 +189,53 @@ MonoBehaviour:
   isAlerted: 0
   health: 0
   maxHealth: 0
+--- !u!114 &-7587637117255698162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327744597398072536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &7187399757453857107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327744597398072536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f22f46093a3ef4289d95ae9ee5569f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosition: {fileID: 0}
+  startingPosition: {x: 0, y: 0, z: 0}
+  speed: 2
+  stoppingRange: 10
+  nextWaypointDistance: 3
+  repathRate: 0.5
+  reachedEndOfPath: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
