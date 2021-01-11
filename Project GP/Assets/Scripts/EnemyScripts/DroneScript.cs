@@ -39,6 +39,9 @@ public class DroneScript : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
 
+        Physics2D.IgnoreLayerCollision(11, 11); // other enemies
+        Physics2D.IgnoreLayerCollision(10, 11); // player
+
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform.position;
 
@@ -126,7 +129,7 @@ public class DroneScript : MonoBehaviour
 
         if (!hitPlayer && isAlerted)
         {
-            path();
+            //path();
         }
     }
 
