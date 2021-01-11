@@ -55,8 +55,6 @@ public class PlayerMovementControl : MonoBehaviour
     // honestly what happened when we were making the first script
     private AnimationClip standingRollClip;
 
-    public GameObject droid;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -351,8 +349,6 @@ public class PlayerMovementControl : MonoBehaviour
             crouch(false);
         }
     }
-
-
 
     // Function called every frame in Update() that just has all the timers nicely packaged inside
     private void timers()
