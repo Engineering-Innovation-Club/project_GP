@@ -1,0 +1,406 @@
+fileFormatVersion: 2
+guid: 8c131156cea34e24bbdb43c681d41f09
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7314059814129963398
+    second: boss-roll-Sheet_0
+  - first:
+      213: -8570034760030077841
+    second: boss-roll-Sheet_1
+  - first:
+      213: 2361255620973929389
+    second: boss-roll-Sheet_2
+  - first:
+      213: -428481631292356701
+    second: boss-roll-Sheet_3
+  - first:
+      213: -2203823478481947177
+    second: boss-roll-Sheet_4
+  - first:
+      213: -1342499545021106636
+    second: boss-roll-Sheet_5
+  - first:
+      213: 6915666494725454357
+    second: boss-roll-Sheet_6
+  - first:
+      213: -5830536446757570088
+    second: boss-roll-Sheet_7
+  - first:
+      213: 8170728033514582765
+    second: boss-roll-Sheet_8
+  - first:
+      213: 813778511045041253
+    second: boss-roll-Sheet_9
+  - first:
+      213: 51351784984268086
+    second: boss-roll-Sheet_10
+  - first:
+      213: 4067847067104450559
+    second: boss-roll-Sheet_11
+  - first:
+      213: 6504646538432520030
+    second: boss-roll-Sheet_12
+  - first:
+      213: 6647518091408264640
+    second: boss-roll-Sheet_13
+  - first:
+      213: -8368251124745647182
+    second: boss-roll-Sheet_14
+  - first:
+      213: 6556514311447258401
+    second: boss-roll-Sheet_15
+  - first:
+      213: -8602700104753605005
+    second: boss-roll-Sheet_16
+  - first:
+      213: -1107087032405510762
+    second: boss-roll-Sheet_17
+  - first:
+      213: 3798142218545437840
+    second: boss-roll-Sheet_18
+  - first:
+      213: -1454557645643541192
+    second: boss-roll-Sheet_19
+  - first:
+      213: -8271678129652956912
+    second: boss-roll-Sheet_20
+  - first:
+      213: 1524704257760994820
+    second: boss-roll-Sheet_21
+  - first:
+      213: 7213724722575349367
+    second: boss-roll-Sheet_22
+  - first:
+      213: 1687595293352214316
+    second: boss-roll-Sheet_23
+  - first:
+      213: 6415137844861888345
+    second: boss-roll-Sheet_24
+  - first:
+      213: -4548240752730084410
+    second: boss-roll-Sheet_25
+  - first:
+      213: 4399531055352892543
+    second: boss-roll-Sheet_26
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Lumin
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: boss-roll-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6811d2f36a2c08560800000000000000
+      internalID: 7314059814129963398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-roll-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 0
+        width: 384
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c38afaace111980800000000000000
+      internalID: -8570034760030077841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-roll-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 0
+        width: 366
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da3ab001a7dd4c020800000000000000
+      internalID: 2361255620973929389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-roll-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1968
+        y: 0
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a70a0ef93abd0af0800000000000000
+      internalID: -428481631292356701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-roll-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2527
+        y: 0
+        width: 492
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d5fa6109327a61e0800000000000000
+      internalID: -2203823478481947177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-roll-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3192
+        y: 0
+        width: 343
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a7e23490269ff50800000000000000
+      internalID: 6915666494725454357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-roll-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3738
+        y: 0
+        width: 378
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d9fb014ef5c51fa0800000000000000
+      internalID: -5830536446757570088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
