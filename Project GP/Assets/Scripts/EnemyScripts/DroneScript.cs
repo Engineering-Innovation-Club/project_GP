@@ -26,6 +26,11 @@ public class DroneScript : MonoBehaviour
     public bool isFacingRight;
     public float moveSpeed;
     public bool isAlerted;
+    public float alertDistance;
+
+    //distance you must be within from it to alert/unalert it. Uncreases to longdistance is alerted, viceversa.
+    public float shortDistance = 8f;
+    public float longDistance = 13f;
 
     public int health;
     public int maxHealth;
@@ -53,6 +58,9 @@ public class DroneScript : MonoBehaviour
 
         isAlerted = false;
         hitPlayer = false;
+
+        //as the drone starts unalerted, the distance you must be within to alert it starts short.
+        alertDistance = shortDistance;
 
         getAnimationTimes();
     }
@@ -126,7 +134,19 @@ public class DroneScript : MonoBehaviour
             isMoving = false;
         }
         animationStates();
-
+        
+        //drone is alerted if the player is a within a certain distance from it, vice versa. alert distance increases when its alerted and vice versa.
+        if(Vector2.Distance(transform.position, player.transform.position) <= alertDistance)
+        {
+            alertDistance = longDistance;
+            isAlerted = true;
+        }
+        else {
+            alertDistance = shortDistance;
+            isAlerted = false;
+        }
+        Debug.Log("isAlerted:" + isAlerted);
+        
         if (!hitPlayer && isAlerted)
         {
             //path();

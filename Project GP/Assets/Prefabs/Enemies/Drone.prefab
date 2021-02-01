@@ -187,6 +187,9 @@ MonoBehaviour:
   isFacingRight: 1
   moveSpeed: 0
   isAlerted: 0
+  alertDistance: 0
+  shortDistance: 8
+  longDistance: 13
   health: 0
   maxHealth: 0
 --- !u!114 &-7587637117255698162

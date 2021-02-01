@@ -51,6 +51,10 @@ public class PlayerMovementControl : MonoBehaviour
     // LayerMask for the ground
     public LayerMask groundLayer;
 
+    // Variables to quickly change gravity and jump velocity
+    public float gravity;
+    public float jumpVel;
+
     // for some reason we have a seperate variable just for this one clip??
     // honestly what happened when we were making the first script
     private AnimationClip standingRollClip;
@@ -210,7 +214,7 @@ public class PlayerMovementControl : MonoBehaviour
         if (isGrounded)
         {
             // Retain current x-axis velocity, while adding a bit of y-axis velocity
-            rbody.velocity = new Vector2(rbody.velocity.x, 8f);
+            rbody.velocity = new Vector2(rbody.velocity.x, jumpVel);
         }
     }
 
@@ -272,7 +276,7 @@ public class PlayerMovementControl : MonoBehaviour
         else
         {
             isClimbing = false;
-            rbody.gravityScale = 1.5f;
+            rbody.gravityScale = gravity;
         }
     }
 
