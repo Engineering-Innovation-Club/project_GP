@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: droid_shoot
+  m_Name: droid_walk_alerted
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 4514336497797827886, guid: 307e415bb35a21742b2a92bb0d8f2831,
+      value: {fileID: 1678467266446908524, guid: ed2af4af836dc8d4a82173c6040eb8c8,
         type: 3}
     - time: 0.083333336
-      value: {fileID: 3256666632356624176, guid: 307e415bb35a21742b2a92bb0d8f2831,
+      value: {fileID: -2269814040850571835, guid: ed2af4af836dc8d4a82173c6040eb8c8,
         type: 3}
     - time: 0.16666667
-      value: {fileID: 4612140236496854960, guid: 307e415bb35a21742b2a92bb0d8f2831,
+      value: {fileID: -7999088279740463113, guid: ed2af4af836dc8d4a82173c6040eb8c8,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -47,9 +47,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 4514336497797827886, guid: 307e415bb35a21742b2a92bb0d8f2831, type: 3}
-    - {fileID: 3256666632356624176, guid: 307e415bb35a21742b2a92bb0d8f2831, type: 3}
-    - {fileID: 4612140236496854960, guid: 307e415bb35a21742b2a92bb0d8f2831, type: 3}
+    - {fileID: 1678467266446908524, guid: ed2af4af836dc8d4a82173c6040eb8c8, type: 3}
+    - {fileID: -2269814040850571835, guid: ed2af4af836dc8d4a82173c6040eb8c8, type: 3}
+    - {fileID: -7999088279740463113, guid: ed2af4af836dc8d4a82173c6040eb8c8, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

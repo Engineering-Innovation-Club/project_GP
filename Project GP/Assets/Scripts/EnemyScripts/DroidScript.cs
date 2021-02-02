@@ -8,6 +8,9 @@ public class DroidScript : MonoBehaviour
     BoxCollider2D coll;
 
     Animator anim;
+    Weapon weapon;
+    [SerializeField] public LayerMask playerLayer;
+    public Transform target;
 
     private Dictionary<string, float> animationTimes = new Dictionary<string, float>();
 
@@ -16,6 +19,9 @@ public class DroidScript : MonoBehaviour
     private const string DROID_SHOOT = "droid_shoot";
 
     private const string DROID_DEATH = "droid_death";
+
+    private const string DROID_ALERT_IDLE = "droid_idle_alerted";
+    private const string DROID_ALERT_WALK = "droid_walk_alerted";
 
     private string currentAnimation;
 
@@ -26,6 +32,13 @@ public class DroidScript : MonoBehaviour
 
     public int health;
     public int maxHealth;
+
+    public float detectionRange;
+    public float shootingRange;
+
+    private bool isShooting;
+    private bool isAlerted;
+    private bool playedAlerted;
     
     // Start is called before the first frame update
     void Start()
@@ -33,13 +46,14 @@ public class DroidScript : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+        weapon = GetComponent<Weapon>();
 
         isMoving = false;
         moveSpeed = 5f;
         
         maxHealth = 1;
         health = maxHealth;
-
+        isAlerted = false;
         getAnimationTimes();
     }
 
@@ -50,25 +64,43 @@ public class DroidScript : MonoBehaviour
         rbody.drag = 0f;
         rbody.angularDrag = 0f;
         rbody.angularVelocity = 0f;
+        isMoving = false;
+        isAlerted = true;
 
-        if (rbody.velocity.x > 0) {
-            // Moving right
-            isMoving = true;
-
-            if (!isFacingRight) {
-                flip();
+        // In shooting range
+        if (checkRanges(shootingRange) && !isShooting)
+        {  
+            // shoot
+            if(weapon.Shoot())
+            {
+                isShooting = true;
+                Invoke("finishShoot", animationTimes[DROID_SHOOT]);
+            } else
+            {
+                isShooting = false;
             }
-        }
-        else if (rbody.velocity.x < 0) {
-            // Moving left
-            isMoving = true;
 
-            if (isFacingRight) {
-                flip();
-            }
         }
-        else {
-            isMoving = false;
+        else if (checkRanges(detectionRange) && !isShooting)
+        {
+            // Droid detects player.
+            // Move towards player
+            float step = moveSpeed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+            isMoving = true;
+ 
+        } else
+        {
+            isAlerted = false;
+        }
+
+        if (transform.position.x < target.position.x && !isFacingRight)
+        {
+            flip();
+        }
+        else if (transform.position.x > target.position.x && isFacingRight)
+        {
+            flip();
         }
 
         animationStates();
@@ -85,11 +117,31 @@ public class DroidScript : MonoBehaviour
 
     private void animationStates() {
         if (health > 0) {
+            if (isShooting)
+            {
+                ChangeAnimationState(DROID_SHOOT);
+                return;
+            }
             if (isMoving) {
-                ChangeAnimationState(DROID_WALK);
+                if (isAlerted && !playedAlerted)
+                {
+                    ChangeAnimationState(DROID_ALERT_WALK);
+                    Invoke("alerted", animationTimes[DROID_ALERT_WALK]);
+                } else
+                {
+                    ChangeAnimationState(DROID_WALK);
+                }
             }
             if (!isMoving) {
-                ChangeAnimationState(DROID_IDLE);
+                if (isAlerted && !playedAlerted)
+                {
+                    ChangeAnimationState(DROID_IDLE);
+                    Invoke("alerted", animationTimes[DROID_ALERT_IDLE]);
+                }
+                else
+                {
+                    ChangeAnimationState(DROID_IDLE);
+                }
             }
         }
         else {
@@ -113,7 +165,6 @@ public class DroidScript : MonoBehaviour
         AnimationClip[] clips = anim.runtimeAnimatorController.animationClips;
         foreach (AnimationClip clip in clips)
         {
-            Debug.Log(clip.name);
             animationTimes.Add(clip.name, clip.length);
         }
     }
@@ -128,4 +179,31 @@ public class DroidScript : MonoBehaviour
         health -= damage;
     }
 
+    bool checkRanges(float range)
+    {
+        
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + Vector3.up*coll.bounds.size.y/2, range, playerLayer);
+        if (colliders.Length > 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position + Vector3.up * coll.bounds.size.y / 2, detectionRange);
+        Gizmos.DrawWireSphere(transform.position + Vector3.up * coll.bounds.size.y / 2, shootingRange);
+
+    }
+
+    private void finishShoot()
+    {
+        isShooting = false;
+    }
+
+    private void alerted()
+    {
+        playedAlerted = true;
+    }
 }

@@ -17,7 +17,7 @@ public class BulletScript : MonoBehaviour
     // target tag
     public string target;
 
-    
+    public bool hasAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -32,14 +32,21 @@ public class BulletScript : MonoBehaviour
             shootDirection.z = 0;
         } else if (target == "Player")
         {
-            Transform playerLocation = GameObject.FindGameObjectWithTag("Player").transform;
-            shootDirection = new Vector3(playerLocation.position.x, playerLocation.position.y, 0) - transform.position;
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            float playerHeight = player.GetComponent<BoxCollider2D>().bounds.size.y / 2f;
+            Transform playerLocation = player.transform;
+            shootDirection = new Vector3(playerLocation.position.x, playerLocation.position.y + playerHeight, 0) - transform.position;
         }
 
         shootDirection.Normalize();
 
         // Set velocity to shoot bullet
         rbody.velocity = shootDirection * bulletSpeed;
+
+        if (shootDirection.x < 0)
+        {
+            flip();
+        }
     }
 
     // Update is called once per frame
@@ -77,7 +84,8 @@ public class BulletScript : MonoBehaviour
             }
 
             // Destroy this bullet
-            Destroy(this.gameObject);
+            if (!hasAnim) // Leave destroy logic to animation portion
+                Destroy(this.gameObject);
         }
     }
 
@@ -88,5 +96,10 @@ public class BulletScript : MonoBehaviour
     {
         // Destroy this specific instance of the bullet
         Destroy(this.gameObject);
+    }
+
+    private void flip()
+    {
+        transform.localScale = transform.localScale * -1;
     }
 }
