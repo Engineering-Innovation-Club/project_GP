@@ -31,14 +31,14 @@ public class Weapon : MonoBehaviour
     private bool canShoot;
     private bool isReload;
 
-    public GameObject gunOwner;
+    // public GameObject gunOwner;
 
     // Start is called before the first frame update
     void Start()
     {
         currentBullets = maxBullets == -1 ? 1 : maxBullets;
         isReload = false;
-        gunOwner = this.transform.parent.gameObject;
+        // gunOwner = this.transform.parent.gameObject;
     }
 
     // Update is called once per frame
@@ -75,17 +75,17 @@ public class Weapon : MonoBehaviour
         if (canShoot)
         {
             GameObject b = Instantiate(bullet, shotPoint.position, Quaternion.identity);
-            if (gunOwner.tag == "Player")
-            {
-                b.GetComponent<BulletScript>().target = "Enemy";
-                currentBullets--;
+            //if (gunOwner.tag == "Player")
+            //{
+            //    b.GetComponent<BulletScript>().target = "Enemy";
+            //    currentBullets--;
 
-            }
-            else if (gunOwner.tag == "Enemy")
-            {
-                b.GetComponent<BulletScript>().target = "Player";
+            //}
+            //else if (gunOwner.tag == "Enemy")
+            //{
+            //    b.GetComponent<BulletScript>().target = "Player";
                 
-            }
+            //}
 
             shootTimer = shootSpeed;
         }
