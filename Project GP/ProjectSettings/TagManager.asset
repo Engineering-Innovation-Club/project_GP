@@ -15,12 +15,12 @@ TagManager:
   - Collectible
   - Ladder
   - Switch
-  - Elevator
   - WallSwitch
   - passThroughBlock
-  - PuzzleSwitch
   - RobotPet
   - glassPlatform
+  - DoorStop
+  - Wall
   layers:
   - Default
   - TransparentFX

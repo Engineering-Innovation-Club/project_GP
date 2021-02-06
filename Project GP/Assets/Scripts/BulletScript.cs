@@ -60,7 +60,7 @@ public class BulletScript : MonoBehaviour
     {
         // Check if the tag of the object it collides with is "Ground"
         // Bullet will still go through "passThroughPlatforms" 
-        if (collision.tag == "Ground" || collision.tag == "MovingPlatform")
+        if (collision.tag == "Ground" || collision.tag == "MovingPlatform" || collision.tag == "Wall")
         {
             // Destroy this specific instance of the bullet
             // Make sure to use this specific way of destroying instances of a prefab

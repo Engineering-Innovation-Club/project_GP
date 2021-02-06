@@ -20,6 +20,8 @@ public class PlayerMovementControl : MonoBehaviour
     public bool isOnLadder;
     public bool isClimbing;
     public bool isInteracting;
+    public bool canMoveLeft;
+    public bool canMoveRight;
 
     // Speed on moving platforms and regular move speed
     public float moveSpeed;
@@ -74,6 +76,8 @@ public class PlayerMovementControl : MonoBehaviour
         isGrounded = false;
         isInvincible = false;
         isOnLadder = false;
+        canMoveLeft = true;
+        canMoveRight = true;
 
         moveSpeed = 7f;
         rollDelay = 0f;
@@ -93,7 +97,7 @@ public class PlayerMovementControl : MonoBehaviour
 
         if(!PauseMenu.isPaused) {
             // Checks if the "d" key is being pressed
-            if (Input.GetKey("d") && !isRoll)
+            if (Input.GetKey("d") && !isRoll && canMoveRight)
             {
                 // Changes the x-axis velocity of the player while retaining the y-axis velocity
                 if (isCrouching)
@@ -106,7 +110,7 @@ public class PlayerMovementControl : MonoBehaviour
                 }
             }
             // Checks if the "a" key is being pressed
-            else if (Input.GetKey("a") && !isRoll)
+            else if (Input.GetKey("a") && !isRoll && canMoveLeft)
             {
                 // Changes the x-axis velocity of the player while retaining the y-axis velocity
                 if (isCrouching)
@@ -121,28 +125,27 @@ public class PlayerMovementControl : MonoBehaviour
             // This else statement is to set the player's x-axis velocity to 0 if neither "a" nor "d" are being pressed.
             // Without this statement, the player would glide.
             else
-        {
-            if (!onMovingPlatform && !isRoll)
             {
-                // Set player x-axis velocity to 0 while retaining y-axis velocity
-                rbody.velocity = new Vector2(0, rbody.velocity.y);
+                if (!onMovingPlatform && !isRoll)
+                {
+                    // Set player x-axis velocity to 0 while retaining y-axis velocity
+                    rbody.velocity = new Vector2(0, rbody.velocity.y);
+                }
+
+                else if (onMovingPlatform)
+                {
+                    // Set player velocity to moving platform velocity
+                    rbody.velocity = new Vector2(mpVel, rbody.velocity.y);
+                }
             }
 
-            else if (onMovingPlatform)
+            // Check if the space key is pressed
+            if (Input.GetKeyDown("space"))
             {
-                // Set player velocity to moving platform velocity
-                rbody.velocity = new Vector2(mpVel, rbody.velocity.y);
+                jump();
             }
-        }
-
         }
             
-        // Check if the space key is pressed
-        if (Input.GetKeyDown("space"))
-        {
-            jump();
-        }
-
         // Check if the "shift" key is pressed
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -429,7 +432,19 @@ public class PlayerMovementControl : MonoBehaviour
     // Function that checks when the player collider hits something
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.tag == "Wall")
+        {
+            // If the collided wall is on the left side of the player, player can only move right
+            if (collision.gameObject.transform.position.x < transform.position.x)
+            {
+                canMoveLeft = false;
+            }
+            else if (collision.gameObject.transform.position.x > transform.position.x)
+            {
+                canMoveRight = false;
+            }
+            rbody.velocity = Vector3.zero;
+        }
         if (collision.gameObject.tag == "MovingPlatform")
         {
             // If they player hits a moving platform add velocity to move player along with platfomr
@@ -484,6 +499,11 @@ public class PlayerMovementControl : MonoBehaviour
     // Function that checks when the player collider is no longer hitting something
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "Wall")
+        {
+            canMoveLeft = true;
+            canMoveRight = true;
+        }
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;

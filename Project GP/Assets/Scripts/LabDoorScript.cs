@@ -7,6 +7,7 @@ public class LabDoorScript : MonoBehaviour
     // Start is called before the first frame update
     GameObject doorStop;
     public bool open { get; set; }
+    public float speed;
     void Start()
     {
         open = false;
@@ -18,12 +19,12 @@ public class LabDoorScript : MonoBehaviour
     {
         if (open)
         {
-            transform.Translate(Vector3.up * Time.deltaTime);
+            transform.Translate(Vector3.up * Time.deltaTime * speed);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.name.Equals("DoorStop"))
+        if (collision.gameObject.tag == "DoorStop")
         {
             open = false;
         }

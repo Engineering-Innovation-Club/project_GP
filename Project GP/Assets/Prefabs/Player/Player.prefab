@@ -215,6 +215,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  gravity: 2
+  jumpVel: 15
 --- !u!114 &567775827756639360
 MonoBehaviour:
   m_ObjectHideFlags: 0
