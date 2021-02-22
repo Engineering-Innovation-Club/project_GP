@@ -95,7 +95,8 @@ public class PlayerMovementControl : MonoBehaviour
     {
         timers();
 
-        if(!PauseMenu.isPaused) {
+        if (!PauseMenu.isPaused)
+        {
             // Checks if the "d" key is being pressed
             if (Input.GetKey("d") && !isRoll && canMoveRight)
             {
@@ -144,70 +145,69 @@ public class PlayerMovementControl : MonoBehaviour
             {
                 jump();
             }
-        }
-            
-        // Check if the "shift" key is pressed
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            roll();
-        }
 
-        // Check if interaction key is being pressed
-        if (Input.GetKeyDown("f"))
-        {
-            // Check if touching wall switch
-            if (touchWallSwitch)
+            // Check if the "shift" key is pressed
+            if (Input.GetKey(KeyCode.LeftShift))
             {
-                // Access wall switch script
-                WallSwitchScript wsScript = GameObject.FindGameObjectWithTag("IsTouching").GetComponent<WallSwitchScript>();
+                roll();
+            }
 
-                // If the switch is currently on, flip off and open door
-                if (wsScript.state)
+            // Check if interaction key is being pressed
+            if (Input.GetKeyDown("f"))
+            {
+                // Check if touching wall switch
+                if (touchWallSwitch)
                 {
-                    wsScript.state = false;
-                    wsScript.OpenDoor();
-                    isInteracting = true;
-                    animator.SetBool("isInteracting", true);
+                    // Access wall switch script
+                    WallSwitchScript wsScript = GameObject.FindGameObjectWithTag("IsTouching").GetComponent<WallSwitchScript>();
+
+                    // If the switch is currently on, flip off and open door
+                    if (wsScript.state)
+                    {
+                        wsScript.state = false;
+                        wsScript.OpenDoor();
+                        isInteracting = true;
+                        animator.SetBool("isInteracting", true);
+                    }
+                }
+
+            }
+
+            // Handle all ladder mechanics
+            checkLadder();
+
+            // Handle all crouching mechanics
+            // Honestly I have no idea how this works and even reading the code doesn't help me
+            // Copy pasted from old script and hope it works
+            checkCrouch();
+
+            // This is a bunch of stuff to handle going through pass-through platforms
+            // Hopefully didn't break when we cleaned up the scripts
+            isPassThroughBlock();
+            // Double tap down key to go down a pass through block
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                if (doubleTapDownTimer > 0 && doubleTapDownCount == 1 && currentPassThroughBlock != null/*Number of Taps you want Minus One*/)
+                {
+                    currentPassThroughBlock.GetComponent<BoxCollider2D>().isTrigger = true;
+                    isGrounded = false;
+                }
+                else
+                {
+                    doubleTapDownTimer = 0.5f;
+                    doubleTapDownCount += 1;
                 }
             }
-        }
-
-        // Handle all ladder mechanics
-        checkLadder();
-
-        // Handle all crouching mechanics
-        // Honestly I have no idea how this works and even reading the code doesn't help me
-        // Copy pasted from old script and hope it works
-        checkCrouch();
-
-        // This is a bunch of stuff to handle going through pass-through platforms
-        // Hopefully didn't break when we cleaned up the scripts
-        isPassThroughBlock();
-        // Double tap down key to go down a pass through block
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (doubleTapDownTimer > 0 && doubleTapDownCount == 1 && currentPassThroughBlock != null/*Number of Taps you want Minus One*/)
+            if (doubleTapDownTimer > 0)
             {
-                currentPassThroughBlock.GetComponent<BoxCollider2D>().isTrigger = true;
-                isGrounded = false;
+                doubleTapDownTimer -= 1 * Time.deltaTime;
             }
             else
             {
-                doubleTapDownTimer = 0.5f;
-                doubleTapDownCount += 1;
+                doubleTapDownCount = 0;
             }
-        }
-        if (doubleTapDownTimer > 0)
-        {
-            doubleTapDownTimer -= 1 * Time.deltaTime;
-        }
-        else
-        {
-            doubleTapDownCount = 0;
-        }
 
-        // Handle animation stuff
-        //animationStates();
+        }
     }
 
     // Function that makes the player jump, provided certain conditions are ok
@@ -249,8 +249,9 @@ public class PlayerMovementControl : MonoBehaviour
 
     private void checkLadder()
     {
-        if (isOnLadder)
+        if (isOnLadder && !isGrounded)
         {
+            rbody.gravityScale = 0;
             // Checks if the "w" key is being pressed
             if (Input.GetKey("w"))
             {
@@ -265,18 +266,22 @@ public class PlayerMovementControl : MonoBehaviour
             }
             else
             {
-                if(!isGrounded)
-                {
-                    isClimbing = true;
-                    rbody.gravityScale = 0;
-                    rbody.velocity = new Vector3(0, 0);
-                } else
-                {
-                    isClimbing = false;
-                }
+                isClimbing = false;
+                rbody.velocity = new Vector3(0, 0);
+            }
+
+            if (Input.GetKey("a"))
+            {
+                rbody.velocity = new Vector2(-moveSpeed / 2, rbody.velocity.y);
+            }
+
+            else if (Input.GetKey("d"))
+            {
+                rbody.velocity = new Vector2(moveSpeed / 2, rbody.velocity.y);
             }
         }
-        else
+        // If not on ladder
+        else if (!isOnLadder)
         {
             isClimbing = false;
             rbody.gravityScale = gravity;

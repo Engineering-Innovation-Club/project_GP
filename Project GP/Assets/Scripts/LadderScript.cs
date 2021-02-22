@@ -26,6 +26,15 @@ public class LadderScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            pScript = collision.gameObject.GetComponent<PlayerMovementControl>();
+            pScript.isOnLadder = true;
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
