@@ -21,6 +21,7 @@ TagManager:
   - glassPlatform
   - DoorStop
   - Wall
+  - TeleportPoint
   layers:
   - Default
   - TransparentFX
