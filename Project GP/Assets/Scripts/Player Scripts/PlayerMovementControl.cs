@@ -22,6 +22,7 @@ public class PlayerMovementControl : MonoBehaviour
     public bool isInteracting;
     public bool canMoveLeft;
     public bool canMoveRight;
+    public bool touchVent;
 
     // Speed on moving platforms and regular move speed
     public float moveSpeed;
@@ -169,6 +170,13 @@ public class PlayerMovementControl : MonoBehaviour
                         isInteracting = true;
                         animator.SetBool("isInteracting", true);
                     }
+                }
+
+                // Check if touching vent door
+                if (touchVent)
+                {
+                    GameObject vent = GameObject.FindGameObjectWithTag("TeleportPoint");
+                    transform.position = vent.transform.position;
                 }
 
             }
@@ -455,50 +463,15 @@ public class PlayerMovementControl : MonoBehaviour
             // If they player hits a moving platform add velocity to move player along with platfomr
             mpVel = collision.gameObject.GetComponent<Rigidbody2D>().velocity.x;
             onMovingPlatform = true;
-            isGrounded = true;
         }
         else if (collision.gameObject.tag == "passThroughBlock")
         {
             currentPassThroughBlock = collision.gameObject;
-            isGrounded = true;
         }
         else
         {
             currentPassThroughBlock = null;
-        }
-
-        // Check if player is on the ground or on a platform
-        if (collision.gameObject.GetComponent<BoxCollider2D>() != null)
-        {
-            if (collision.gameObject.tag == "Ground")
-            {
-                isGrounded = true;
-            }
-            else if (transform.position.y >= collision.gameObject.transform.position.y + (collision.gameObject.GetComponent<BoxCollider2D>().bounds.size.y / 2))
-            {
-                isGrounded = true;
-            }
-        }       
-    }
-
-    // Function that checks if the player collider stays
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            isGrounded = true;
-        }
-        else if (collision.gameObject.tag == "MovingPlatform")
-        {
-            mpVel = collision.gameObject.GetComponent<Rigidbody2D>().velocity.x;
-            onMovingPlatform = true;
-            isGrounded = true;
-        } else if (collision.gameObject.tag == "passThroughBlock")
-        {
-            isGrounded = true;
-        }
-        
-
+        }      
     }
 
     // Function that checks when the player collider is no longer hitting something
@@ -511,18 +484,15 @@ public class PlayerMovementControl : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = false;
             currentPassThroughBlock = null;
         }
         else if (collision.gameObject.tag == "MovingPlatform")
         {
             onMovingPlatform = false;
-            isGrounded = false;
             mpVel = 0;
         } else if (collision.gameObject.tag == "passThroughBlock")
         {
             currentPassThroughBlock = null;
-            isGrounded = false;
         }
 
     }
