@@ -49,7 +49,9 @@ public class PlayerAnimation : MonoBehaviour
         isFacingRight = true;
 
         float t = animationTimes[PLAYER_STANDING_ROLL] / 0.5f;
+        float t1 = animationTimes[PLAYER_CROUCH_ROLL] / 0.5f;
         _animator.SetFloat("rollTime", t);
+        _animator.SetFloat("crouchRollTime", t1);
     }
 
     // Update is called once per frame
@@ -69,16 +71,21 @@ public class PlayerAnimation : MonoBehaviour
             Invoke("FinishInteract", animationTimes[PLAYER_INTERACT]);
             return;
         }
-
-        // Climbing
-        if (_pM.isClimbing)
+        if (_pM.isOnLadder && !_pM.isClimbing)
         {
             ChangeAnimationState(PLAYER_CLIMB);
-
-            if (rbody.velocity.y - epsilon > 0 || rbody.velocity.y + epsilon <= 0)
-            {
-                _animator.enabled = true;
-            }
+            _animator.enabled = false;
+            return;
+        }
+        // Climbing
+        else if (_pM.isOnLadder && _pM.isClimbing)
+        {
+            ChangeAnimationState(PLAYER_CLIMB);
+            _animator.enabled = true;
+            //if (rbody.velocity.y - epsilon > 0 || rbody.velocity.y + epsilon <= 0)
+            //{
+            //    _animator.enabled = true;
+            //}
             return;
         } else
         {

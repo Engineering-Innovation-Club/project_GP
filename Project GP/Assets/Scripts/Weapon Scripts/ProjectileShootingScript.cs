@@ -13,6 +13,7 @@ public class ProjectileShootingScript : MonoBehaviour
     float timeToFire = 0;
     Transform firePoint;
     [SerializeField] private Transform Bullet;
+    private Transform rotator;
 
     // Start is called before the first frame update
     void Awake()
@@ -25,7 +26,7 @@ public class ProjectileShootingScript : MonoBehaviour
         {
             Debug.LogError("Warning!\n No Fire Point!");
         }
-
+        rotator = gameObject.transform.parent.gameObject.transform;
     }
 
     // Update is called once per frame
@@ -56,7 +57,7 @@ public class ProjectileShootingScript : MonoBehaviour
         // Transfer the mouse position from the screen coordinate from the display position to the game world
         Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
-
-        Instantiate(Bullet, firePointPosition, Quaternion.identity);
+        Vector3 rotation = rotator.rotation.eulerAngles;
+        Instantiate(Bullet, firePointPosition, Quaternion.Euler(rotation.x, rotation.y, rotation.z + 90));
     }
 }

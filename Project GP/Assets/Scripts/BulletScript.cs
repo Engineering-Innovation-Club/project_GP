@@ -42,8 +42,7 @@ public class BulletScript : MonoBehaviour
 
         // Set velocity to shoot bullet
         rbody.velocity = shootDirection * bulletSpeed;
-
-        if (shootDirection.x < 0)
+        if (target == "Player" && shootDirection.x < 0)
         {
             flip();
         }
@@ -65,7 +64,10 @@ public class BulletScript : MonoBehaviour
             // Destroy this specific instance of the bullet
             // Make sure to use this specific way of destroying instances of a prefab
             // If done incorrectly it could destroy the entire prefab, meaning the game wouldn't be able to spawn in any more bullets until the game restarts
-            Destroy(this.gameObject);
+            // Destroy this bullet
+            rbody.velocity = Vector2.zero;
+            if (!hasAnim) // Leave destroy logic to animation portion
+                Destroy(this.gameObject);
         }
 
         // Check if bullet hits enemy
@@ -84,6 +86,7 @@ public class BulletScript : MonoBehaviour
             }
 
             // Destroy this bullet
+            rbody.velocity = Vector2.zero;
             if (!hasAnim) // Leave destroy logic to animation portion
                 Destroy(this.gameObject);
         }
