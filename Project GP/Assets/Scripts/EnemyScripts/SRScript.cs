@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DroneScript : MonoBehaviour
+public class SRScript : MonoBehaviour
 {
     Rigidbody2D rbody;
     BoxCollider2D coll;
@@ -14,15 +14,13 @@ public class DroneScript : MonoBehaviour
 
     private Dictionary<string, float> animationTimes = new Dictionary<string, float>();
 
-    private const string DRONE_MOVE = "drone_move";
-    private const string DRONE_ALARMED = "drone_alarmed";
-    private const string DRONE_ATTACK = "drone_attack";
-    private const string DRONE_DEATH = "drone_death";
-    private const string DRONE_IDLE = "drone_idle";
+    private const string SR_MOVE = "SR_Move";
+    private const string SR_ALARMED = "SR_Alarmed";
+    private const string SR_WARNING = "SR_Warning";
+    private const string SR_EXPLOSION = "SR_Explosion";
 
     private string currentAnimation;
 
-    public bool isMoving;
     public bool isFacingRight;
     public float moveSpeed;
     public bool isAlerted;
@@ -34,6 +32,8 @@ public class DroneScript : MonoBehaviour
 
     public int health;
     public int maxHealth;
+
+    private float timer;
 
     private bool hitPlayer;
 
@@ -50,19 +50,19 @@ public class DroneScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform.position;
 
-        isMoving = false;
-        moveSpeed = 3f;
+        moveSpeed = 5f;
 
         maxHealth = 1;
         health = maxHealth;
 
         isAlerted = false;
-        hitPlayer = false;
 
-        //as the drone starts unalerted, the distance you must be within to alert it starts short.
+        //as the suicide robot starts unalerted, the distance you must be within to alert it starts short.
         alertDistance = shortDistance;
 
         getAnimationTimes();
+
+        timer = 0f;
     }
 
     // Update is called once per frame
@@ -75,9 +75,6 @@ public class DroneScript : MonoBehaviour
 
         if (rbody.velocity.x > 0)
         {
-            // Moving right
-            isMoving = true;
-
             if (!isFacingRight)
             {
                 flip();
@@ -85,39 +82,41 @@ public class DroneScript : MonoBehaviour
         }
         else if (rbody.velocity.x < 0)
         {
-            // Moving left
-            isMoving = true;
-
             if (isFacingRight)
             {
                 flip();
             }
         }
-        else
-        {
-            isMoving = false;
-        }
         animationStates();
-        
-        //drone is alerted if the player is a within a certain distance from it, vice versa. alert distance increases when its alerted and vice versa.
-        if(Vector2.Distance(transform.position, player.transform.position) <= alertDistance)
+
+        // SR is alerted if the player is a within a certain distance from it, vice versa. alert distance increases when its alerted and vice versa.
+        if (Vector2.Distance(transform.position, player.transform.position) <= alertDistance)
         {
             alertDistance = longDistance;
             isAlerted = true;
         }
-        else {
+        else
+        {
             alertDistance = shortDistance;
             isAlerted = false;
         }
-        Debug.Log("isAlerted:" + isAlerted);
-        
-        if (!hitPlayer && isAlerted)
+
+        if (isAlerted)
         {
-            //path();
+            path();
+        }
+        else
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                wander();
+
+            }
         }
     }
 
-    // Function that flips the player model
+    // Function that flips the model
     private void flip()
     {
         isFacingRight = !isFacingRight;
@@ -132,24 +131,17 @@ public class DroneScript : MonoBehaviour
         {
             if (!isAlerted)
             {
-                ChangeAnimationState(DRONE_IDLE);
+                ChangeAnimationState(SR_MOVE);
             }
             else if (isAlerted)
             {
-                if (!isMoving)
-                {
-                    ChangeAnimationState(DRONE_ALARMED);
-                }
-                if (isMoving)
-                {
-                    ChangeAnimationState(DRONE_MOVE);
-                }
+                ChangeAnimationState(SR_ALARMED);
             }
         }
         else
         {
             // Change to death animation
-            ChangeAnimationState(DRONE_DEATH);
+            ChangeAnimationState(SR_WARNING);
 
             // Disable collider and freeze x and y position
             coll.enabled = false;
@@ -186,12 +178,34 @@ public class DroneScript : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, playerPos, moveSpeed / 100);
     }
 
+    public void wander()
+    {
+        timer = Random.Range(1.5f, 3f);
+        var temp = Random.Range(0, 2);
+        Debug.Log("Direction: " + temp);
+        if (temp == 0)
+        {
+            // Move Left
+            rbody.velocity = new Vector2(-moveSpeed, 0);
+        }
+        else
+        {
+            // Move Right
+            rbody.velocity = new Vector2(moveSpeed, 0);
+        }
+
+    }
+
+    public void stop()
+    {
+        rbody.velocity = Vector3.zero;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            hitPlayer = true;
-
+            hit(999);
         }
     }
 }
