@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6456740284696563828}
   - component: {fileID: 5190364731719326042}
   - component: {fileID: 1687092120486659057}
+  - component: {fileID: 7724789939236632576}
+  - component: {fileID: -5135930339060782019}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -75,7 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ee4ce41baca2af8428917807de370c57, type: 3}
+  m_Sprite: {fileID: 1052596594361054856, guid: b0db6388cbf6ff14d9ce05bd0a7ad3ce,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,7 +106,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.08, y: 0.08}
+    oldSize: {x: 1.5, y: 0.42}
     newSize: {x: 0.5, y: 0.15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -145,7 +148,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99388b6ce553c9f4f8bde5821f3576b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpeed: 20
   target: Enemy
+  hasAnim: 1
+--- !u!95 &7724789939236632576
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6456740284696563825}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aadf60fa2c8a6ea4eb9aa25ec98e9cfd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-5135930339060782019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6456740284696563825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43eb6a01aa45a14fb6b123bc1abcedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7961084900505810948
 GameObject:
   m_ObjectHideFlags: 0
