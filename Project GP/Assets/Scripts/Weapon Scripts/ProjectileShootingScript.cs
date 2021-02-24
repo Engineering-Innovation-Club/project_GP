@@ -13,14 +13,16 @@ public class ProjectileShootingScript : MonoBehaviour
     float timeToFire = 0;
     Transform firePoint;
     [SerializeField] private Transform Bullet;
+    [SerializeField] private Transform BulletTrail;
     private Transform rotator;
 
+    Animator anim;
     // Start is called before the first frame update
     void Awake()
     {
         //FirePoint will usually be the child of the gun or weapon. 
         //firePoint = transform.Find(firePointOfWeapon);
-
+        anim = GetComponent<Animator>();
         firePoint = transform.Find("FirePoint");
         if (firePoint == null)
         {
@@ -59,5 +61,14 @@ public class ProjectileShootingScript : MonoBehaviour
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
         Vector3 rotation = rotator.rotation.eulerAngles;
         Instantiate(Bullet, firePointPosition, Quaternion.Euler(rotation.x, rotation.y, rotation.z + 90));
+        Instantiate(BulletTrail, firePointPosition, Quaternion.Euler(rotation.x, rotation.y, rotation.z + 90));
+
+        anim.SetBool("isShooting", true);
+        Invoke("doneShoot", 0.167f);
+    }
+
+    void doneShoot()
+    {
+        anim.SetBool("isShooting", false);
     }
 }

@@ -13,10 +13,12 @@ public class RobotBulletAnimation : MonoBehaviour
     private string currentAnimation;
     private Dictionary<string, float> animationTimes = new Dictionary<string, float>();
 
+    BulletScript bs;
     void Start()
     {
         anim = GetComponent<Animator>();
         getAnimationTimes();
+        bs = GetComponent<BulletScript>();
         //ChangeAnimationState(BULLET_LAUNCH);
         //Invoke("PlayTravel", 0.0f);
     }
@@ -39,7 +41,7 @@ public class RobotBulletAnimation : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Ground" || collision.tag == "MovingPlatform" || collision.tag == "Wall" || collision.tag == "Player")
+        if (collision.tag == "Ground" || collision.tag == "MovingPlatform" || collision.tag == "Wall" || collision.tag == bs.target)
         {
             ChangeAnimationState(BULLET_DESTROY);
             Invoke("DestroyBullet", animationTimes[BULLET_DESTROY]);

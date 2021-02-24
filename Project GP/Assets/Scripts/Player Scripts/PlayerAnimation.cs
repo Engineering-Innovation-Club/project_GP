@@ -32,6 +32,7 @@ public class PlayerAnimation : MonoBehaviour
     private const string PLAYER_CROUCHUP = "PlayerCrouchUp";
     private const string PLAYER_CROUCHDOWN = "PlayerCrouchDown";
     private const string PLAYER_LAND = "Playerland";
+    private const string PLAYER_LAND_RUN_LINK = "PlayerLandRunLink";
     private const string PLAYER_JUMP = "PlayerJump";
     private const string PLAYER_FALL = "PlayerFall";
     private const string PLAYER_INTERACT = "PlayerInteract";
@@ -73,7 +74,7 @@ public class PlayerAnimation : MonoBehaviour
         }
         if (_pM.isOnLadder && !_pM.isClimbing)
         {
-            ChangeAnimationState(PLAYER_CLIMB);
+            //ChangeAnimationState(PLAYER_CLIMB);
             _animator.enabled = false;
             return;
         }
@@ -82,15 +83,12 @@ public class PlayerAnimation : MonoBehaviour
         {
             ChangeAnimationState(PLAYER_CLIMB);
             _animator.enabled = true;
-            //if (rbody.velocity.y - epsilon > 0 || rbody.velocity.y + epsilon <= 0)
-            //{
-            //    _animator.enabled = true;
-            //}
             return;
         } else
         {
             _animator.enabled = true;
         }
+
 
         // Player direction
         if (vx + epsilon < 0)
@@ -159,12 +157,11 @@ public class PlayerAnimation : MonoBehaviour
             {
                 ChangeAnimationState(PLAYER_IDLE);
             }
-        } else if (!_pM.isClimbing) // Off ground logic
+        } else if (!_pM.isClimbing && !_pM.isOnLadder) // Off ground logic
         {
             if (rbody.velocity.y - epsilon > 0)
             {
                 isLanded = false;
-                print("jump");
                 ChangeAnimationState(PLAYER_JUMP);
             } else if (rbody.velocity.y + epsilon <= 0)
             {
@@ -195,23 +192,33 @@ public class PlayerAnimation : MonoBehaviour
 
     public void ChangeAnimationState(string newState)
     {
-        if (currentAnimation == newState) return;
+        if (!_animator.enabled) return;
+        if (currentAnimation == newState)
+        {
+            return;
+        }
         _animator.Play(newState);
         currentAnimation = newState;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (_pM.isClimbing || _pM.isOnLadder) return;
         string tag = collision.gameObject.tag;
         int layer = collision.gameObject.layer;
-        print(layer);
         if (tag.Equals("Ground") || layer == 8 || tag.Equals("Ladder"))
         {
-            if (currentAnimation == PLAYER_FALL)
+            float vx = rbody.velocity.x - _pM.mpVel;
+            if (currentAnimation == PLAYER_FALL && Mathf.Abs(vx) - epsilon <= 0)
             {
                 ChangeAnimationState(PLAYER_LAND);
                 Invoke("Landed", animationTimes[PLAYER_LAND]);
-            } else
+            } else if (currentAnimation == PLAYER_FALL && Mathf.Abs(vx) - epsilon > 0)
+            {
+                ChangeAnimationState(PLAYER_LAND_RUN_LINK);
+                Invoke("Landed", animationTimes[PLAYER_LAND_RUN_LINK]);
+            }
+            else
             {
                 Landed();
             }
@@ -220,6 +227,27 @@ public class PlayerAnimation : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+        if (_pM.isClimbing || _pM.isOnLadder) return;
+        string tag = collision.gameObject.tag;
+        int layer = collision.gameObject.layer;
+        if (tag.Equals("Ground") || layer == 8 || tag.Equals("Ladder"))
+        {
+            float vx = rbody.velocity.x - _pM.mpVel;
+            if (currentAnimation == PLAYER_FALL && Mathf.Abs(vx) - epsilon <= 0)
+            {
+                ChangeAnimationState(PLAYER_LAND);
+                Invoke("Landed", animationTimes[PLAYER_LAND]);
+            }
+            else if (currentAnimation == PLAYER_FALL && Mathf.Abs(vx) - epsilon > 0)
+            {
+                ChangeAnimationState(PLAYER_LAND_RUN_LINK);
+                Invoke("Landed", animationTimes[PLAYER_LAND_RUN_LINK]);
+            }
+            else
+            {
+                Landed();
+            }
+        }
         if (collision.gameObject.tag == "passThroughBlock")
         {
             if (currentAnimation == PLAYER_FALL)

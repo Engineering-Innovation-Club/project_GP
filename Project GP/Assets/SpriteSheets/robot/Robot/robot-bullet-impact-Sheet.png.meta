@@ -23,6 +23,21 @@ TextureImporter:
   - first:
       213: -6629447410793592852
     second: robot-bullet-impact-Sheet_6
+  - first:
+      213: 1820243617837007497
+    second: robot-bullet-impact-Sheet_0
+  - first:
+      213: 4169034519320313639
+    second: robot-bullet-impact-Sheet_1
+  - first:
+      213: -4583502402014431427
+    second: robot-bullet-impact-Sheet_4
+  - first:
+      213: 1560699916874243770
+    second: robot-bullet-impact-Sheet_5
+  - first:
+      213: 5086413151916447619
+    second: robot-bullet-impact-Sheet_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -185,40 +200,19 @@ TextureImporter:
       name: robot-bullet-impact-Sheet_0
       rect:
         serializedVersion: 2
-        x: 450
+        x: 366
         y: 0
-        width: 66
+        width: 150
         height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a597a7110d34fe480800000000000000
-      internalID: -8867794580343719590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: robot-bullet-impact-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 744
-        y: 54
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c02d3f7a5fb545c90800000000000000
-      internalID: -7182014395106209268
+      spriteID: 982c8d52dedc24910800000000000000
+      internalID: 1820243617837007497
       vertices: []
       indices: 
       edges: []
@@ -227,19 +221,19 @@ TextureImporter:
       name: robot-bullet-impact-Sheet_4
       rect:
         serializedVersion: 2
-        x: 114
+        x: 108
         y: 0
-        width: 144
+        width: 150
         height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09241e824cf31dd70800000000000000
-      internalID: 9066097636605510288
+      spriteID: d37b7cc89d02460c0800000000000000
+      internalID: -4583502402014431427
       vertices: []
       indices: 
       edges: []
@@ -248,19 +242,19 @@ TextureImporter:
       name: robot-bullet-impact-Sheet_5
       rect:
         serializedVersion: 2
-        x: 708
+        x: 624
         y: 0
-        width: 66
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 150
+        height: 60
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b3e412bd0046c150800000000000000
-      internalID: 5892467590027338672
+      spriteID: abe55423e48b8a510800000000000000
+      internalID: 1560699916874243770
       vertices: []
       indices: 
       edges: []
@@ -269,19 +263,19 @@ TextureImporter:
       name: robot-bullet-impact-Sheet_6
       rect:
         serializedVersion: 2
-        x: 990
+        x: 882
         y: 0
-        width: 42
+        width: 150
         height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce7c38644b87ff3a0800000000000000
-      internalID: -6629447410793592852
+      spriteID: 387dadc00d1969640800000000000000
+      internalID: 5086413151916447619
       vertices: []
       indices: 
       edges: []

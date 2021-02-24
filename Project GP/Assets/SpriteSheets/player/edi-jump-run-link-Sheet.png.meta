@@ -1,31 +1,16 @@
 fileFormatVersion: 2
-guid: b0db6388cbf6ff14d9ce05bd0a7ad3ce
+guid: 136eb78374641484da5d42042ec7ec44
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1052596594361054856
-    second: robot-bullet-travel-Sheet_0
+      213: -1046721942369809834
+    second: edi-jump-run-link-Sheet_0
   - first:
-      213: -4603973347075472166
-    second: robot-bullet-travel-Sheet_1
+      213: -4599075100622565642
+    second: edi-jump-run-link-Sheet_1
   - first:
-      213: 2040229241731191640
-    second: robot-bullet-travel-Sheet_2
-  - first:
-      213: -8611702824104477153
-    second: robot-bullet-travel-Sheet_3
-  - first:
-      213: 2825228105270129818
-    second: robot-bullet-travel-Sheet_0
-  - first:
-      213: 384697154745229121
-    second: robot-bullet-travel-Sheet_1
-  - first:
-      213: 921790716090911451
-    second: robot-bullet-travel-Sheet_2
-  - first:
-      213: -7703849978444659166
-    second: robot-bullet-travel-Sheet_3
+      213: 2339374895079287880
+    second: edi-jump-run-link-Sheet_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -185,85 +170,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: robot-bullet-travel-Sheet_0
+      name: edi-jump-run-link-Sheet_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 6
-        width: 150
-        height: 42
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 36
+        y: 0
+        width: 120
+        height: 138
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9473183ef9353720800000000000000
-      internalID: 2825228105270129818
+      spriteID: 65ac07e60fb4971f0800000000000000
+      internalID: -1046721942369809834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: robot-bullet-travel-Sheet_1
+      name: edi-jump-run-link-Sheet_1
       rect:
         serializedVersion: 2
-        x: 192
-        y: 6
-        width: 150
-        height: 42
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 258
+        y: 0
+        width: 90
+        height: 162
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14f51b62608b65500800000000000000
-      internalID: 384697154745229121
+      spriteID: 6fe4c0c109dcc20c0800000000000000
+      internalID: -4599075100622565642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: robot-bullet-travel-Sheet_2
+      name: edi-jump-run-link-Sheet_2
       rect:
         serializedVersion: 2
-        x: 372
+        x: 456
         y: 6
-        width: 150
-        height: 42
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        width: 102
+        height: 180
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bda0addb5cbdacc00800000000000000
-      internalID: 921790716090911451
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: robot-bullet-travel-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 552
-        y: 6
-        width: 150
-        height: 42
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 226c7e7e24d661590800000000000000
-      internalID: -7703849978444659166
+      spriteID: 84ceaa19211277020800000000000000
+      internalID: 2339374895079287880
       vertices: []
       indices: 
       edges: []
