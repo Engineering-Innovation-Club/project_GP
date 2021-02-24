@@ -447,7 +447,9 @@ public class PlayerMovementControl : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall")
         {
-            // If the collided wall is on the left side of the player, player can only move right
+            // If the collided wall is on the left side of the player, player can only move right\
+            print(collision.gameObject.transform.position.x);
+            print(transform.position.x);
             if (collision.gameObject.transform.position.x < transform.position.x)
             {
                 canMoveLeft = false;

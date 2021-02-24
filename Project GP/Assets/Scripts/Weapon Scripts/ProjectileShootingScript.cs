@@ -13,19 +13,22 @@ public class ProjectileShootingScript : MonoBehaviour
     float timeToFire = 0;
     Transform firePoint;
     [SerializeField] private Transform Bullet;
+    [SerializeField] private Transform BulletTrail;
+    private Transform rotator;
 
+    Animator anim;
     // Start is called before the first frame update
     void Awake()
     {
         //FirePoint will usually be the child of the gun or weapon. 
         //firePoint = transform.Find(firePointOfWeapon);
-
+        anim = GetComponent<Animator>();
         firePoint = transform.Find("FirePoint");
         if (firePoint == null)
         {
             Debug.LogError("Warning!\n No Fire Point!");
         }
-
+        rotator = gameObject.transform.parent.gameObject.transform;
     }
 
     // Update is called once per frame
@@ -56,7 +59,16 @@ public class ProjectileShootingScript : MonoBehaviour
         // Transfer the mouse position from the screen coordinate from the display position to the game world
         Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
+        Vector3 rotation = rotator.rotation.eulerAngles;
+        Instantiate(Bullet, firePointPosition, Quaternion.Euler(rotation.x, rotation.y, rotation.z + 90));
+        Instantiate(BulletTrail, firePointPosition, Quaternion.Euler(rotation.x, rotation.y, rotation.z + 90));
 
-        Instantiate(Bullet, firePointPosition, Quaternion.identity);
+        anim.SetBool("isShooting", true);
+        Invoke("doneShoot", 0.167f);
+    }
+
+    void doneShoot()
+    {
+        anim.SetBool("isShooting", false);
     }
 }

@@ -1,91 +1,31 @@
 fileFormatVersion: 2
-guid: f49b7b335ab8bee4ba39386beb2b0500
+guid: b0db6388cbf6ff14d9ce05bd0a7ad3ce
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1096172087482332405
-    second: edi-roll2-Sheet_0
+      213: 1052596594361054856
+    second: robot-bullet-travel-Sheet_0
   - first:
-      213: 1105603010858096815
-    second: edi-roll2-Sheet_1
+      213: -4603973347075472166
+    second: robot-bullet-travel-Sheet_1
   - first:
-      213: 538578971017506882
-    second: edi-roll2-Sheet_2
+      213: 2040229241731191640
+    second: robot-bullet-travel-Sheet_2
   - first:
-      213: 3894020237882983398
-    second: edi-roll2-Sheet_3
+      213: -8611702824104477153
+    second: robot-bullet-travel-Sheet_3
   - first:
-      213: 9068793657591957023
-    second: edi-roll2-Sheet_4
+      213: 2825228105270129818
+    second: robot-bullet-travel-Sheet_0
   - first:
-      213: -2440789654046825608
-    second: edi-roll2-Sheet_5
+      213: 384697154745229121
+    second: robot-bullet-travel-Sheet_1
   - first:
-      213: 3721672076184595499
-    second: edi-roll2-Sheet_6
+      213: 921790716090911451
+    second: robot-bullet-travel-Sheet_2
   - first:
-      213: 6019603508408279487
-    second: edi-roll2-Sheet_7
-  - first:
-      213: -7318277490252275472
-    second: edi-roll2-Sheet_8
-  - first:
-      213: 40444570098216235
-    second: edi-roll2-Sheet_9
-  - first:
-      213: -1057203285511631231
-    second: edi-roll2-Sheet_10
-  - first:
-      213: -4079975046759842915
-    second: edi-roll2-Sheet_11
-  - first:
-      213: 7601147137085538676
-    second: edi-roll2-Sheet_12
-  - first:
-      213: 1177065877655730073
-    second: edi-roll2-Sheet_13
-  - first:
-      213: 9155958452199817693
-    second: edi-roll2-Sheet_14
-  - first:
-      213: -520768580203818300
-    second: edi-roll2-Sheet_15
-  - first:
-      213: -1496815267237424034
-    second: edi-roll2-Sheet_16
-  - first:
-      213: -2820983948024981947
-    second: edi-roll2-Sheet_17
-  - first:
-      213: -3854125128839577250
-    second: edi-roll2-Sheet_18
-  - first:
-      213: -913341023196323123
-    second: edi-roll2-Sheet_19
-  - first:
-      213: -8757244898603765663
-    second: edi-roll2-Sheet_20
-  - first:
-      213: -2628036115045695746
-    second: edi-roll2-Sheet_0
-  - first:
-      213: 4322822474833231716
-    second: edi-roll2-Sheet_2
-  - first:
-      213: 4218691555606984476
-    second: edi-roll2-Sheet_3
-  - first:
-      213: -4659294174817180531
-    second: edi-roll2-Sheet_7
-  - first:
-      213: -4517765316988909742
-    second: edi-roll2-Sheet_8
-  - first:
-      213: -8191000080438489184
-    second: edi-roll2-Sheet_9
-  - first:
-      213: 8463152728096873994
-    second: edi-roll2-Sheet_12
+      213: -7703849978444659166
+    second: robot-bullet-travel-Sheet_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -245,106 +185,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edi-roll2-Sheet_0
+      name: robot-bullet-travel-Sheet_0
       rect:
         serializedVersion: 2
-        x: 744
-        y: 0
-        width: 78
-        height: 126
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 12
+        y: 6
+        width: 150
+        height: 42
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efebdc9c317578bd0800000000000000
-      internalID: -2628036115045695746
+      spriteID: a9473183ef9353720800000000000000
+      internalID: 2825228105270129818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edi-roll2-Sheet_3
+      name: robot-bullet-travel-Sheet_1
       rect:
         serializedVersion: 2
-        x: 1237
-        y: 0
-        width: 240
-        height: 120
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 192
+        y: 6
+        width: 150
+        height: 42
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c17f4e44e9dcb8a30800000000000000
-      internalID: 4218691555606984476
+      spriteID: 14f51b62608b65500800000000000000
+      internalID: 384697154745229121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edi-roll2-Sheet_7
+      name: robot-bullet-travel-Sheet_2
       rect:
         serializedVersion: 2
-        x: 2352
-        y: 0
-        width: 210
-        height: 120
-      alignment: 9
-      pivot: {x: 0.7945603, y: 0}
+        x: 372
+        y: 6
+        width: 150
+        height: 42
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d84a9fd42acd65fb0800000000000000
-      internalID: -4659294174817180531
+      spriteID: bda0addb5cbdacc00800000000000000
+      internalID: 921790716090911451
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edi-roll2-Sheet_8
+      name: robot-bullet-travel-Sheet_3
       rect:
         serializedVersion: 2
-        x: 2868
-        y: 0
-        width: 204
-        height: 126
-      alignment: 9
-      pivot: {x: 0.82740456, y: 0}
+        x: 552
+        y: 6
+        width: 150
+        height: 42
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 257cb4e516cad41c0800000000000000
-      internalID: -4517765316988909742
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: edi-roll2-Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 1752
-        y: 0
-        width: 270
-        height: 114
-      alignment: 9
-      pivot: {x: 0.75132877, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0e97160198237570800000000000000
-      internalID: 8463152728096873994
+      spriteID: 226c7e7e24d661590800000000000000
+      internalID: -7703849978444659166
       vertices: []
       indices: 
       edges: []

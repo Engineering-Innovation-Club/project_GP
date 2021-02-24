@@ -14,6 +14,8 @@ public class RobotMovementControl : MonoBehaviour
     private Vector3 scale;
     private Vector3 flipScale;
 
+    Animator anim;
+    Vector3 prevLocation;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +25,13 @@ public class RobotMovementControl : MonoBehaviour
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        anim = GetComponent<Animator>();
         scale = transform.localScale;
 
         flipScale = transform.localScale;
         flipScale.x *= -1;
+
+        prevLocation = transform.position;
     }
 
     // Update is called once per frame
@@ -50,5 +55,13 @@ public class RobotMovementControl : MonoBehaviour
         }
 
         rotator.transform.position = player.transform.position + new Vector3(0, player.GetComponent<BoxCollider2D>().bounds.size.y / 2, 0);
+        if (transform.position != prevLocation)
+        {
+            anim.SetBool("isMoving", true);
+        } else
+        {
+            anim.SetBool("isMoving", false);
+        }
+        prevLocation = transform.position;
     }
 }
