@@ -143,9 +143,7 @@ public class SRScript : MonoBehaviour
             // Change to death animation
             ChangeAnimationState(SR_WARNING);
 
-            // Disable collider and freeze x and y position
-            coll.enabled = false;
-            rbody.constraints = RigidbodyConstraints2D.FreezeAll;
+            Invoke("explode", animationTimes["SR_Warning"]);
         }
 
     }
@@ -155,7 +153,6 @@ public class SRScript : MonoBehaviour
         AnimationClip[] clips = anim.runtimeAnimatorController.animationClips;
         foreach (AnimationClip clip in clips)
         {
-            Debug.Log(clip.name);
             animationTimes.Add(clip.name, clip.length);
         }
     }
@@ -174,7 +171,7 @@ public class SRScript : MonoBehaviour
 
     public void path()
     {
-        playerPos = player.transform.position;
+        playerPos = new Vector2(player.transform.position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, playerPos, moveSpeed / 100);
     }
 
@@ -182,7 +179,6 @@ public class SRScript : MonoBehaviour
     {
         timer = Random.Range(1.5f, 3f);
         var temp = Random.Range(0, 2);
-        Debug.Log("Direction: " + temp);
         if (temp == 0)
         {
             // Move Left
@@ -201,6 +197,12 @@ public class SRScript : MonoBehaviour
         rbody.velocity = Vector3.zero;
     }
 
+    public void explode()
+    {
+        coll.isTrigger = true;
+        Destroy(this.gameObject, animationTimes["SR_Explosion"]);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -208,4 +210,11 @@ public class SRScript : MonoBehaviour
             hit(999);
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerHealthControl pHScript = player.GetComponent<PlayerHealthControl>();
+        pHScript.hit(3);
+    }
+
+
 }

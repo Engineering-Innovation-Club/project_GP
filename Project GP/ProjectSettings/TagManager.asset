@@ -22,6 +22,7 @@ TagManager:
   - DoorStop
   - Wall
   - TeleportPoint
+  - Explosion
   layers:
   - Default
   - TransparentFX
