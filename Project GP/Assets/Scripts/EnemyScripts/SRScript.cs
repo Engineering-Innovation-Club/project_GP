@@ -172,7 +172,7 @@ public class SRScript : MonoBehaviour
     public void path()
     {
         playerPos = new Vector2(player.transform.position.x, transform.position.y);
-        transform.position = Vector2.MoveTowards(transform.position, playerPos, moveSpeed / 100);
+        transform.position = Vector2.MoveTowards(transform.position, playerPos, moveSpeed / 50);
     }
 
     public void wander()
@@ -195,11 +195,13 @@ public class SRScript : MonoBehaviour
     public void stop()
     {
         rbody.velocity = Vector3.zero;
+        rbody.constraints = RigidbodyConstraints2D.FreezePosition;
     }
 
     public void explode()
     {
         coll.isTrigger = true;
+        stop();
         Destroy(this.gameObject, animationTimes["SR_Explosion"]);
     }
 
