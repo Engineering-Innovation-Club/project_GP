@@ -23,6 +23,7 @@ public class PlayerMovementControl : MonoBehaviour
     public bool canMoveLeft;
     public bool canMoveRight;
     public bool touchVent;
+    public bool isOnStairs;
 
     // Speed on moving platforms and regular move speed
     public float moveSpeed;
@@ -79,6 +80,7 @@ public class PlayerMovementControl : MonoBehaviour
         isOnLadder = false;
         canMoveLeft = true;
         canMoveRight = true;
+        isOnStairs = false;
 
         moveSpeed = 7f;
         rollDelay = 0f;
@@ -110,6 +112,11 @@ public class PlayerMovementControl : MonoBehaviour
                 {
                     rbody.velocity = new Vector2(moveSpeed, rbody.velocity.y);
                 }
+
+                if (isOnStairs)
+                {
+                    rbody.velocity = new Vector2(moveSpeed, moveSpeed);
+                }
             }
             // Checks if the "a" key is being pressed
             else if (Input.GetKey("a") && !isRoll && canMoveLeft)
@@ -123,17 +130,27 @@ public class PlayerMovementControl : MonoBehaviour
                 {
                     rbody.velocity = new Vector2(-(moveSpeed), rbody.velocity.y);
                 }
+
+                if (isOnStairs)
+                {
+                    rbody.velocity = new Vector2(-moveSpeed, -moveSpeed);
+                }
             }
             // This else statement is to set the player's x-axis velocity to 0 if neither "a" nor "d" are being pressed.
             // Without this statement, the player would glide.
             else
             {
-                if (!onMovingPlatform && !isRoll)
+                if (isOnStairs)
+                {
+                    // Set player to stop moving
+                    rbody.velocity = Vector2.zero;
+                    rbody.gravityScale = 0f;
+                }
+                else if (!onMovingPlatform && !isRoll)
                 {
                     // Set player x-axis velocity to 0 while retaining y-axis velocity
                     rbody.velocity = new Vector2(0, rbody.velocity.y);
                 }
-
                 else if (onMovingPlatform)
                 {
                     // Set player velocity to moving platform velocity
@@ -289,7 +306,7 @@ public class PlayerMovementControl : MonoBehaviour
             }
         }
         // If not on ladder
-        else if (!isOnLadder)
+        else if (!isOnLadder && !isOnStairs)
         {
             isClimbing = false;
             rbody.gravityScale = gravity;
@@ -447,9 +464,6 @@ public class PlayerMovementControl : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall")
         {
-            // If the collided wall is on the left side of the player, player can only move right\
-            print(collision.gameObject.transform.position.x);
-            print(transform.position.x);
             if (collision.gameObject.transform.position.x < transform.position.x)
             {
                 canMoveLeft = false;
@@ -473,7 +487,7 @@ public class PlayerMovementControl : MonoBehaviour
         else
         {
             currentPassThroughBlock = null;
-        }      
+        }
     }
 
     // Function that checks when the player collider is no longer hitting something
@@ -492,11 +506,28 @@ public class PlayerMovementControl : MonoBehaviour
         {
             onMovingPlatform = false;
             mpVel = 0;
-        } else if (collision.gameObject.tag == "passThroughBlock")
+        }
+        else if (collision.gameObject.tag == "passThroughBlock")
         {
             currentPassThroughBlock = null;
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Stairs")
+        {
+            isOnStairs = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Stairs")
+        {
+            isOnStairs = false;
+        }
     }
 
     // Function that returns player position

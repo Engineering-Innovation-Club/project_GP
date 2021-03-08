@@ -18,7 +18,7 @@ public class PlayerGroundCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "MovingPlatform" || collision.gameObject.tag == "passThroughBlock")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "MovingPlatform" || collision.gameObject.tag == "passThroughBlock" || collision.gameObject.tag == "Stairs")
         {
             PlayerMovementControl pScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementControl>();
             pScript.isGrounded = true;
@@ -27,7 +27,7 @@ public class PlayerGroundCheck : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "MovingPlatform" || collision.gameObject.tag == "passThroughBlock")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "MovingPlatform" || collision.gameObject.tag == "passThroughBlock" || collision.gameObject.tag == "Stairs")
         {
             PlayerMovementControl pScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementControl>();
             pScript.isGrounded = false;
