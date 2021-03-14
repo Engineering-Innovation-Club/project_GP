@@ -54,7 +54,7 @@ public class RobotMovementControl : MonoBehaviour
             transform.localScale = flipScale;
         }
 
-        rotator.transform.position = player.transform.position + new Vector3(0, player.GetComponent<BoxCollider2D>().bounds.size.y / 2, 0);
+        rotator.transform.position = player.transform.position + new Vector3(0, player.GetComponent<CapsuleCollider2D>().bounds.size.y / 2, 0);
         if (transform.position != prevLocation)
         {
             anim.SetBool("isMoving", true);

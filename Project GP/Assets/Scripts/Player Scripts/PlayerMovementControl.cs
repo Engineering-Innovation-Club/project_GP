@@ -7,7 +7,7 @@ public class PlayerMovementControl : MonoBehaviour
 {
     // Component variables
     Rigidbody2D rbody;
-    BoxCollider2D coll;
+    CapsuleCollider2D coll;
 
     // Player states
     public bool isCrouching;
@@ -23,7 +23,6 @@ public class PlayerMovementControl : MonoBehaviour
     public bool canMoveLeft;
     public bool canMoveRight;
     public bool touchVent;
-    public bool isOnStairs;
 
     // Speed on moving platforms and regular move speed
     public float moveSpeed;
@@ -68,7 +67,7 @@ public class PlayerMovementControl : MonoBehaviour
     {
         // Get Components
         rbody = GetComponent<Rigidbody2D>();
-        coll = GetComponent<BoxCollider2D>();
+        coll = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animation>();
         animator = gameObject.GetComponent<Animator>();
 
@@ -80,7 +79,6 @@ public class PlayerMovementControl : MonoBehaviour
         isOnLadder = false;
         canMoveLeft = true;
         canMoveRight = true;
-        isOnStairs = false;
 
         moveSpeed = 7f;
         rollDelay = 0f;
@@ -100,6 +98,17 @@ public class PlayerMovementControl : MonoBehaviour
 
         if (!PauseMenu.isPaused)
         {
+            if (isGrounded && Input.GetKey("d") && Input.GetKey("a") && Input.GetKey("space"))
+            {
+                rbody.constraints = RigidbodyConstraints2D.None;
+                rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+                rbody.velocity = new Vector2(rbody.velocity.x, 0);
+            }
+            else if (isGrounded && !Input.GetKey("d") && !Input.GetKey("a"))
+            {
+                rbody.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
+
             // Checks if the "d" key is being pressed
             if (Input.GetKey("d") && !isRoll && canMoveRight)
             {
@@ -111,11 +120,6 @@ public class PlayerMovementControl : MonoBehaviour
                 else
                 {
                     rbody.velocity = new Vector2(moveSpeed, rbody.velocity.y);
-                }
-
-                if (isOnStairs)
-                {
-                    rbody.velocity = new Vector2(moveSpeed, moveSpeed);
                 }
             }
             // Checks if the "a" key is being pressed
@@ -130,23 +134,12 @@ public class PlayerMovementControl : MonoBehaviour
                 {
                     rbody.velocity = new Vector2(-(moveSpeed), rbody.velocity.y);
                 }
-
-                if (isOnStairs)
-                {
-                    rbody.velocity = new Vector2(-moveSpeed, -moveSpeed);
-                }
             }
             // This else statement is to set the player's x-axis velocity to 0 if neither "a" nor "d" are being pressed.
             // Without this statement, the player would glide.
             else
             {
-                if (isOnStairs)
-                {
-                    // Set player to stop moving
-                    rbody.velocity = Vector2.zero;
-                    rbody.gravityScale = 0f;
-                }
-                else if (!onMovingPlatform && !isRoll)
+                if (!onMovingPlatform && !isRoll)
                 {
                     // Set player x-axis velocity to 0 while retaining y-axis velocity
                     rbody.velocity = new Vector2(0, rbody.velocity.y);
@@ -232,6 +225,8 @@ public class PlayerMovementControl : MonoBehaviour
                 doubleTapDownCount = 0;
             }
 
+            // Call function that handles gravity
+            gravityControl();
         }
     }
 
@@ -272,11 +267,23 @@ public class PlayerMovementControl : MonoBehaviour
         }
     }
 
-    private void checkLadder()
+    // Function that handles all gravity manipulation
+    private void gravityControl()
     {
         if (isOnLadder && !isGrounded)
         {
             rbody.gravityScale = 0;
+        }
+        else
+        {
+            rbody.gravityScale = gravity;
+        }
+    }
+
+    private void checkLadder()
+    {
+        if (isOnLadder && !isGrounded)
+        {
             // Checks if the "w" key is being pressed
             if (Input.GetKey("w"))
             {
@@ -306,10 +313,9 @@ public class PlayerMovementControl : MonoBehaviour
             }
         }
         // If not on ladder
-        else if (!isOnLadder && !isOnStairs)
+        else if (!isOnLadder)
         {
             isClimbing = false;
-            rbody.gravityScale = gravity;
         }
     }
 
@@ -512,22 +518,6 @@ public class PlayerMovementControl : MonoBehaviour
             currentPassThroughBlock = null;
         }
 
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Stairs")
-        {
-            isOnStairs = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Stairs")
-        {
-            isOnStairs = false;
-        }
     }
 
     // Function that returns player position

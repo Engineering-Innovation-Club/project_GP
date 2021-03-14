@@ -24,6 +24,7 @@ TagManager:
   - TeleportPoint
   - Explosion
   - Stairs
+  - PuzzleSwitch
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - Finish
   - Player
   - Enemy
-  - 
+  - Not Lit
   - 
   - 
   - 

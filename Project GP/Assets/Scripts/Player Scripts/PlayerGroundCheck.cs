@@ -25,6 +25,15 @@ public class PlayerGroundCheck : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "MovingPlatform" || collision.gameObject.tag == "passThroughBlock" || collision.gameObject.tag == "Stairs")
+        {
+            PlayerMovementControl pScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementControl>();
+            pScript.isGrounded = true;
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "MovingPlatform" || collision.gameObject.tag == "passThroughBlock" || collision.gameObject.tag == "Stairs")
