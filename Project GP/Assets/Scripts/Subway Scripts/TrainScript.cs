@@ -15,7 +15,7 @@ public class TrainScript : MonoBehaviour
     void Start()
     {
         travelling = false;
-        resetTrainTimer();
+        timer = 0f;
         newTrain = null;
     }
 

@@ -17,7 +17,7 @@ public class PlayerAnimation : MonoBehaviour
     private Dictionary<string, float> animationTimes = new Dictionary<string, float>();
 
     // Boolean that tracks which direction the player is facing
-    private bool isFacingRight;
+    public bool isFacingRight;
     private bool isLanded;
 
     private const string PLAYER_IDLE = "PlayerIdle";

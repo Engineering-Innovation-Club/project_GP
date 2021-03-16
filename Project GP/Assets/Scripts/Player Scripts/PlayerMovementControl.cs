@@ -23,6 +23,7 @@ public class PlayerMovementControl : MonoBehaviour
     public bool canMoveLeft;
     public bool canMoveRight;
     public bool touchVent;
+    public bool onStairs;
 
     // Speed on moving platforms and regular move speed
     public float moveSpeed;
@@ -79,6 +80,7 @@ public class PlayerMovementControl : MonoBehaviour
         isOnLadder = false;
         canMoveLeft = true;
         canMoveRight = true;
+        onStairs = false;
 
         moveSpeed = 7f;
         rollDelay = 0f;
@@ -98,13 +100,13 @@ public class PlayerMovementControl : MonoBehaviour
 
         if (!PauseMenu.isPaused)
         {
-            if (isGrounded && Input.GetKey("d") && Input.GetKey("a") && Input.GetKey("space"))
+            if (isGrounded && (Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("space")))
             {
                 rbody.constraints = RigidbodyConstraints2D.None;
                 rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
                 rbody.velocity = new Vector2(rbody.velocity.x, 0);
             }
-            else if (isGrounded && !Input.GetKey("d") && !Input.GetKey("a"))
+            else if (isGrounded && !Input.GetKey("d") && !Input.GetKey("a") && !Input.GetKey("space"))
             {
                 rbody.constraints = RigidbodyConstraints2D.FreezeAll;
             }
@@ -137,7 +139,7 @@ public class PlayerMovementControl : MonoBehaviour
             }
             // This else statement is to set the player's x-axis velocity to 0 if neither "a" nor "d" are being pressed.
             // Without this statement, the player would glide.
-            else
+            else if (!onStairs)
             {
                 if (!onMovingPlatform && !isRoll)
                 {
@@ -191,6 +193,9 @@ public class PlayerMovementControl : MonoBehaviour
 
             }
 
+            // Function to handle all stairs mechanics
+            stairs();
+
             // Handle all ladder mechanics
             checkLadder();
 
@@ -227,6 +232,58 @@ public class PlayerMovementControl : MonoBehaviour
 
             // Call function that handles gravity
             gravityControl();
+        }
+    }
+
+    private void stairs()
+    {
+        if (onStairs)
+        {
+            // Raycast down and side to check if stairs are there
+            RaycastHit2D downRay = Physics2D.Raycast(transform.position + new Vector3((coll.bounds.size.x / 2f), 0), Vector2.down, 0.5f, groundLayer);
+            RaycastHit2D sideRay = Physics2D.Raycast(transform.position, Vector2.right, 1f, groundLayer);
+
+            if (!GetComponent<PlayerAnimation>().isFacingRight)
+            {
+                // Facing Left
+                downRay = Physics2D.Raycast(transform.position - new Vector3((coll.bounds.size.x / 2f), 0), Vector2.down, 0.5f, groundLayer);
+                sideRay = Physics2D.Raycast(transform.position, Vector2.left, 1f, groundLayer);
+            }
+
+            if (downRay.collider != null)
+            {
+                if (downRay.collider.tag == "Stairs" && sideRay.collider == null)
+                {
+                    // Going down stairs
+                    //Debug.Log("down stairs");
+                    if (Input.GetKey("d") && !isRoll)
+                    {
+                        var stairVel = moveSpeed / Mathf.Cos(45);
+                        rbody.velocity = new Vector2(stairVel, -stairVel);
+                    }
+                    else if (Input.GetKey("a") && !isRoll)
+                    {
+                        Debug.Log("test");
+                        var stairVel = moveSpeed / Mathf.Cos(45);
+                        rbody.velocity = new Vector2(-stairVel / 5f, -stairVel * 5f);
+                    }
+                }
+                else if (downRay.collider.tag == "Stairs" && sideRay.collider.tag == "Stairs")
+                {
+                    //Debug.Log("up stairs");
+                    // Going up stairs
+                    if (Input.GetKey("d") && !isRoll)
+                    {
+                        var stairVel = moveSpeed / Mathf.Cos(45);
+                        rbody.velocity = new Vector2(stairVel, rbody.velocity.y);
+                    }
+                    else if (Input.GetKey("a") && !isRoll)
+                    {
+                        var stairVel = moveSpeed / Mathf.Cos(4-5);
+                        rbody.velocity = new Vector2(-stairVel, rbody.velocity.y);
+                    }
+                }
+            }
         }
     }
 
@@ -428,8 +485,9 @@ public class PlayerMovementControl : MonoBehaviour
         Vector3 displacement = new Vector3((coll.bounds.size.x) / 2f, 0, 0) ;
         RaycastHit2D leftHit = Physics2D.Raycast(transform.position - displacement, Vector2.down, 0.5f, groundLayer);
         RaycastHit2D rightHit = Physics2D.Raycast(transform.position + displacement, Vector2.down, 0.5f, groundLayer);
-        Debug.DrawRay(transform.position - displacement, new Vector3(0, -0.5f, 0), Color.green);
-        Debug.DrawRay(transform.position + displacement, new Vector3(0, -0.5f, 0), Color.green);
+        //Debug.DrawRay(transform.position - displacement, new Vector3(0, -0.5f, 0), Color.green);
+        //Debug.DrawRay(transform.position + displacement, new Vector3(0, -0.5f, 0), Color.green);
+        
         // If it collides with something that isn't NULL
         if (leftHit.collider != null)
         {

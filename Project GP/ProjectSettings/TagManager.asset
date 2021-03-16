@@ -23,8 +23,8 @@ TagManager:
   - Wall
   - TeleportPoint
   - Explosion
-  - Stairs
   - PuzzleSwitch
+  - Stairs
   layers:
   - Default
   - TransparentFX

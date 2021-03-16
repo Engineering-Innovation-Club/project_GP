@@ -23,6 +23,12 @@ public class PlayerGroundCheck : MonoBehaviour
             PlayerMovementControl pScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementControl>();
             pScript.isGrounded = true;
         }
+
+        if (collision.gameObject.tag == "Stairs")
+        {
+            PlayerMovementControl pScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementControl>();
+            pScript.onStairs = true;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -32,6 +38,12 @@ public class PlayerGroundCheck : MonoBehaviour
             PlayerMovementControl pScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementControl>();
             pScript.isGrounded = true;
         }
+
+        if (collision.gameObject.tag == "Stairs")
+        {
+            PlayerMovementControl pScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementControl>();
+            pScript.onStairs = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -40,6 +52,12 @@ public class PlayerGroundCheck : MonoBehaviour
         {
             PlayerMovementControl pScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementControl>();
             pScript.isGrounded = false;
+        }
+
+        if (collision.gameObject.tag == "Stairs")
+        {
+            PlayerMovementControl pScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementControl>();
+            pScript.onStairs = false;
         }
     }
 }
