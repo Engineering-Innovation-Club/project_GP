@@ -63,18 +63,21 @@ public class CampusBossAnimations : MonoBehaviour
     private bool prepRolling;
     private bool isRolling;
 
+    Weapon weapon;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
+        weapon = GetComponent<Weapon>();
         scale = transform.localScale;
 
         flipScale = transform.localScale;
         flipScale.x *= -1;
 
         isFacingRight = false;
-        playerHeight = new Vector3(0, target.gameObject.GetComponent<BoxCollider2D>().bounds.size.y);
+        playerHeight = new Vector3(0, target.gameObject.GetComponent<CapsuleCollider2D>().bounds.size.y);
 
         currentHealth = health;
         isRolling = false;
@@ -155,10 +158,13 @@ public class CampusBossAnimations : MonoBehaviour
             // 3. Body should still be in idle
             if (timeSinceLastShot > shootCoolDown)
             {
-                print("Shooting"); // Temp change with bullet instantation
-                shotsFired++;
-                timeSinceLastShot = 0;
-                UpdateArms(BOSS_FRONT_ARM_SHOOT, BOSS_BACK_ARM_SHOOT);
+                if (weapon.Shoot())
+                {
+                    shotsFired++;
+                    timeSinceLastShot = 0;
+                    UpdateArms(BOSS_FRONT_ARM_SHOOT, BOSS_BACK_ARM_SHOOT);
+                }
+                
             }
             ChangeAnimationState(BOSS_IDLE);
 
@@ -173,10 +179,13 @@ public class CampusBossAnimations : MonoBehaviour
             // 4. Move towards player
             if (timeSinceLastShot > shootCoolDown)
             {
-                print("Shooting"); // Temp change with bullet instantation
-                shotsFired++;
-                timeSinceLastShot = 0;
-                UpdateArms(BOSS_FRONT_ARM_SHOOT, BOSS_BACK_ARM_SHOOT);
+                if (weapon.Shoot())
+                {
+                    shotsFired++;
+                    timeSinceLastShot = 0;
+                    UpdateArms(BOSS_FRONT_ARM_SHOOT, BOSS_BACK_ARM_SHOOT);
+                }
+                
             }
             ChangeAnimationState(BOSS_WALK);
             float step = moveSpeed * Time.deltaTime;

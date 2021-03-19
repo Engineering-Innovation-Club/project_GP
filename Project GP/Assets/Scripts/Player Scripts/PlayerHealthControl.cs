@@ -28,7 +28,7 @@ public class PlayerHealthControl : MonoBehaviour
     public void hit(int damage)
     {
         health -= damage;
-        playerUIScript.SetHealth(health);
+        //playerUIScript.SetHealth(health);
     }
 
     // heal function that when called, heals player

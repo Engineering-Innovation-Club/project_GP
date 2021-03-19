@@ -33,7 +33,7 @@ public class BulletScript : MonoBehaviour
         } else if (target == "Player")
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            float playerHeight = player.GetComponent<BoxCollider2D>().bounds.size.y / 2f;
+            float playerHeight = player.GetComponent<CapsuleCollider2D>().bounds.size.y / 2f;
             Transform playerLocation = player.transform;
             shootDirection = new Vector3(playerLocation.position.x, playerLocation.position.y + playerHeight, 0) - transform.position;
         }
