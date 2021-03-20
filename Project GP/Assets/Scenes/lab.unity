@@ -247,6 +247,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1733230859}
   otherVent: {fileID: 1582382201}
+--- !u!1 &12486828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6179544120786444405, guid: 51905dddbe40d144fabae50546ff302e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1404279404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &12486835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12486828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ca8bf266b97a847979d2a670386e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6008586661025704419, guid: 0c6a057c52f6015489fb50d835d547f5, type: 3}
+  shotPoint: {fileID: 1943782801}
+  maxBullets: -1
+  reloadSpeed: 0
+  shootSpeed: 2
+  recoil: 0
+  damage: 0
 --- !u!1 &24671418
 GameObject:
   m_ObjectHideFlags: 0
@@ -23326,6 +23351,12 @@ Transform:
   m_Father: {fileID: 2040063592}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1943782801 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1525554218344763840, guid: 51905dddbe40d144fabae50546ff302e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1404279404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2040063591
 GameObject:
   m_ObjectHideFlags: 0
@@ -23381,12 +23412,12 @@ PrefabInstance:
     - target: {fileID: 7382599933963768619, guid: 321a318bf63314647b8060e5509a0786,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 231.98
+      value: 259.6
       objectReference: {fileID: 0}
     - target: {fileID: 7382599933963768619, guid: 321a318bf63314647b8060e5509a0786,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -37.93
+      value: -37.7
       objectReference: {fileID: 0}
     - target: {fileID: 7382599933963768619, guid: 321a318bf63314647b8060e5509a0786,
         type: 3}
