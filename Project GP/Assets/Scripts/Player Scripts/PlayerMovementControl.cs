@@ -24,6 +24,8 @@ public class PlayerMovementControl : MonoBehaviour
     public bool canMoveRight;
     public bool touchVent;
     public bool onStairs;
+    public bool hidBot;
+    public bool onBotShell;
 
     // Speed on moving platforms and regular move speed
     public float moveSpeed;
@@ -81,6 +83,8 @@ public class PlayerMovementControl : MonoBehaviour
         canMoveLeft = true;
         canMoveRight = true;
         onStairs = false;
+        hidBot = false;
+        onBotShell = false;
 
         moveSpeed = 7f;
         rollDelay = 0f;
@@ -189,6 +193,11 @@ public class PlayerMovementControl : MonoBehaviour
                 {
                     GameObject vent = GameObject.FindGameObjectWithTag("TeleportPoint");
                     transform.position = vent.transform.position;
+                }
+
+                if (onBotShell)
+                {
+                    hidBot = true;
                 }
 
             }
