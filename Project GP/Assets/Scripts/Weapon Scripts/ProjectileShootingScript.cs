@@ -59,9 +59,20 @@ public class ProjectileShootingScript : MonoBehaviour
         // Transfer the mouse position from the screen coordinate from the display position to the game world
         Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
-        Vector3 rotation = rotator.rotation.eulerAngles;
-        Instantiate(Bullet, firePointPosition, Quaternion.Euler(rotation.x, rotation.y, rotation.z + 90));
-        Instantiate(BulletTrail, firePointPosition, Quaternion.Euler(rotation.x, rotation.y, rotation.z + 90));
+        //Vector3 rotation = rotator.rotation.eulerAngles;
+
+        var x = mousePosition.x - firePoint.transform.position.x;
+        var y = mousePosition.y - firePoint.transform.position.y;
+
+        var angle = Mathf.Rad2Deg * Mathf.Atan2(y, x);
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        //Vector3 rotation = new Vector3(0, 0, angle);
+
+        Debug.Log(rotation);
+
+        Instantiate(Bullet, firePointPosition, rotation);
+        Instantiate(BulletTrail, firePointPosition, rotation);
 
         anim.SetBool("isShooting", true);
         Invoke("doneShoot", 0.167f);
