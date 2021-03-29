@@ -465,7 +465,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   travelling: 0
   timer: 3
-  moveSpeed: 15
   train: {fileID: 375370195912616117, guid: edd4b4dace11e514081f67b2df043662, type: 3}
 --- !u!1 &406792820
 GameObject:
