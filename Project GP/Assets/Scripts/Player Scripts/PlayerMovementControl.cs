@@ -65,6 +65,9 @@ public class PlayerMovementControl : MonoBehaviour
     // honestly what happened when we were making the first script
     private AnimationClip standingRollClip;
 
+    // Variable to access animation script
+    private PlayerAnimation pAnimScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -95,6 +98,8 @@ public class PlayerMovementControl : MonoBehaviour
         // Getting boundaries
         collSizeY = coll.size.y;
         collOffY = coll.offset.y;
+
+        pAnimScript = GetComponent<PlayerAnimation>();
     }
 
     // Update is called once per frame
@@ -110,9 +115,20 @@ public class PlayerMovementControl : MonoBehaviour
                 rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
                 rbody.velocity = new Vector2(rbody.velocity.x, 0);
             }
-            else if (isGrounded && !Input.GetKey("d") && !Input.GetKey("a") && !Input.GetKey("space"))
+            else if (isGrounded && !onMovingPlatform && !Input.GetKey("d") && !Input.GetKey("a") && !Input.GetKey("space"))
             {
                 rbody.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
+            else if (isGrounded && onMovingPlatform && !Input.GetKey("d") && !Input.GetKey("a") && !Input.GetKey("space"))
+            {
+                rbody.constraints = RigidbodyConstraints2D.None;
+                rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+                rbody.velocity = new Vector2(mpVel, 0);
+            }
+            else if (!isGrounded)
+            {
+                rbody.constraints = RigidbodyConstraints2D.None;
+                rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
 
             // Checks if the "d" key is being pressed
@@ -127,6 +143,11 @@ public class PlayerMovementControl : MonoBehaviour
                 {
                     rbody.velocity = new Vector2(moveSpeed, rbody.velocity.y);
                 }
+
+                if (!pAnimScript.isFacingRight)
+                {
+                    pAnimScript.flip();
+                }
             }
             // Checks if the "a" key is being pressed
             else if (Input.GetKey("a") && !isRoll && canMoveLeft)
@@ -140,21 +161,15 @@ public class PlayerMovementControl : MonoBehaviour
                 {
                     rbody.velocity = new Vector2(-(moveSpeed), rbody.velocity.y);
                 }
+
+                if (pAnimScript.isFacingRight)
+                {
+                    pAnimScript.flip();
+                }
             }
-            // This else statement is to set the player's x-axis velocity to 0 if neither "a" nor "d" are being pressed.
-            // Without this statement, the player would glide.
-            else if (!onStairs)
+            else if (!Input.anyKey && !onMovingPlatform)
             {
-                if (!onMovingPlatform && !isRoll)
-                {
-                    // Set player x-axis velocity to 0 while retaining y-axis velocity
-                    rbody.velocity = new Vector2(0, rbody.velocity.y);
-                }
-                else if (onMovingPlatform)
-                {
-                    // Set player velocity to moving platform velocity
-                    rbody.velocity = new Vector2(mpVel, rbody.velocity.y);
-                }
+                rbody.velocity = new Vector2(0, rbody.velocity.y);
             }
 
             // Check if the space key is pressed
@@ -547,11 +562,10 @@ public class PlayerMovementControl : MonoBehaviour
             }
             rbody.velocity = Vector3.zero;
         }
-        if (collision.gameObject.tag == "MovingPlatform")
+        else if (collision.gameObject.tag == "MovingPlatform")
         {
-            // If they player hits a moving platform add velocity to move player along with platfomr
-            mpVel = collision.gameObject.GetComponent<Rigidbody2D>().velocity.x;
             onMovingPlatform = true;
+            mpVel = collision.gameObject.GetComponent<Rigidbody2D>().velocity.x;
         }
         else if (collision.gameObject.tag == "passThroughBlock")
         {
@@ -560,6 +574,14 @@ public class PlayerMovementControl : MonoBehaviour
         else
         {
             currentPassThroughBlock = null;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "MovingPlatform")
+        {
+            mpVel = collision.gameObject.GetComponent<Rigidbody2D>().velocity.x;
         }
     }
 
@@ -577,8 +599,8 @@ public class PlayerMovementControl : MonoBehaviour
         }
         else if (collision.gameObject.tag == "MovingPlatform")
         {
-            onMovingPlatform = false;
             mpVel = 0;
+            onMovingPlatform = false;
         }
         else if (collision.gameObject.tag == "passThroughBlock")
         {

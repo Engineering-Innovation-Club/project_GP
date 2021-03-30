@@ -87,24 +87,7 @@ public class PlayerAnimation : MonoBehaviour
         } else
         {
             _animator.enabled = true;
-        }
-
-
-        // Player direction
-        if (vx + epsilon < 0)
-        {
-            if (isFacingRight)
-            {
-                flip();
-            }
-        }
-        else if (vx - epsilon > 0)
-        {
-            if (!isFacingRight)
-            {
-                flip();
-            }
-        }
+        }        
         
         // Crouching logic
         if (_pM.isGrounded && _pM.isCrouching)
@@ -181,7 +164,7 @@ public class PlayerAnimation : MonoBehaviour
     }
 
     // Function that flips the player model
-    private void flip()
+    public void flip()
     {
         isFacingRight = !isFacingRight;
         Vector3 theScale = transform.localScale;
