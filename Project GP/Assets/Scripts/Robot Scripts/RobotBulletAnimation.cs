@@ -13,6 +13,10 @@ public class RobotBulletAnimation : MonoBehaviour
     private string currentAnimation;
     private Dictionary<string, float> animationTimes = new Dictionary<string, float>();
 
+
+    public GameObject bulletLight;
+    public GameObject explodeLight;
+
     BulletScript bs;
     void Start()
     {
@@ -44,13 +48,14 @@ public class RobotBulletAnimation : MonoBehaviour
         if (collision.tag == "Ground" || collision.tag == "MovingPlatform" || collision.tag == "Wall" || collision.tag == bs.target)
         {
             ChangeAnimationState(BULLET_DESTROY);
+            bulletLight.SetActive(false);
+            explodeLight.SetActive(true);
             Invoke("DestroyBullet", animationTimes[BULLET_DESTROY]);
         }
     }
 
     private void DestroyBullet()
     {
-        print("destoying");
         Destroy(this.gameObject);
     }
 

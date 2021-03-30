@@ -326,7 +326,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.01
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -407,7 +407,9 @@ MonoBehaviour:
   canMoveLeft: 0
   canMoveRight: 0
   touchVent: 0
-  isOnStairs: 0
+  onStairs: 0
+  hidBot: 0
+  onBotShell: 0
   moveSpeed: 0
   mpVel: 0
   isCrouchUp: 0
@@ -456,3 +458,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e6635eeab4029e4991b318998d44694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFacingRight: 0

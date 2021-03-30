@@ -16,7 +16,6 @@ public class BulletTrailScript : MonoBehaviour
 
         // Set velocity to shoot bullet
         rbody.velocity = shootDirection * 10;
-        print(rbody.velocity);
         Invoke("DestroyTrail", 0.5f);
 
     }

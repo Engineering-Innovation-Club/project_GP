@@ -6,7 +6,7 @@ using System.IO;
 
 public static class SaveManager
 {
-    public static void SavePlayerStats(PlayerHealthControl pHScript, PlayerMovementControl pMScript) {
+    public static void SavePlayerStats(PlayerHealthControl pHScript, PlayerMovementControl pMScript, PlayerCoinScript pCScript) {
         // Create Binary Formatter
         BinaryFormatter bf = new BinaryFormatter();
 
@@ -17,7 +17,7 @@ public static class SaveManager
         FileStream fs = new FileStream(filePath, FileMode.Create);
 
         // Get save data
-        SaveData saveData = new SaveData(pHScript, pMScript);
+        SaveData saveData = new SaveData(pHScript, pMScript, pCScript);
 
         // Set data in binary/hexdecimal and close
         bf.Serialize(fs, saveData);

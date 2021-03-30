@@ -37,31 +37,36 @@ public class RobotMovementControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        var pos = mousePos - rotator.transform.position;
-        var a = Mathf.Atan2(pos.y, pos.x) * Mathf.Rad2Deg;
-
-        rotator.transform.rotation = Quaternion.AngleAxis(a - 90, Vector3.forward);
-        transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
-
-        if (a < 90 && a > -90)
+        if (!PauseMenu.isPaused)
         {
-            transform.localScale = scale;
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            var pos = mousePos - rotator.transform.position;
+            var a = Mathf.Atan2(pos.y, pos.x) * Mathf.Rad2Deg;
+
+            rotator.transform.rotation = Quaternion.AngleAxis(a - 90, Vector3.forward);
+            transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+
+            if (a < 90 && a > -90)
+            {
+                transform.localScale = scale;
+            }
+            else
+            {
+                transform.localScale = flipScale;
+            }
+
+            rotator.transform.position = player.transform.position + new Vector3(0, player.GetComponent<CapsuleCollider2D>().bounds.size.y / 2, 0);
+            if (transform.position != prevLocation)
+            {
+                anim.SetBool("isMoving", true);
+            }
+            else
+            {
+                anim.SetBool("isMoving", false);
+            }
+            prevLocation = transform.position;
         }
-        else
-        {
-            transform.localScale = flipScale;
-        }
-
-        rotator.transform.position = player.transform.position + new Vector3(0, player.GetComponent<CapsuleCollider2D>().bounds.size.y / 2, 0);
-        if (transform.position != prevLocation)
-        {
-            anim.SetBool("isMoving", true);
-        } else
-        {
-            anim.SetBool("isMoving", false);
-        }
-        prevLocation = transform.position;
+        
     }
 }

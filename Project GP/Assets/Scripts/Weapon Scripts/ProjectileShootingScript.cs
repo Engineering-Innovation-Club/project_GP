@@ -34,23 +34,27 @@ public class ProjectileShootingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Single Fire-Rate
-        if (fireRate == 0)
+        if (!PauseMenu.isPaused)
         {
-            if (Input.GetKeyDown("mouse 0"))
+            // Single Fire-Rate
+            if (fireRate == 0)
             {
-                shoot();
+                if (Input.GetKeyDown("mouse 0"))
+                {
+                    shoot();
+                }
             }
-        }
 
-        else
-        {
-            if (Input.GetKeyDown("mouse 0") && Time.time > timeToFire)
+            else
             {
-                timeToFire = Time.time + 1 / fireRate;
-                shoot();
+                if (Input.GetKeyDown("mouse 0") && Time.time > timeToFire)
+                {
+                    timeToFire = Time.time + 1 / fireRate;
+                    shoot();
+                }
             }
         }
+        
     }
 
     void shoot()
@@ -68,8 +72,6 @@ public class ProjectileShootingScript : MonoBehaviour
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         //Vector3 rotation = new Vector3(0, 0, angle);
-
-        Debug.Log(rotation);
 
         Instantiate(Bullet, firePointPosition, rotation);
         Instantiate(BulletTrail, firePointPosition, rotation);

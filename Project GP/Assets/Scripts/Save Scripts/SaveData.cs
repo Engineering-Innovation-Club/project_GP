@@ -12,11 +12,14 @@ public class SaveData
     public float playerPosY;
     public float playerPosZ;
 
-    public SaveData(PlayerHealthControl pHScript, PlayerMovementControl pMScript) {
+    public int playerCoins;
+
+    public SaveData(PlayerHealthControl pHScript, PlayerMovementControl pMScript, PlayerCoinScript pCScript) {
         playerHealth = pHScript.health;
         playerMaxHealth = pHScript.maxHealth;
         playerPosX = pMScript.GetPos().x;
         playerPosY = pMScript.GetPos().y;
         playerPosZ = pMScript.GetPos().z;
+        playerCoins = pCScript.currency;
     }
 }
