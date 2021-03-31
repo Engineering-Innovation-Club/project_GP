@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3574654079762026998}
   - component: {fileID: 4192151693098880101}
   m_Layer: 0
-  m_Name: Droid 1
+  m_Name: Droid (new)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  target: {fileID: 0}
+  target: {fileID: 7382599933963768619, guid: 321a318bf63314647b8060e5509a0786, type: 3}
   isMoving: 0
   isFacingRight: 1
   moveSpeed: 10
