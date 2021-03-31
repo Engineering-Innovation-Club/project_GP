@@ -18,7 +18,7 @@ public class CameraScript : MonoBehaviour
     {
         // Find camera component
         cam = gameObject.GetComponent<Camera>();
-        cam.orthographicSize = 6.0f;
+        cam.orthographicSize = 10.0f;
     }
 
     // Update is called once per frame

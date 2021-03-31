@@ -89,7 +89,7 @@ public class PlayerMovementControl : MonoBehaviour
         hidBot = false;
         onBotShell = false;
 
-        moveSpeed = 7f;
+        moveSpeed = 8.5f;
         rollDelay = 0f;
 
         touchWallSwitch = false;
