@@ -552,15 +552,15 @@ public class PlayerMovementControl : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall")
         {
-            if (collision.gameObject.transform.position.x < transform.position.x)
+            if (collision.GetContact(0).point.x < transform.position.x)
             {
                 canMoveLeft = false;
             }
-            else if (collision.gameObject.transform.position.x > transform.position.x)
+            else if (collision.GetContact(0).point.x > transform.position.y)
             {
                 canMoveRight = false;
             }
-            rbody.velocity = Vector3.zero;
+            rbody.velocity = new Vector2(0, rbody.velocity.y);
         }
         else if (collision.gameObject.tag == "MovingPlatform")
         {
