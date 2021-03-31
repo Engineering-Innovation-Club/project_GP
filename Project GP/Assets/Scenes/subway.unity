@@ -2160,11 +2160,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Subway Train
       objectReference: {fileID: 0}
-    - target: {fileID: 375370195912616117, guid: edd4b4dace11e514081f67b2df043662,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 375370195912616119, guid: edd4b4dace11e514081f67b2df043662,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2219,31 +2214,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891309132033846248, guid: edd4b4dace11e514081f67b2df043662,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891309132033846248, guid: edd4b4dace11e514081f67b2df043662,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 56
-      objectReference: {fileID: 0}
-    - target: {fileID: 8984780023863532632, guid: edd4b4dace11e514081f67b2df043662,
-        type: 3}
-      propertyPath: m_FalloffIntensity
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8984780023863532632, guid: edd4b4dace11e514081f67b2df043662,
-        type: 3}
-      propertyPath: m_ShapeLightFalloffSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8984780023863532632, guid: edd4b4dace11e514081f67b2df043662,
-        type: 3}
-      propertyPath: m_LightType
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edd4b4dace11e514081f67b2df043662, type: 3}

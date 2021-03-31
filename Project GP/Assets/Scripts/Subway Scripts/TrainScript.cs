@@ -15,11 +15,26 @@ public class TrainScript : MonoBehaviour
         moveSpeed = 15f;
 
         rbody = GetComponent<Rigidbody2D>();
+
+        Move();
+
+        rbody.constraints = RigidbodyConstraints2D.FreezePositionY;
+        rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void Move()
+    {
+        rbody.velocity = new Vector2(moveSpeed, 0);
+    }
+
+    public void Stop()
+    {
+        rbody.velocity = Vector2.zero;
     }
 }
