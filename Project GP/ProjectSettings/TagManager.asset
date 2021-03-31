@@ -25,6 +25,7 @@ TagManager:
   - Explosion
   - PuzzleSwitch
   - Stairs
+  - Save Text
   layers:
   - Default
   - TransparentFX
