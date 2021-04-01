@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovementControl : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class PlayerMovementControl : MonoBehaviour
     public bool onStairs;
     public bool hidBot;
     public bool onBotShell;
+    public bool onTeleporter;
 
     // Speed on moving platforms and regular move speed
     public float moveSpeed;
@@ -88,6 +90,7 @@ public class PlayerMovementControl : MonoBehaviour
         onStairs = false;
         hidBot = false;
         onBotShell = false;
+        onTeleporter = false;
 
         moveSpeed = 8.5f;
         rollDelay = 0f;
@@ -213,6 +216,11 @@ public class PlayerMovementControl : MonoBehaviour
                 if (onBotShell)
                 {
                     hidBot = true;
+                }
+
+                if (onTeleporter)
+                {
+                    SceneManager.LoadScene(2);
                 }
 
             }

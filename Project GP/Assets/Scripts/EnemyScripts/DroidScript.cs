@@ -67,6 +67,8 @@ public class DroidScript : MonoBehaviour
         isMoving = false;
         isAlerted = true;
 
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
         // In shooting range
         if (checkRanges(shootingRange) && !isShooting)
         {  
