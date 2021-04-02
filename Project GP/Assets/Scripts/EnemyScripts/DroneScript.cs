@@ -53,7 +53,12 @@ public class DroneScript : MonoBehaviour
         isMoving = false;
         moveSpeed = 3f;
 
-        maxHealth = 1;
+        // If maxHealth has not been set, make the Default health 1.
+        if (maxHealth == null)
+        {
+            maxHealth = 1;
+        }
+
         health = maxHealth;
 
         isAlerted = false;
@@ -109,7 +114,7 @@ public class DroneScript : MonoBehaviour
             alertDistance = shortDistance;
             isAlerted = false;
         }
-        Debug.Log("isAlerted:" + isAlerted);
+        // Debug.Log("isAlerted:" + isAlerted);
         
         if (!hitPlayer && isAlerted)
         {
@@ -163,7 +168,7 @@ public class DroneScript : MonoBehaviour
         AnimationClip[] clips = anim.runtimeAnimatorController.animationClips;
         foreach (AnimationClip clip in clips)
         {
-            Debug.Log(clip.name);
+           // Debug.Log(clip.name);
             animationTimes.Add(clip.name, clip.length);
         }
     }
@@ -178,6 +183,16 @@ public class DroneScript : MonoBehaviour
     public void hit(int damage)
     {
         health -= damage;
+
+        if (health <= 0)
+        {
+            DestroyGameObject();
+        }
+    }
+
+    private void DestroyGameObject()
+    {
+        Destroy(this);
     }
 
     public void path()

@@ -208,7 +208,15 @@ public class CampusBossAnimations : MonoBehaviour
         } else if (transform.position.x > target.position.x && isFacingRight)
         {
             flip();
-        }        
+        }       
+        
+        if (health <= 0)
+        {
+            ChangeAnimationState(BOSS_DEATH);
+
+            coll.enabled = false;
+            rbody.constraints = RigidbodyCosntraints2D.FreezeAll;
+        }
     }
 
     bool checkRanges(float range)

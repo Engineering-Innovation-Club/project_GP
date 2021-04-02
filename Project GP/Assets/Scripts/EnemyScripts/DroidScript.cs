@@ -51,7 +51,12 @@ public class DroidScript : MonoBehaviour
         isMoving = false;
         moveSpeed = 5f;
         
-        maxHealth = 1;
+        // If maxHealth has not been set, make the Default health 1.
+        if (maxHealth == null)
+        { 
+            maxHealth = 1;
+        }
+        
         health = maxHealth;
         isAlerted = false;
         getAnimationTimes();
@@ -179,6 +184,15 @@ public class DroidScript : MonoBehaviour
 
     public void hit(int damage) {
         health -= damage;
+        if (health <= 0)
+        {
+            DestroyGameObject();
+        }
+    }
+
+    private void DestroyGameObject()
+    {
+        Destroy(this);
     }
 
     bool checkRanges(float range)

@@ -19,9 +19,12 @@ public class BulletScript : MonoBehaviour
 
     public bool hasAnim;
 
+    private int damage = 1;
+
     // Start is called before the first frame update
     void Start()
     {
+
         // Find rigidbody
         rbody = GetComponent<Rigidbody2D>();
 
@@ -79,10 +82,33 @@ public class BulletScript : MonoBehaviour
                 PlayerHealthControl playerScript = collision.gameObject.GetComponent<PlayerHealthControl>();
                 playerScript.hit(1);
             } else if (target == "Enemy")
-            {
-                EnemyScript enemyScript = collision.gameObject.GetComponent<EnemyScript>();
+            { // Erase this and make it so that it checks for the Enemy type and then damage that enemy.
+                //EnemyScript enemyScript = collision.gameObject.GetComponent<EnemyScript>();
                 // Subtract health
-                enemyScript.health -= 1;
+                //enemyScript.health -= 1;
+
+                // Learn how to check if this is the game object, such as droid. Maybe collision.name?
+                Debug.LogError("Shot at " + collision.name); 
+                if (collision.name == "Droid (new)")
+                {
+                    DroidScript droidEnemy = collision.gameObject.GetComponent<DroidScript>();
+                    // droidEnenmy.hit(damage);
+                    droidEnemy.health -= damage;
+                    Debug.Log("We hit " + collision.name + " and did " + damage + " damage.");
+                }
+                else if (collision.name == "Drone")
+                {
+                    DroneScript droneEnemy = collision.gameObject.GetComponent<DroneScript>();
+                    // droidEnenmy.hit(damage);
+                    droneEnemy.health -= damage;
+                    // Debug.LogError("We hit " + collider.name + " and did " + damage + " damage.");
+                }
+                else if (collision.name == "Campus Boss")
+                {
+                    CampusBossAnimations boss = collision.gameObject.GetComponent<CampusBossAnimations>();
+ 
+                    boss.health -= damage;
+                }
             }
 
             // Destroy this bullet
@@ -104,5 +130,11 @@ public class BulletScript : MonoBehaviour
     private void flip()
     {
         transform.localScale = transform.localScale * -1;
+    }
+
+    // Set's the bullet Damage
+    public void setDamage(int damage)
+    {
+        this.damage = damage;
     }
 }
