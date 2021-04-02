@@ -19,12 +19,12 @@ public class BulletScript : MonoBehaviour
 
     public bool hasAnim;
 
-    private int damage = 1;
+    // Default Damage for now, this needs to be changed from ProjectileShootingScript.
+    public int damage;
 
     // Start is called before the first frame update
     void Start()
     {
-
         // Find rigidbody
         rbody = GetComponent<Rigidbody2D>();
 
@@ -82,32 +82,23 @@ public class BulletScript : MonoBehaviour
                 PlayerHealthControl playerScript = collision.gameObject.GetComponent<PlayerHealthControl>();
                 playerScript.hit(1);
             } else if (target == "Enemy")
-            { // Erase this and make it so that it checks for the Enemy type and then damage that enemy.
-                //EnemyScript enemyScript = collision.gameObject.GetComponent<EnemyScript>();
-                // Subtract health
-                //enemyScript.health -= 1;
-
-                // Learn how to check if this is the game object, such as droid. Maybe collision.name?
-                Debug.LogError("Shot at " + collision.name); 
+            {
+                // Debug.LogError("Shot at " + collision.name); 
                 if (collision.name == "Droid (new)")
                 {
                     DroidScript droidEnemy = collision.gameObject.GetComponent<DroidScript>();
-                    // droidEnenmy.hit(damage);
-                    droidEnemy.health -= damage;
+                    droidEnemy.hit(damage);
                     Debug.Log("We hit " + collision.name + " and did " + damage + " damage.");
                 }
                 else if (collision.name == "Drone")
                 {
                     DroneScript droneEnemy = collision.gameObject.GetComponent<DroneScript>();
-                    // droidEnenmy.hit(damage);
-                    droneEnemy.health -= damage;
-                    // Debug.LogError("We hit " + collider.name + " and did " + damage + " damage.");
+                    droneEnemy.hit(damage);
                 }
                 else if (collision.name == "Campus Boss")
                 {
                     CampusBossAnimations boss = collision.gameObject.GetComponent<CampusBossAnimations>();
- 
-                    boss.health -= damage;
+                    boss.hit(damage);
                 }
             }
 
@@ -133,8 +124,8 @@ public class BulletScript : MonoBehaviour
     }
 
     // Set's the bullet Damage
-    public void setDamage(int damage)
+    public void setDamage(int dam)
     {
-        this.damage = damage;
+        damage = dam;
     }
 }

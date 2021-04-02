@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileShootingScript : MonoBehaviour
 {
     public float fireRate = 0;
-    public float damage = 10;
+    public int damage = 1;
     public LayerMask whatToHit;
     //public string firePointOfWeapon; 
     //For every weapon the barrel of the gun is the fire point, simce that is where bullets come out. 
@@ -17,11 +17,12 @@ public class ProjectileShootingScript : MonoBehaviour
     private Transform rotator;
 
     Animator anim;
-    // Start is called before the first frame update
+    // Start is called before the first frame 
     void Awake()
     {
         //FirePoint will usually be the child of the gun or weapon. 
         //firePoint = transform.Find(firePointOfWeapon);
+        Bullet.gameObject.GetComponent<BulletScript>().setDamage(damage);
         anim = GetComponent<Animator>();
         firePoint = transform.Find("FirePoint");
         if (firePoint == null)
@@ -72,7 +73,6 @@ public class ProjectileShootingScript : MonoBehaviour
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         //Vector3 rotation = new Vector3(0, 0, angle);
-
         Instantiate(Bullet, firePointPosition, rotation);
         Instantiate(BulletTrail, firePointPosition, rotation);
 

@@ -180,19 +180,11 @@ public class DroidScript : MonoBehaviour
         if (currentAnimation == newState) return;
         anim.Play(newState);
         currentAnimation = newState;
+
     }
 
     public void hit(int damage) {
         health -= damage;
-        if (health <= 0)
-        {
-            DestroyGameObject();
-        }
-    }
-
-    private void DestroyGameObject()
-    {
-        Destroy(this);
     }
 
     bool checkRanges(float range)

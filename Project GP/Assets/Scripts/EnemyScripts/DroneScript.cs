@@ -183,16 +183,6 @@ public class DroneScript : MonoBehaviour
     public void hit(int damage)
     {
         health -= damage;
-
-        if (health <= 0)
-        {
-            DestroyGameObject();
-        }
-    }
-
-    private void DestroyGameObject()
-    {
-        Destroy(this);
     }
 
     public void path()
