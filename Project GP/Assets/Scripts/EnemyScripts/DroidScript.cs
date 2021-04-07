@@ -164,6 +164,11 @@ public class DroidScript : MonoBehaviour
             // Disable collider and freeze x and y position
             coll.enabled = false;
             rbody.constraints = RigidbodyConstraints2D.FreezeAll;
+            Destroy(this); // Just so it would stop following.
+            if (health > 1)
+            {
+                Debug.LogError("Health is more than 1 so should still be alive " + health);
+            }
         }
         
     }

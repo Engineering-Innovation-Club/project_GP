@@ -83,22 +83,24 @@ public class BulletScript : MonoBehaviour
                 playerScript.hit(1);
             } else if (target == "Enemy")
             {
-                // Debug.LogError("Shot at " + collision.name); 
+                //Debug.LogError("Shot at " + collision.name); 
                 if (collision.name == "Droid (new)")
                 {
                     DroidScript droidEnemy = collision.gameObject.GetComponent<DroidScript>();
                     droidEnemy.hit(damage);
-                    Debug.Log("We hit " + collision.name + " and did " + damage + " damage.");
+                    Debug.Log("Hit " + collision.name + " and did " + damage + " damage.");
                 }
                 else if (collision.name == "Drone")
                 {
                     DroneScript droneEnemy = collision.gameObject.GetComponent<DroneScript>();
                     droneEnemy.hit(damage);
+                    Debug.Log("Hit " + collision.name + " and did " + damage + " damage.");
                 }
                 else if (collision.name == "Campus Boss")
                 {
                     CampusBossAnimations boss = collision.gameObject.GetComponent<CampusBossAnimations>();
                     boss.hit(damage);
+                    Debug.Log("Hit " + collision.name + " and did " + damage + " damage.");
                 }
             }
 

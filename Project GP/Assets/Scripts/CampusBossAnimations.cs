@@ -210,21 +210,21 @@ public class CampusBossAnimations : MonoBehaviour
             flip();
         }       
         
-        /* Does not have box colliders. I guess this could be enabled once, boss has box colliders, 
-           and Animation BOSS_DEATH.
-        if (health <= 0)
+        // Does not have box colliders. I guess this could be enabled once, boss has box colliders, 
+        //  and Animation BOSS_DEATH.
+        if (currentHealth <= 0)
         {
-            ChangeAnimationState(BOSS_DEATH);
-
-            coll.enabled = false;
-            rbody.constraints = RigidbodyCosntraints2D.FreezeAll;
+            //ChangeAnimationState(BOSS_DEATH);
+            Debug.Log("Dead. health is " + currentHealth);
+            //coll.enabled = false;
+            Destroy(this);
+            //rbody.constraints = RigidbodyCosntraints2D.FreezeAll;
         }
-        */ 
     }
 
     public void hit(int damage)
     {
-        health -= damage;
+        currentHealth -= damage;
     }
 
     bool checkRanges(float range)
