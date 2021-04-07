@@ -50,12 +50,8 @@ public class DroidScript : MonoBehaviour
 
         isMoving = false;
         moveSpeed = 5f;
-        
-        // If maxHealth has not been set, make the Default health 1.
-        if (maxHealth == null)
-        { 
-            maxHealth = 1;
-        }
+
+        maxHealth = 3;
         
         health = maxHealth;
         isAlerted = false;

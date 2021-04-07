@@ -74,40 +74,40 @@ public class BulletScript : MonoBehaviour
         }
 
         // Check if bullet hits enemy
-        else if (collision.tag == target)
+        else if (collision.tag == "Player")
         {
-            // Access script of individual game object
-            if (target == "Player")
-            {
-                PlayerHealthControl playerScript = collision.gameObject.GetComponent<PlayerHealthControl>();
-                playerScript.hit(1);
-            } else if (target == "Enemy")
-            {
-                //Debug.LogError("Shot at " + collision.name); 
-                if (collision.name == "Droid (new)")
-                {
-                    DroidScript droidEnemy = collision.gameObject.GetComponent<DroidScript>();
-                    droidEnemy.hit(damage);
-                    Debug.Log("Hit " + collision.name + " and did " + damage + " damage.");
-                }
-                else if (collision.name == "Drone")
-                {
-                    DroneScript droneEnemy = collision.gameObject.GetComponent<DroneScript>();
-                    droneEnemy.hit(damage);
-                    Debug.Log("Hit " + collision.name + " and did " + damage + " damage.");
-                }
-                else if (collision.name == "Campus Boss")
-                {
-                    CampusBossAnimations boss = collision.gameObject.GetComponent<CampusBossAnimations>();
-                    boss.hit(damage);
-                    Debug.Log("Hit " + collision.name + " and did " + damage + " damage.");
-                }
-            }
+            PlayerHealthControl playerScript = collision.gameObject.GetComponent<PlayerHealthControl>();
+            playerScript.hit(1);
+        }
+        else if (collision.tag == "Droid")
+        {
+            DroidScript droidEnemy = collision.gameObject.GetComponent<DroidScript>();
+            droidEnemy.hit(damage);
+        }
+        else if (collision.tag == "Drone")
+        {
+            DroneScript droneEnemy = collision.gameObject.GetComponent<DroneScript>();
+            droneEnemy.hit(damage);
+        }
+        else if (collision.tag == "CampusBoss")
+        {
+            CampusBossAnimations boss = collision.gameObject.GetComponent<CampusBossAnimations>();
+            boss.hit(damage);
+        }
+        else if (collision.tag == "SuicideRobot")
+        {
+            SRScript sr = collision.gameObject.GetComponent<SRScript>();
+            sr.hit(damage);
+        }
 
+        if (collision.tag != "Bullet")
+        { 
             // Destroy this bullet
             rbody.velocity = Vector2.zero;
-            if (!hasAnim) // Leave destroy logic to animation portion
+            if (!hasAnim)
+            {
                 Destroy(this.gameObject);
+            }
         }
     }
 

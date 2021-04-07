@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 7211208653272979319}
   m_Layer: 11
   m_Name: Campus Boss
-  m_TagString: Untagged
+  m_TagString: CampusBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
