@@ -6,9 +6,13 @@ public class SceneTeleportScript : MonoBehaviour
 {
     PlayerMovementControl pScript;
 
+    // This variable holds the scene number the player will teleport to
+    public int num;
+
     // Start is called before the first frame update
     void Start()
     {
+        // Get player script
         pScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementControl>();
     }
 
@@ -20,9 +24,12 @@ public class SceneTeleportScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Check if player collides
         if (collision.gameObject.tag == "Player")
         {
+            // Change player variables
             pScript.onTeleporter = true;
+            pScript.sceneNum = num;
         }
     }
 }

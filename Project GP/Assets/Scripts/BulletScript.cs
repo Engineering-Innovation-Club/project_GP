@@ -100,8 +100,8 @@ public class BulletScript : MonoBehaviour
             sr.hit(damage);
         }
 
-        if (collision.tag != "Bullet")
-        { 
+        if (collision.tag != "Bullet" && collision.tag != "RobotPet" && collision.tag != "Droid" && collision.tag != "Drone" && collision.tag != "CampusBoss" && collision.tag != "SuicideRobot")
+        {
             // Destroy this bullet
             rbody.velocity = Vector2.zero;
             if (!hasAnim)

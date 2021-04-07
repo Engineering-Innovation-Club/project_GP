@@ -70,6 +70,9 @@ public class PlayerMovementControl : MonoBehaviour
     // Variable to access animation script
     private PlayerAnimation pAnimScript;
 
+    // Public variable to hold the scene it should load
+    public int sceneNum;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -220,7 +223,7 @@ public class PlayerMovementControl : MonoBehaviour
 
                 if (onTeleporter)
                 {
-                    SceneManager.LoadScene(2);
+                    SceneManager.LoadScene(sceneNum);
                 }
 
             }
