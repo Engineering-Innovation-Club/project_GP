@@ -208,7 +208,23 @@ public class CampusBossAnimations : MonoBehaviour
         } else if (transform.position.x > target.position.x && isFacingRight)
         {
             flip();
-        }        
+        }       
+        
+        // Does not have box colliders. I guess this could be enabled once, boss has box colliders, 
+        //  and Animation BOSS_DEATH.
+        if (currentHealth <= 0)
+        {
+            //ChangeAnimationState(BOSS_DEATH);
+            Debug.Log("Dead. health is " + currentHealth);
+            //coll.enabled = false;
+            Destroy(this);
+            //rbody.constraints = RigidbodyCosntraints2D.FreezeAll;
+        }
+    }
+
+    public void hit(int damage)
+    {
+        currentHealth -= damage;
     }
 
     bool checkRanges(float range)

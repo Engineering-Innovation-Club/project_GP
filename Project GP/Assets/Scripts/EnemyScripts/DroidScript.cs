@@ -51,7 +51,12 @@ public class DroidScript : MonoBehaviour
         isMoving = false;
         moveSpeed = 5f;
         
-        maxHealth = 1;
+        // If maxHealth has not been set, make the Default health 1.
+        if (maxHealth == null)
+        { 
+            maxHealth = 1;
+        }
+        
         health = maxHealth;
         isAlerted = false;
         getAnimationTimes();
@@ -159,6 +164,11 @@ public class DroidScript : MonoBehaviour
             // Disable collider and freeze x and y position
             coll.enabled = false;
             rbody.constraints = RigidbodyConstraints2D.FreezeAll;
+            Destroy(this); // Just so it would stop following.
+            if (health > 1)
+            {
+                Debug.LogError("Health is more than 1 so should still be alive " + health);
+            }
         }
         
     }
@@ -175,6 +185,7 @@ public class DroidScript : MonoBehaviour
         if (currentAnimation == newState) return;
         anim.Play(newState);
         currentAnimation = newState;
+
     }
 
     public void hit(int damage) {

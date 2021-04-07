@@ -19,6 +19,9 @@ public class BulletScript : MonoBehaviour
 
     public bool hasAnim;
 
+    // Default Damage for now, this needs to be changed from ProjectileShootingScript.
+    public int damage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,9 +83,25 @@ public class BulletScript : MonoBehaviour
                 playerScript.hit(1);
             } else if (target == "Enemy")
             {
-                EnemyScript enemyScript = collision.gameObject.GetComponent<EnemyScript>();
-                // Subtract health
-                enemyScript.health -= 1;
+                //Debug.LogError("Shot at " + collision.name); 
+                if (collision.name == "Droid (new)")
+                {
+                    DroidScript droidEnemy = collision.gameObject.GetComponent<DroidScript>();
+                    droidEnemy.hit(damage);
+                    Debug.Log("Hit " + collision.name + " and did " + damage + " damage.");
+                }
+                else if (collision.name == "Drone")
+                {
+                    DroneScript droneEnemy = collision.gameObject.GetComponent<DroneScript>();
+                    droneEnemy.hit(damage);
+                    Debug.Log("Hit " + collision.name + " and did " + damage + " damage.");
+                }
+                else if (collision.name == "Campus Boss")
+                {
+                    CampusBossAnimations boss = collision.gameObject.GetComponent<CampusBossAnimations>();
+                    boss.hit(damage);
+                    Debug.Log("Hit " + collision.name + " and did " + damage + " damage.");
+                }
             }
 
             // Destroy this bullet
@@ -104,5 +123,11 @@ public class BulletScript : MonoBehaviour
     private void flip()
     {
         transform.localScale = transform.localScale * -1;
+    }
+
+    // Set's the bullet Damage
+    public void setDamage(int dam)
+    {
+        damage = dam;
     }
 }
