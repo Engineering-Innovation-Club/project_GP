@@ -285,6 +285,9 @@ public class PlayerMovementControl : MonoBehaviour
                 sideRay = Physics2D.Raycast(transform.position, Vector2.left, 1f, groundLayer);
             }
 
+            Debug.DrawRay(transform.position + new Vector3((coll.bounds.size.x / 2f), 0), Vector3.down, Color.red);
+            Debug.DrawRay(transform.position, Vector2.right, Color.red);
+
             if (downRay.collider != null)
             {
                 if (downRay.collider.tag == "Stairs" && sideRay.collider == null)
@@ -293,14 +296,14 @@ public class PlayerMovementControl : MonoBehaviour
                     //Debug.Log("down stairs");
                     if (Input.GetKey("d") && !isRoll)
                     {
-                        var stairVel = moveSpeed / Mathf.Cos(45);
+                        var stairVel = (moveSpeed / Mathf.Cos(45)) / 1.75f;
                         rbody.velocity = new Vector2(stairVel, -stairVel);
                     }
                     else if (Input.GetKey("a") && !isRoll)
                     {
                         Debug.Log("test");
-                        var stairVel = moveSpeed / Mathf.Cos(45);
-                        rbody.velocity = new Vector2(-stairVel / 5f, -stairVel * 5f);
+                        var stairVel = (moveSpeed / Mathf.Cos(45)) / 1.75f;
+                        rbody.velocity = new Vector2(-stairVel, -stairVel);
                     }
                 }
                 else if (downRay.collider.tag == "Stairs" && sideRay.collider.tag == "Stairs")
@@ -314,7 +317,7 @@ public class PlayerMovementControl : MonoBehaviour
                     }
                     else if (Input.GetKey("a") && !isRoll)
                     {
-                        var stairVel = moveSpeed / Mathf.Cos(4-5);
+                        var stairVel = moveSpeed / Mathf.Cos(45);
                         rbody.velocity = new Vector2(-stairVel, rbody.velocity.y);
                     }
                 }
