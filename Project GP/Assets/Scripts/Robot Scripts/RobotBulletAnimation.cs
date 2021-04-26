@@ -5,6 +5,7 @@ using UnityEngine;
 public class RobotBulletAnimation : MonoBehaviour
 {
     Animator anim;
+    private Rigidbody2D rbody;
 
     //private const string BULLET_LAUNCH = "droid_bullet_launch";
     private const string BULLET_TRAVEL = "RobotBulletTravel";
@@ -25,6 +26,8 @@ public class RobotBulletAnimation : MonoBehaviour
         bs = GetComponent<BulletScript>();
         //ChangeAnimationState(BULLET_LAUNCH);
         //Invoke("PlayTravel", 0.0f);
+
+        rbody = GetComponent<Rigidbody2D>();
     }
 
     private void ChangeAnimationState(string newState)
@@ -51,6 +54,7 @@ public class RobotBulletAnimation : MonoBehaviour
             bulletLight.SetActive(false);
             explodeLight.SetActive(true);
             Invoke("DestroyBullet", animationTimes[BULLET_DESTROY]);
+            rbody.velocity = Vector3.zero;
         }
     }
 

@@ -99,16 +99,6 @@ public class BulletScript : MonoBehaviour
             SRScript sr = collision.gameObject.GetComponent<SRScript>();
             sr.hit(damage);
         }
-
-        if (collision.tag != "Bullet" && collision.tag != "RobotPet" && collision.tag != "Droid" && collision.tag != "Drone" && collision.tag != "CampusBoss" && collision.tag != "SuicideRobot")
-        {
-            // Destroy this bullet
-            rbody.velocity = Vector2.zero;
-            if (!hasAnim)
-            {
-                Destroy(this.gameObject);
-            }
-        }
     }
 
     // This is also a built in unity function that checks if the object is no longer visible by any camera
