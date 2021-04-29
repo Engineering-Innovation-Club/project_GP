@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -11,6 +12,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
 
     public float PreviousTimeScale;
+
+    private void Start()
+    {
+        isPaused = false;
+    }
 
     // Update is called once per frame
     void Update()
@@ -33,6 +39,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         isPaused = false;
+
+        Debug.Log("Resume");
     }
 
     public void Pause()
@@ -41,11 +49,18 @@ public class PauseMenu : MonoBehaviour
        
         Time.timeScale = 0;
         isPaused = true;
+
+        Debug.Log("Pause");
     }
 
     public void loadMenu()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("Main menu");
+    }
+
+    public void ToggleScreen()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
     }
 }
