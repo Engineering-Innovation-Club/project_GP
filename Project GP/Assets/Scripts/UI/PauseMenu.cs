@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject settings;
     public GameObject buttons;
+    public GameObject sButton;
 
     private Vector3 oldPos;
     private Vector3 newPos;
@@ -76,12 +78,22 @@ public class PauseMenu : MonoBehaviour
             // Close Settings
             settings.SetActive(false);
             buttons.transform.position = oldPos;
+
+            sButton.GetComponentInChildren<TextMeshProUGUI>().fontSize = 50;
+            sButton.GetComponentInChildren<TextMeshProUGUI>().fontStyle = FontStyles.Normal;
+            sButton.GetComponentInChildren<TextMeshProUGUI>().characterSpacing = 0;
+            sButton.transform.position = new Vector3(sButton.transform.position.x, sButton.transform.position.y - 100);
         }
         else if (!settings.activeSelf)
         {
             // Open Settings
             settings.SetActive(true);
             buttons.transform.position = newPos;
+
+            sButton.GetComponentInChildren<TextMeshProUGUI>().fontSize = 60;
+            sButton.GetComponentInChildren<TextMeshProUGUI>().fontStyle = FontStyles.Bold;
+            sButton.GetComponentInChildren<TextMeshProUGUI>().characterSpacing = -10;
+            sButton.transform.position = new Vector3(sButton.transform.position.x, sButton.transform.position.y + 100);
         }
     }
 }
