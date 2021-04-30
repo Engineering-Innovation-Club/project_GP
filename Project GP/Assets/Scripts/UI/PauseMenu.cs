@@ -13,9 +13,18 @@ public class PauseMenu : MonoBehaviour
 
     public float PreviousTimeScale;
 
+    public GameObject settings;
+    public GameObject buttons;
+
+    private Vector3 oldPos;
+    private Vector3 newPos;
+
     private void Start()
     {
         isPaused = false;
+
+        oldPos = buttons.transform.position;
+        newPos = new Vector3(buttons.transform.position.x, buttons.transform.position.y - 225);
     }
 
     // Update is called once per frame
@@ -39,8 +48,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         isPaused = false;
-
-        Debug.Log("Resume");
     }
 
     public void Pause()
@@ -49,8 +56,6 @@ public class PauseMenu : MonoBehaviour
        
         Time.timeScale = 0;
         isPaused = true;
-
-        Debug.Log("Pause");
     }
 
     public void loadMenu()
@@ -62,5 +67,21 @@ public class PauseMenu : MonoBehaviour
     public void ToggleScreen()
     {
         Screen.fullScreen = !Screen.fullScreen;
+    }
+
+    public void ToggleSettings()
+    {
+        if (settings.activeSelf)
+        {
+            // Close Settings
+            settings.SetActive(false);
+            buttons.transform.position = oldPos;
+        }
+        else if (!settings.activeSelf)
+        {
+            // Open Settings
+            settings.SetActive(true);
+            buttons.transform.position = newPos;
+        }
     }
 }
