@@ -38,7 +38,7 @@ public class SaveCheckpointScript : MonoBehaviour
                 pSaveScript.SaveStats();
                 textScript.FadeAnimation();
 
-                saveText.GetComponent<Text>().text = message;
+                textScript.message = message;
 
                 timer = 5f;
             }

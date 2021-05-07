@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SaveTextScript : MonoBehaviour
 {
-    private Text text;
     public float timeAppear;
     private bool fading;
+    private TextMeshProUGUI text;
+    public string message;
 
     // Start is called before the first frame update
     void Start()
     {
-        text = GetComponent<Text>();
+        text = GetComponent<TextMeshProUGUI>();
         timeAppear = 5f;
         text.canvasRenderer.SetAlpha(0);
         text.CrossFadeAlpha(0, 0f, false);
@@ -21,6 +23,7 @@ public class SaveTextScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        text.SetText(message);
         if (fading)
         {
             timeAppear -= Time.deltaTime;
@@ -36,7 +39,6 @@ public class SaveTextScript : MonoBehaviour
 
     public void FadeAnimation()
     {
-        Debug.Log("fading");
         timeAppear = 5f;
         fading = true;
 
