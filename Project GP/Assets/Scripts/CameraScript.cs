@@ -12,6 +12,9 @@ public class CameraScript : MonoBehaviour
     public Transform topBound;
     public Transform botBound;
 
+    public float shakeDuration;
+    public float shakeAmount;
+
     // Used to create a Vector3 position, since you can't individually change the x, y, and z values of an objects position
     Vector3 pos;
 
@@ -47,6 +50,16 @@ public class CameraScript : MonoBehaviour
         else
         {
             transform.position = pos + new Vector3(0, 3, -1);
+        }
+
+        if (shakeDuration > 0)
+        {
+            transform.position = pos + Random.insideUnitSphere * shakeAmount;
+            shakeDuration -= Time.deltaTime;
+        }
+        else
+        {
+            shakeDuration = 0f;
         }
     }
 }

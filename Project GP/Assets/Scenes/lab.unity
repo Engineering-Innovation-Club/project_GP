@@ -285,7 +285,7 @@ Transform:
   - {fileID: 12091210}
   - {fileID: 1218841374}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &24623308
 GameObject:
@@ -330,7 +330,6 @@ GameObject:
   - component: {fileID: 24671420}
   - component: {fileID: 24671419}
   - component: {fileID: 24671423}
-  - component: {fileID: 24671425}
   - component: {fileID: 24671424}
   m_Layer: 0
   m_Name: Main Camera
@@ -453,6 +452,9 @@ MonoBehaviour:
   rightBound: {fileID: 24623309}
   topBound: {fileID: 991010440}
   botBound: {fileID: 1291211716}
+  shakeDuration: 0
+  shakeAmount: 0.1
+  shakeDecrease: 0.2
 --- !u!95 &24671424
 Animator:
   serializedVersion: 3
@@ -472,25 +474,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!320 &24671425
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24671418}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: d80a15c966827b7409cc66547e9c66c2, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: -7534146937085655866, guid: d80a15c966827b7409cc66547e9c66c2, type: 2}
-    value: {fileID: 24671424}
-  m_ExposedReferences:
-    m_References: []
 --- !u!1 &28489851
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,7 +2200,7 @@ Transform:
   m_Children:
   - {fileID: 1582382203}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &627086287
 GameObject:
@@ -16804,7 +16787,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1015943960
 GameObject:
@@ -16838,7 +16821,7 @@ Transform:
   - {fileID: 991010440}
   - {fileID: 1291211716}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1023708410
 GameObject:
@@ -16959,7 +16942,7 @@ Transform:
   - {fileID: 686086547}
   - {fileID: 997770962}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1033582877
 MonoBehaviour:
@@ -17077,7 +17060,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1177948707
 GameObject:
@@ -17301,7 +17284,7 @@ PrefabInstance:
     - target: {fileID: 5853073259895348625, guid: 2a57efa9bd3897a4e9b95e2dd245592f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5853073259895348625, guid: 2a57efa9bd3897a4e9b95e2dd245592f,
         type: 3}
@@ -17786,7 +17769,7 @@ PrefabInstance:
     - target: {fileID: 5805718574504057116, guid: a55f1130b8eb4df4a9ff5da8069e6ebc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5805718574504057116, guid: a55f1130b8eb4df4a9ff5da8069e6ebc,
         type: 3}
@@ -18122,7 +18105,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1408408661
 PlayableDirector:
@@ -18134,7 +18117,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 3837d993d19936b499792507c3acc3c4, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -18929,7 +18912,7 @@ RectTransform:
   - {fileID: 1720817060}
   - {fileID: 230837723}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -26974,7 +26957,7 @@ RectTransform:
   m_LocalScale: {x: 1.0125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -27060,7 +27043,7 @@ Transform:
   - {fileID: 51276345}
   - {fileID: 2066311501}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2057378548
 GameObject:
@@ -27301,7 +27284,7 @@ Transform:
   - {fileID: 870140760}
   - {fileID: 576545435}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2105793483
 GameObject:
@@ -27403,7 +27386,7 @@ PrefabInstance:
     - target: {fileID: 7382599933963768619, guid: 321a318bf63314647b8060e5509a0786,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7382599933963768619, guid: 321a318bf63314647b8060e5509a0786,
         type: 3}
@@ -27483,7 +27466,7 @@ PrefabInstance:
     - target: {fileID: 3053291962807437375, guid: 207d2f235d219d9498c1e3b39662a4c6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3053291962807437375, guid: 207d2f235d219d9498c1e3b39662a4c6,
         type: 3}
@@ -27657,7 +27640,7 @@ PrefabInstance:
     - target: {fileID: 5805718574504057116, guid: a55f1130b8eb4df4a9ff5da8069e6ebc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5805718574504057116, guid: a55f1130b8eb4df4a9ff5da8069e6ebc,
         type: 3}
@@ -27731,7 +27714,7 @@ PrefabInstance:
     - target: {fileID: 8180082193805923332, guid: 2b3af6de6d8f26542b9c738b57e6a6a9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8180082193805923332, guid: 2b3af6de6d8f26542b9c738b57e6a6a9,
         type: 3}

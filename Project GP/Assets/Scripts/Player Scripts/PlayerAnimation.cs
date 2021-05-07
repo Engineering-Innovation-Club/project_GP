@@ -37,6 +37,7 @@ public class PlayerAnimation : MonoBehaviour
     private const string PLAYER_FALL = "PlayerFall";
     private const string PLAYER_INTERACT = "PlayerInteract";
     private const string PLAYER_CLIMB = "PlayerClimb";
+    private const string PLAYER_SLUMP = "PlayerSlump";
 
     private float epsilon = 0.01f;
 
