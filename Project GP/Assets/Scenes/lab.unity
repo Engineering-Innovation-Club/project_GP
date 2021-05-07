@@ -454,7 +454,6 @@ MonoBehaviour:
   botBound: {fileID: 1291211716}
   shakeDuration: 0
   shakeAmount: 0.1
-  shakeDecrease: 0.2
 --- !u!95 &24671424
 Animator:
   serializedVersion: 3
@@ -27331,6 +27330,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1490359104, guid: 321a318bf63314647b8060e5509a0786, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490359106, guid: 321a318bf63314647b8060e5509a0786, type: 3}
+      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 567775827756639366, guid: 321a318bf63314647b8060e5509a0786,

@@ -30,6 +30,7 @@ TagManager:
   - Drone
   - CampusBoss
   - SuicideRobot
+  - Train
   layers:
   - Default
   - TransparentFX
@@ -72,4 +73,10 @@ TagManager:
     locked: 0
   - name: Tiles
     uniqueID: 1821220189
+    locked: 0
+  - name: Train
+    uniqueID: 3671477599
+    locked: 0
+  - name: Outer Train
+    uniqueID: 1305879583
     locked: 0
