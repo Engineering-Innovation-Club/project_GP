@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 74a21d11d6392214cb829bac535d3048
+guid: 4bb8410c5524f60409266dc2c05ab5dd
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,13 +9,9 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Raleway
+  - PT Sans Narrow
   fallbackFontReferences:
-  - {fileID: 12800000, guid: 45761363ef21f5e4cb140fc30cc36291, type: 3}
-  - {fileID: 12800000, guid: f017e79367e33ae4ab1604fb5fd34710, type: 3}
-  - {fileID: 12800000, guid: c535c3251d333194782ee0005913f346, type: 3}
-  - {fileID: 12800000, guid: 52bd40dc4d966854eaabc87b5ec09b7f, type: 3}
-  - {fileID: 12800000, guid: 25b058cdda669b9408581f1efe1b02e6, type: 3}
+  - {fileID: 12800000, guid: 21266c1be1d3da64c9c39419e636cc31, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

@@ -179,7 +179,7 @@ public class PlayerMovementControl : MonoBehaviour
             }
 
             // Check if the space key is pressed
-            if (Input.GetKeyDown("space"))
+            if (Input.GetKey("space"))
             {
                 jump();
             }
