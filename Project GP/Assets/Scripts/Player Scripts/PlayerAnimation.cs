@@ -181,7 +181,6 @@ public class PlayerAnimation : MonoBehaviour
         {
             return;
         }
-        print(newState);
         _animator.Play(newState);
         currentAnimation = newState;
     }
@@ -251,7 +250,6 @@ public class PlayerAnimation : MonoBehaviour
         }
         else
         {
-            print("here");
             ChangeAnimationState(PLAYER_IDLE);
         }
         isLanded = true;
