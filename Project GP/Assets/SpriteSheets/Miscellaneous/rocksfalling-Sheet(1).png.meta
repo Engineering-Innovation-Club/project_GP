@@ -1,0 +1,409 @@
+fileFormatVersion: 2
+guid: 7f3542e3993b1e34f8676d00c483af15
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4680081018690371677
+    second: rocksfalling-Sheet(1)_0
+  - first:
+      213: 455738095305395874
+    second: rocksfalling-Sheet(1)_1
+  - first:
+      213: 73539805127725778
+    second: rocksfalling-Sheet(1)_2
+  - first:
+      213: 3851737398898210776
+    second: rocksfalling-Sheet(1)_3
+  - first:
+      213: -6814291674978424928
+    second: rocksfalling-Sheet(1)_4
+  - first:
+      213: 7132318997025594076
+    second: rocksfalling-Sheet(1)_5
+  - first:
+      213: -7574107879709428988
+    second: rocksfalling-Sheet(1)_6
+  - first:
+      213: -2935233635336402635
+    second: rocksfalling-Sheet(1)_7
+  - first:
+      213: -2205453858424929703
+    second: rocksfalling-Sheet(1)_8
+  - first:
+      213: 8635550826264401706
+    second: rocksfalling-Sheet(1)_9
+  - first:
+      213: -7625388212868951091
+    second: rocksfalling-Sheet(1)_10
+  - first:
+      213: 1091637026718295365
+    second: rocksfalling-Sheet(1)_11
+  - first:
+      213: -6747651969796618437
+    second: rocksfalling-Sheet(1)_12
+  - first:
+      213: -5663618720436037664
+    second: rocksfalling-Sheet(1)_13
+  - first:
+      213: 3473221487410685148
+    second: rocksfalling-Sheet(1)_14
+  - first:
+      213: -4925257035415218337
+    second: rocksfalling-Sheet(1)_15
+  - first:
+      213: -6121895230451130492
+    second: rocksfalling-Sheet(1)_16
+  - first:
+      213: 4902722396678218111
+    second: rocksfalling-Sheet(1)_17
+  - first:
+      213: 1029598064004754737
+    second: rocksfalling-Sheet(1)_18
+  - first:
+      213: 4164821515899834524
+    second: rocksfalling-Sheet(1)_19
+  - first:
+      213: 4639993271942221282
+    second: rocksfalling-Sheet(1)_20
+  - first:
+      213: -4786409505426937687
+    second: rocksfalling-Sheet(1)_21
+  - first:
+      213: 8048267979253740991
+    second: rocksfalling-Sheet(1)_22
+  - first:
+      213: 2456503617129614700
+    second: rocksfalling-Sheet(1)_23
+  - first:
+      213: 2401351778371618979
+    second: rocksfalling-Sheet(1)_24
+  - first:
+      213: 2945750458101380767
+    second: rocksfalling-Sheet(1)_25
+  - first:
+      213: 2684969299684198368
+    second: rocksfalling-Sheet(1)_26
+  - first:
+      213: -7586693982336544523
+    second: rocksfalling-Sheet(1)_27
+  - first:
+      213: 1484625736516476665
+    second: rocksfalling-Sheet(1)_28
+  - first:
+      213: -906240404671328560
+    second: rocksfalling-Sheet(1)_29
+  - first:
+      213: -1181059301387372825
+    second: rocksfalling-Sheet(1)_30
+  - first:
+      213: -4469232303821471951
+    second: rocksfalling-Sheet(1)_31
+  - first:
+      213: -7624684170003746498
+    second: rocksfalling-Sheet(1)_32
+  - first:
+      213: 2189239242058606298
+    second: rocksfalling-Sheet(1)_33
+  - first:
+      213: -7892210015269952706
+    second: rocksfalling-Sheet(1)_34
+  - first:
+      213: 369128223069073711
+    second: rocksfalling-Sheet(1)_35
+  - first:
+      213: -1179260083493264618
+    second: rocksfalling-Sheet(1)_36
+  - first:
+      213: -5030046996431222739
+    second: rocksfalling-Sheet(1)_37
+  - first:
+      213: 7159378275333127029
+    second: rocksfalling-Sheet(1)_38
+  - first:
+      213: 2393980111854751782
+    second: rocksfalling-Sheet(1)_39
+  - first:
+      213: 8172409838920546367
+    second: rocksfalling-Sheet(1)_40
+  - first:
+      213: 7926816865163290184
+    second: rocksfalling-Sheet(1)_41
+  - first:
+      213: -5455049851444831415
+    second: rocksfalling-Sheet(1)_42
+  - first:
+      213: -3723109307753931340
+    second: rocksfalling-Sheet(1)_43
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rocksfalling-Sheet(1)_0
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 546
+        width: 120
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af79e01c130d0fb0800000000000000
+      internalID: -4680081018690371677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksfalling-Sheet(1)_1
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 420
+        width: 228
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ae8a41126b135600800000000000000
+      internalID: 455738095305395874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksfalling-Sheet(1)_2
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 324
+        width: 246
+        height: 324
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d25d792014450100800000000000000
+      internalID: 73539805127725778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksfalling-Sheet(1)_3
+      rect:
+        serializedVersion: 2
+        x: 4428
+        y: 108
+        width: 240
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d73a65c1ce147530800000000000000
+      internalID: 3851737398898210776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksfalling-Sheet(1)_4
+      rect:
+        serializedVersion: 2
+        x: 5340
+        y: 420
+        width: 228
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a7620543d5ce61a0800000000000000
+      internalID: -6814291674978424928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksfalling-Sheet(1)_5
+      rect:
+        serializedVersion: 2
+        x: 6780
+        y: 336
+        width: 234
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cda1b72d6561bf260800000000000000
+      internalID: 7132318997025594076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocksfalling-Sheet(1)_6
+      rect:
+        serializedVersion: 2
+        x: 8220
+        y: 240
+        width: 240
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 403be63430d53e690800000000000000
+      internalID: -7574107879709428988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

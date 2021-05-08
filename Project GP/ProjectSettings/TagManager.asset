@@ -80,3 +80,6 @@ TagManager:
   - name: Outer Train
     uniqueID: 1305879583
     locked: 0
+  - name: Rocks
+    uniqueID: 1750219019
+    locked: 0

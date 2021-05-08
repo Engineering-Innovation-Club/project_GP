@@ -1,0 +1,562 @@
+fileFormatVersion: 2
+guid: a5b28a3d97d0a3446ba8756b0b2d0a59
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7404345680841644941
+    second: animated-water&sparks_0
+  - first:
+      213: -4165118635342272847
+    second: animated-water&sparks_1
+  - first:
+      213: 3116675930005640684
+    second: animated-water&sparks_2
+  - first:
+      213: -164432013111314518
+    second: animated-water&sparks_3
+  - first:
+      213: 6611281992109878747
+    second: animated-water&sparks_4
+  - first:
+      213: -495667413291749029
+    second: animated-water&sparks_5
+  - first:
+      213: -6084290531603519954
+    second: animated-water&sparks_6
+  - first:
+      213: 3482331499931436213
+    second: animated-water&sparks_7
+  - first:
+      213: -6140940958436134650
+    second: animated-water&sparks_8
+  - first:
+      213: -8264572815581174935
+    second: animated-water&sparks_9
+  - first:
+      213: -6186744313406713507
+    second: animated-water&sparks_10
+  - first:
+      213: -4450838424654907127
+    second: animated-water&sparks_11
+  - first:
+      213: -4181002100605594230
+    second: animated-water&sparks_12
+  - first:
+      213: -2558616468220676676
+    second: animated-water&sparks_13
+  - first:
+      213: 3644874927980217087
+    second: animated-water&sparks_14
+  - first:
+      213: 281283231547144137
+    second: animated-water&sparks_15
+  - first:
+      213: -8977735166213204573
+    second: animated-water&sparks_16
+  - first:
+      213: -2967329998031766854
+    second: animated-water&sparks_17
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: animated-water&sparks_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3746c3b45da7e3990800000000000000
+      internalID: -7404345680841644941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_1
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b6601d3ba68236c0800000000000000
+      internalID: -4165118635342272847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_2
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce51ff7de38a04b20800000000000000
+      internalID: 3116675930005640684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_3
+      rect:
+        serializedVersion: 2
+        x: 1962
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa73ccc84f1d7bdf0800000000000000
+      internalID: -164432013111314518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_4
+      rect:
+        serializedVersion: 2
+        x: 2616
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd65a991fdffbb50800000000000000
+      internalID: 6611281992109878747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_5
+      rect:
+        serializedVersion: 2
+        x: 3270
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5132002d190f19f0800000000000000
+      internalID: -495667413291749029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_6
+      rect:
+        serializedVersion: 2
+        x: 3924
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e26ef795ff1409ba0800000000000000
+      internalID: -6084290531603519954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_7
+      rect:
+        serializedVersion: 2
+        x: 4578
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b4019b8c0ab35030800000000000000
+      internalID: 3482331499931436213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_8
+      rect:
+        serializedVersion: 2
+        x: 5232
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60174c10cbef6caa0800000000000000
+      internalID: -6140940958436134650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_9
+      rect:
+        serializedVersion: 2
+        x: 5886
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9632fe2dfc65e4d80800000000000000
+      internalID: -8264572815581174935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_10
+      rect:
+        serializedVersion: 2
+        x: 6540
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d51993363d4442aa0800000000000000
+      internalID: -6186744313406713507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_11
+      rect:
+        serializedVersion: 2
+        x: 7194
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 909f8c9c8027b32c0800000000000000
+      internalID: -4450838424654907127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_12
+      rect:
+        serializedVersion: 2
+        x: 7848
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a85dd3ccdb81af5c0800000000000000
+      internalID: -4181002100605594230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_13
+      rect:
+        serializedVersion: 2
+        x: 8502
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5fd37d0e7fd7cd0800000000000000
+      internalID: -2558616468220676676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_14
+      rect:
+        serializedVersion: 2
+        x: 9156
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff20df48f62359230800000000000000
+      internalID: 3644874927980217087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_15
+      rect:
+        serializedVersion: 2
+        x: 9810
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c734a9db9157e300800000000000000
+      internalID: 281283231547144137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_16
+      rect:
+        serializedVersion: 2
+        x: 10464
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a55452be6da86380800000000000000
+      internalID: -8977735166213204573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-water&sparks_17
+      rect:
+        serializedVersion: 2
+        x: 11118
+        y: 0
+        width: 654
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abab4ff961de1d6d0800000000000000
+      internalID: -2967329998031766854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
