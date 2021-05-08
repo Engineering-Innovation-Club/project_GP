@@ -47,11 +47,6 @@ public class PlayerMovementControl : MonoBehaviour
     float collSizeY;
     float collOffY;
 
-    // ??? All these crouching variables ????
-    public bool isCrouchUp;
-    public bool isCrouchDown;
-    int toggleCrouch = -1;
-
     // Variables for pass-through platforms
     private GameObject currentPassThroughBlock;
     private float doubleTapDownTimer = 0.3f;
@@ -68,7 +63,7 @@ public class PlayerMovementControl : MonoBehaviour
     private AnimationClip standingRollClip;
 
     // Variable to access animation script
-    private PlayerAnimation pAnimScript;
+    //private PlayerAnimation pAnimScript;
 
     // Public variable to hold the scene it should load
     public int sceneNum;
@@ -105,7 +100,7 @@ public class PlayerMovementControl : MonoBehaviour
         collSizeY = coll.size.y;
         collOffY = coll.offset.y;
 
-        pAnimScript = GetComponent<PlayerAnimation>();
+        //pAnimScript = GetComponent<PlayerAnimation>();
     }
 
     // Update is called once per frame
@@ -150,10 +145,10 @@ public class PlayerMovementControl : MonoBehaviour
                     rbody.velocity = new Vector2(moveSpeed, rbody.velocity.y);
                 }
 
-                if (!pAnimScript.isFacingRight)
-                {
-                    pAnimScript.flip();
-                }
+                //if (!pAnimScript.isFacingRight)
+                //{
+                //    pAnimScript.flip();
+                //}
             }
             // Checks if the "a" key is being pressed
             else if (Input.GetKey("a") && !isRoll && canMoveLeft)
@@ -168,10 +163,10 @@ public class PlayerMovementControl : MonoBehaviour
                     rbody.velocity = new Vector2(-(moveSpeed), rbody.velocity.y);
                 }
 
-                if (pAnimScript.isFacingRight)
-                {
-                    pAnimScript.flip();
-                }
+                //if (pAnimScript.isFacingRight)
+                //{
+                //    pAnimScript.flip();
+                //}
             }
             else if (!Input.anyKey && !onMovingPlatform)
             {
@@ -181,6 +176,7 @@ public class PlayerMovementControl : MonoBehaviour
             // Check if the space key is pressed
             if (Input.GetKey("space"))
             {
+                Debug.Log("Jump");
                 jump();
             }
 
@@ -278,12 +274,12 @@ public class PlayerMovementControl : MonoBehaviour
             RaycastHit2D downRay = Physics2D.Raycast(transform.position + new Vector3((coll.bounds.size.x / 2f), 0), Vector2.down, 0.5f, groundLayer);
             RaycastHit2D sideRay = Physics2D.Raycast(transform.position, Vector2.right, 1f, groundLayer);
 
-            if (!GetComponent<PlayerAnimation>().isFacingRight)
-            {
-                // Facing Left
-                downRay = Physics2D.Raycast(transform.position - new Vector3((coll.bounds.size.x / 2f), 0), Vector2.down, 0.5f, groundLayer);
-                sideRay = Physics2D.Raycast(transform.position, Vector2.left, 1f, groundLayer);
-            }
+            //if (!GetComponent<PlayerAnimation>().isFacingRight)
+            //{
+            //    // Facing Left
+            //    downRay = Physics2D.Raycast(transform.position - new Vector3((coll.bounds.size.x / 2f), 0), Vector2.down, 0.5f, groundLayer);
+            //    sideRay = Physics2D.Raycast(transform.position, Vector2.left, 1f, groundLayer);
+            //}
 
             Debug.DrawRay(transform.position + new Vector3((coll.bounds.size.x / 2f), 0), Vector3.down, Color.red);
             Debug.DrawRay(transform.position, Vector2.right, Color.red);
@@ -417,73 +413,31 @@ public class PlayerMovementControl : MonoBehaviour
     // Function that makes the player crouch, if certain conditions are ok
     private void crouch(bool down)
     {
-        if (down)   // crouching down
+        if (down)
         {
             isCrouching = true;
-            isCrouchDown = true;
             coll.offset = new Vector2(coll.offset.x, (collOffY - (collSizeY / 4f)) * 1.2f);
             coll.size = new Vector2(coll.bounds.size.x / 2, (collSizeY / 2f) * 1.2f);
         }
         else
-        { // crouching up
-            if (isCrouchDown) // if trying to crouch up while crouching down
-            {
-                isCrouchDown = false;
-                isCrouchUp = true;
-                isCrouching = true;
-            }
-            else // crouch up
-            {
-                isCrouchUp = true;
-                coll.offset = new Vector2(coll.offset.x, collOffY);
-                coll.size = new Vector2(coll.bounds.size.x / 2, collSizeY);
-            }
+        {
+            isCrouching = false;
+            coll.offset = new Vector2(coll.offset.x, collOffY);
+            coll.size = new Vector2(coll.bounds.size.x / 2, collSizeY);
         }
     }
 
     // Function called in Update() checking the crouching
     private void checkCrouch()
     {
-        if (Input.GetKeyDown(KeyCode.C)) // toggle crouch
-        {
-            if (toggleCrouch == -1) // toggle off
-            {
-                toggleCrouch = 1;
-            }
-            else if (toggleCrouch == 1)
-            {
-                toggleCrouch = 0;
-            }
-            else
-            {
-                toggleCrouch = -1;
-            }
-        }
 
         // Check if crouch key is being pressed
-        if (Input.GetKeyDown(KeyCode.LeftControl) && toggleCrouch != 1) // if crouch is pressed and toggle crouch not currently active
+        if (Input.GetKey(KeyCode.LeftControl))
         {
             crouch(true);
         }
-        else if (toggleCrouch == 1 && !isCrouching) // if toggle crouch and not already crouching
+        else
         {
-            crouch(true);
-        }
-
-        // Check if crouch key is no longer being pressed
-        if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            if (toggleCrouch == -1) // if toggle crouch is not on
-            {
-                crouch(false);
-            }
-        }
-        else if (toggleCrouch == 0) // toggle crouch is on and currently crouched
-        {
-            if (toggleCrouch == 0)
-            {
-                toggleCrouch = -1;  // set toggle to none
-            }
             crouch(false);
         }
     }
