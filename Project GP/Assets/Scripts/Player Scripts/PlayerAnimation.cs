@@ -137,7 +137,7 @@ public class PlayerAnimation : MonoBehaviour
             if (Mathf.Abs(vx) - epsilon > 0 && !_pM.isRoll)
             {
                 ChangeAnimationState(PLAYER_RUN);
-            } else if (!_pM.isRoll)
+            } else if (!_pM.isRoll && !_pM.isCrouching)
             {
                 ChangeAnimationState(PLAYER_IDLE);
             }
@@ -211,27 +211,27 @@ public class PlayerAnimation : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (_pM.isClimbing || _pM.isOnLadder) return;
+        if (_pM.isClimbing || _pM.isOnLadder || _pM.isCrouching) return;
         string tag = collision.gameObject.tag;
         int layer = collision.gameObject.layer;
-        if (tag.Equals("Ground") || layer == 8 || tag.Equals("Ladder"))
-        {
-            float vx = rbody.velocity.x - _pM.mpVel;
-            if (currentAnimation == PLAYER_FALL && Mathf.Abs(vx) - epsilon <= 0)
-            {
-                ChangeAnimationState(PLAYER_LAND);
-                Invoke("Landed", animationTimes[PLAYER_LAND]);
-            }
-            else if (currentAnimation == PLAYER_FALL && Mathf.Abs(vx) - epsilon > 0)
-            {
-                ChangeAnimationState(PLAYER_LAND_RUN_LINK);
-                Invoke("Landed", animationTimes[PLAYER_LAND_RUN_LINK]);
-            }
-            else
-            {
-                Landed();
-            }
-        }
+        //if (tag.Equals("Ground") || layer == 8 || tag.Equals("Ladder"))
+        //{
+        //    float vx = rbody.velocity.x - _pM.mpVel;
+        //    if (currentAnimation == PLAYER_FALL && Mathf.Abs(vx) - epsilon <= 0)
+        //    {
+        //        ChangeAnimationState(PLAYER_LAND);
+        //        Invoke("Landed", animationTimes[PLAYER_LAND]);
+        //    }
+        //    else if (currentAnimation == PLAYER_FALL && Mathf.Abs(vx) - epsilon > 0)
+        //    {
+        //        ChangeAnimationState(PLAYER_LAND_RUN_LINK);
+        //        Invoke("Landed", animationTimes[PLAYER_LAND_RUN_LINK]);
+        //    }
+        //    else
+        //    {
+        //        Landed();
+        //    }
+        //}
         if (collision.gameObject.tag == "passThroughBlock")
         {
             if (currentAnimation == PLAYER_FALL)
