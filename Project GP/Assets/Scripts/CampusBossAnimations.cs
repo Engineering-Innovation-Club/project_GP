@@ -217,7 +217,7 @@ public class CampusBossAnimations : MonoBehaviour
             //ChangeAnimationState(BOSS_DEATH);
             Debug.Log("Dead. health is " + currentHealth);
             //coll.enabled = false;
-            Destroy(this);
+            Destroy(gameObject);
             //rbody.constraints = RigidbodyCosntraints2D.FreezeAll;
         }
     }
