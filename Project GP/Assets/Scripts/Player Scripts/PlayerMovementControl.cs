@@ -113,7 +113,7 @@ public class PlayerMovementControl : MonoBehaviour
     {
         timers();
 
-        if (!PauseMenu.isPaused)
+        if (!PauseMenu.isPaused || !DialogueScript.hasDialogue)
         {
             if (isGrounded && (Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("space")))
             {
