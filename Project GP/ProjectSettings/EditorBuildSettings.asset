@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Campus.unity
     guid: ed819021ee5960141b569eefc4263998
+  - enabled: 1
+    path: Assets/Scenes/subway.unity
+    guid: d13a35fe95c499043b480fb8c9a232ee
   m_configObjects: {}
