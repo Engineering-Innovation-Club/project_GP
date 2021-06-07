@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovementControl : MonoBehaviour
 {
@@ -73,6 +74,9 @@ public class PlayerMovementControl : MonoBehaviour
     // Public variable to hold the scene it should load
     public int sceneNum;
 
+    public DialogueScript dScript;
+    public Image testPortrait;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,8 +117,18 @@ public class PlayerMovementControl : MonoBehaviour
     {
         timers();
 
+        // TEMPORARY USED TO TEST DIALOGUE FUNCTIONALITY
+        if (Input.GetKey("g"))
+        {
+            Debug.Log("Pressed G");
+            dScript.AddDialogue("Speaker", "Test Message", testPortrait);
+            dScript.StartDialogue();
+        }
+
         if (!PauseMenu.isPaused || !DialogueScript.hasDialogue)
         {
+            
+
             if (isGrounded && (Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("space")))
             {
                 rbody.constraints = RigidbodyConstraints2D.None;

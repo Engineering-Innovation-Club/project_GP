@@ -12,18 +12,18 @@ public class DialogueScript : MonoBehaviour
     public TextMeshProUGUI message;
     public Image portrait;
 
-    private bool doneMessage;
+    private bool lastMessage;
 
     public GameObject panel;
-    private List<string> speakerList;
-    private List<string> messageList;
-    private List<Image> imageList;
+    public List<string> speakerList;
+    public List<string> messageList;
+    public List<Image> imageList;
 
     // Start is called before the first frame update
     void Start()
     {
         hasDialogue = false;
-        doneMessage = true;
+        lastMessage = false;
     }
 
     // Update is called once per frame
@@ -33,43 +33,72 @@ public class DialogueScript : MonoBehaviour
         {
             hasDialogue = true;
         }
+        else
+        {
+            hasDialogue = false;
+        }
+
+        if (speakerList.Count == 1)
+        {
+            lastMessage = true;
+        }
+        else
+        {
+            lastMessage = false;
+        }
+
+        if (hasDialogue && Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Click");
+            if (hasDialogue)
+            {
+                if (!lastMessage)
+                {
+                    NextMessage();
+                }
+                else
+                {
+                    EndDialogue();
+                }
+            }
+        }
     }
 
-    void AddDialogue(string speaker, string message, Image picture)
+    public void AddDialogue(string speaker, string message, Image picture)
     {
+        Debug.Log("Add Dialogue");
         speakerList.Add(speaker);
         messageList.Add(message);
         imageList.Add(picture);
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
+        Debug.Log("Start Dialogue");
         speaker.text = speakerList[0];
         message.text = messageList[0];
         portrait = imageList[0];
+
+        panel.SetActive(true);
+    }
+
+    public void EndDialogue()
+    {
+        Debug.Log("End Dialogue");
+        speakerList.RemoveAt(0);
+        messageList.RemoveAt(0);
+        imageList.RemoveAt(0);
+
+        panel.SetActive(false);
     }
 
     void NextMessage()
     {
+        Debug.Log("Next Dialogue");
         speakerList.RemoveAt(0);
         messageList.RemoveAt(0);
         imageList.RemoveAt(0);
 
         StartDialogue();
-    }
-
-    private void OnMouseDown()
-    {
-        if (hasDialogue)
-        {
-            if (doneMessage)
-            {
-                NextMessage();
-            }
-            else
-            {
-                //FinishMessage();
-            }
-        }
     }
 }
