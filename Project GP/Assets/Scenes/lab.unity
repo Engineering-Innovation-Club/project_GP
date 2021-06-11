@@ -28667,6 +28667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1908790512}
+  - component: {fileID: 1908790513}
   m_Layer: 0
   m_Name: Weapons Testing Room
   m_TagString: Untagged
@@ -28690,6 +28691,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1908790513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908790511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec845d900215a6849ba2d41565652eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  director: {fileID: 1408408661}
+  clip: {fileID: 11400000, guid: 3837d993d19936b499792507c3acc3c4, type: 2}
+  background: {fileID: 1198302719}
+  glass: {fileID: 1403160518}
+  destroyedBG: {fileID: 21300000, guid: 1d6332f9bbfbb5c42bf4e0393a120803, type: 3}
+  destroyedGlass: {fileID: 21300000, guid: a78def05002537f40aadc9bf91a2413b, type: 3}
+  dScript: {fileID: 277825445}
+  speakerList:
+  - Edi
+  - Kanaan
+  - Edi
+  - Kanaan
+  - Edi
+  messageList:
+  - Hello 1
+  - Hello 2
+  - Hello 3
+  - Hello 4
+  - Hello 5
+  imageList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1909848934
 GameObject:
   m_ObjectHideFlags: 0
@@ -29462,7 +29500,7 @@ PrefabInstance:
     - target: {fileID: 7382599933963768619, guid: 321a318bf63314647b8060e5509a0786,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.42
+      value: -31.8
       objectReference: {fileID: 0}
     - target: {fileID: 7382599933963768619, guid: 321a318bf63314647b8060e5509a0786,
         type: 3}

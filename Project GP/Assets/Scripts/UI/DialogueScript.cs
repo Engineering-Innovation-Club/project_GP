@@ -6,7 +6,7 @@ using TMPro;
 
 public class DialogueScript : MonoBehaviour
 {
-    public static bool hasDialogue;
+    public bool hasDialogue;
 
     public TextMeshProUGUI speaker;
     public TextMeshProUGUI message;

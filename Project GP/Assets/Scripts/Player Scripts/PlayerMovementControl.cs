@@ -125,7 +125,7 @@ public class PlayerMovementControl : MonoBehaviour
             dScript.StartDialogue();
         }
 
-        if (!PauseMenu.isPaused || !DialogueScript.hasDialogue)
+        if (!PauseMenu.isPaused && !dScript.hasDialogue)
         {
             
 

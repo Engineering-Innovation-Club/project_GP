@@ -25,7 +25,7 @@ public class WeaponsCutsceneScript : MonoBehaviour
     void Start()
     {
         StartCutscene();
-        Invoke("Add", (float)clip.duration);
+        Invoke("PlayDialogue", (float)clip.duration);
     }
 
     void SwitchSprites()
@@ -40,6 +40,12 @@ public class WeaponsCutsceneScript : MonoBehaviour
         {
             dScript.AddDialogue(speakerList[i], messageList[i], imageList[i]);
         }
+    }
+
+    void PlayDialogue()
+    {
+        Add();
+        dScript.StartDialogue();
     }
 
     void StartCutscene()
