@@ -40,7 +40,7 @@ public class ProjectileShootingScript : MonoBehaviour
             // Single Fire-Rate
             if (fireRate == 0)
             {
-                if (Input.GetKeyDown("mouse 0"))
+                if (Input.GetKeyDown("mouse 0") && canShoot())
                 {
                     shoot();
                 }
@@ -48,7 +48,7 @@ public class ProjectileShootingScript : MonoBehaviour
 
             else
             {
-                if (Input.GetKeyDown("mouse 0") && Time.time > timeToFire)
+                if (Input.GetKeyDown("mouse 0") && Time.time > timeToFire && canShoot())
                 {
                     timeToFire = Time.time + 1 / fireRate;
                     shoot();
@@ -83,5 +83,55 @@ public class ProjectileShootingScript : MonoBehaviour
     void doneShoot()
     {
         anim.SetBool("isShooting", false);
+    }
+
+    bool canShoot()
+    {
+        Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+        Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Vector3 playerPos = player.transform.position + new Vector3(0, player.GetComponent<CapsuleCollider2D>().bounds.size.y / 2, 0);
+
+        if (playerPos.x > firePointPosition.x)
+        {
+            // Left Side
+            if (playerPos.y < firePointPosition.y)
+            {
+                // Left Top
+                if ((mousePosition.x < firePointPosition.x) && (mousePosition.x > firePointPosition.y))
+                {
+                    return true;
+                }
+            }
+            else if (playerPos.y > firePointPosition.y)
+            {
+                // Left Bottom
+                if ((mousePosition.x < firePointPosition.x) && (mousePosition.x < firePointPosition.y))
+                {
+                    return true;
+                }
+            }
+        }
+        else if (player.transform.position.x < firePointPosition.x)
+        {
+            // Right Side
+            if (playerPos.y < firePointPosition.y)
+            {
+                // Right Top
+                if ((mousePosition.x > firePointPosition.x) && (mousePosition.x > firePointPosition.y))
+                {
+                    return true;
+                }
+            }
+            else if (playerPos.y > firePointPosition.y)
+            {
+                // Right Bottom
+                if ((mousePosition.x > firePointPosition.x) && (mousePosition.x < firePointPosition.y))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

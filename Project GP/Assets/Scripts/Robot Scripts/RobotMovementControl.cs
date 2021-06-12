@@ -67,6 +67,5 @@ public class RobotMovementControl : MonoBehaviour
             }
             prevLocation = transform.position;
         }
-        
     }
 }
