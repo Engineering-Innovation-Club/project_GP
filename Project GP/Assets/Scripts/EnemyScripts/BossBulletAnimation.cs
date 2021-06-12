@@ -41,7 +41,7 @@ public class BossBulletAnimation : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Ground" || collision.tag == "MovingPlatform" || collision.tag == "Wall" || collision.tag == bs.target)
+        if (collision.gameObject.name != "NoEnemyCollide" && (collision.tag == "Ground" || collision.tag == "MovingPlatform" || collision.tag == "Wall" || collision.tag == bs.target))
         {
             ChangeAnimationState(BULLET_DESTROY);
             Invoke("DestroyBullet", animationTimes[BULLET_DESTROY]);

@@ -39,7 +39,7 @@ public class DroidBulletAnimation : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.gameObject.name != "NoEnemyCollide" && (collision.tag == "Ground" || collision.tag == "MovingPlatform" || collision.tag == "Wall" || collision.tag == "Player"))
         {
             ChangeAnimationState(BULLET_DESTROY);
             Invoke("DestroyBullet", animationTimes[BULLET_DESTROY]);

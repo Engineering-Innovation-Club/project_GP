@@ -48,7 +48,7 @@ public class RobotBulletAnimation : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Ground" || collision.tag == "MovingPlatform" || collision.tag == "Wall" || collision.tag == "Player" || collision.tag == "Drone" || collision.tag == "Droid" || collision.tag == "CampusBoss" || collision.tag == "SuicideRobot")
+        if (collision.gameObject.name != "NoEnemyCollide" && (collision.tag == "Ground" || collision.tag == "MovingPlatform" || collision.tag == "Wall" || collision.tag == "Player" || collision.tag == "Drone" || collision.tag == "Droid" || collision.tag == "CampusBoss" || collision.tag == "SuicideRobot"))
         {
             ChangeAnimationState(BULLET_DESTROY);
             bulletLight.SetActive(false);

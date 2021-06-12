@@ -5,8 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class NoCollideScript : MonoBehaviour
 {
-    public GameObject thing;
-    public GameObject bullet;
+    public Transform thing;
+    public Transform bullet;
 
     // Start is called before the first frame update
     void Start()
