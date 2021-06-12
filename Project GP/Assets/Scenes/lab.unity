@@ -28674,6 +28674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thing: {fileID: 1705178889}
+  bullet: {fileID: 6456740284696563825, guid: 23f13e812a5af7947aa15e3de298077c, type: 3}
 --- !u!1 &1733230859 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 567775827756639366, guid: 321a318bf63314647b8060e5509a0786,
