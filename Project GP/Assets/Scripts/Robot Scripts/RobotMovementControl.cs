@@ -14,6 +14,8 @@ public class RobotMovementControl : MonoBehaviour
     private Vector3 scale;
     private Vector3 flipScale;
 
+    public DialogueScript dScript;
+
     Animator anim;
     Vector3 prevLocation;
     // Start is called before the first frame update
@@ -37,7 +39,7 @@ public class RobotMovementControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!PauseMenu.isPaused)
+        if (!PauseMenu.isPaused && !dScript.hasDialogue)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 

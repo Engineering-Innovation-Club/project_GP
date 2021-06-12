@@ -92,22 +92,28 @@ public class ProjectileShootingScript : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Vector3 playerPos = player.transform.position + new Vector3(0, player.GetComponent<CapsuleCollider2D>().bounds.size.y / 2, 0);
 
+        RaycastHit2D rc = Physics2D.Raycast(firePointPosition, playerPos);
+        Debug.DrawRay(firePointPosition, playerPos, Color.red);
+        Debug.Log(playerPos + " | " + firePointPosition);
+
         if (playerPos.x > firePointPosition.x)
         {
             // Left Side
             if (playerPos.y < firePointPosition.y)
             {
                 // Left Top
-                if ((mousePosition.x < firePointPosition.x) && (mousePosition.x > firePointPosition.y))
+                if ((mousePosition.x < firePointPosition.x) && (mousePosition.y > firePointPosition.y))
                 {
+                    Debug.Log("Top Left");
                     return true;
                 }
             }
             else if (playerPos.y > firePointPosition.y)
             {
                 // Left Bottom
-                if ((mousePosition.x < firePointPosition.x) && (mousePosition.x < firePointPosition.y))
+                if ((mousePosition.x < firePointPosition.x) && (mousePosition.y < firePointPosition.y))
                 {
+                    Debug.Log("Bottom Left");
                     return true;
                 }
             }
@@ -118,16 +124,18 @@ public class ProjectileShootingScript : MonoBehaviour
             if (playerPos.y < firePointPosition.y)
             {
                 // Right Top
-                if ((mousePosition.x > firePointPosition.x) && (mousePosition.x > firePointPosition.y))
+                if ((mousePosition.x > firePointPosition.x) && (mousePosition.y > firePointPosition.y))
                 {
+                    Debug.Log("Top Right");
                     return true;
                 }
             }
             else if (playerPos.y > firePointPosition.y)
             {
                 // Right Bottom
-                if ((mousePosition.x > firePointPosition.x) && (mousePosition.x < firePointPosition.y))
+                if ((mousePosition.x > firePointPosition.x) && (mousePosition.y < firePointPosition.y))
                 {
+                    Debug.Log("Bottom Right");
                     return true;
                 }
             }
