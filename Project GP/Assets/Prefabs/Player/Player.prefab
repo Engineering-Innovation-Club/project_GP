@@ -226,7 +226,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 567775827756639366}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8faf622eb716dfa43975337212712ad1, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -340,6 +340,8 @@ MonoBehaviour:
   gravity: 2
   jumpVel: 15
   sceneNum: 0
+  dScript: {fileID: 0}
+  testPortrait: {fileID: 0}
 --- !u!114 &567775827756639360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,7 +356,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 0
-  playerUIScript: {fileID: 0}
 --- !u!114 &1733230860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +473,6 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
