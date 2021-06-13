@@ -99,60 +99,21 @@ public class ProjectileShootingScript : MonoBehaviour
             return false;
         }
 
-        if (playerPos.x > firePointPosition.x)
+        float x1 = playerPos.x - firePointPosition.x;
+        float y1 = playerPos.y - firePointPosition.y;
+        float z1 = Mathf.Sqrt(Mathf.Pow(x1, 2) + Mathf.Pow(y1, 2));
+
+        float x2 = playerPos.x - mousePosition.x;
+        float y2 = playerPos.y - mousePosition.y;
+        float z2 = Mathf.Sqrt(Mathf.Pow(x2, 2) + Mathf.Pow(y2, 2));
+
+        if (z2 > z1)
         {
-            // Left Side
-            if (playerPos.y < firePointPosition.y)
-            {
-                // Left Top
-                if ((mousePosition.x < firePointPosition.x) && (mousePosition.y > firePointPosition.y))
-                {
-                    return true;
-                }
-            }
-            else if (playerPos.y > firePointPosition.y)
-            {
-                // Left Bottom
-                if ((mousePosition.x < firePointPosition.x) && (mousePosition.y < firePointPosition.y))
-                {
-                    return true;
-                }
-            }
-            else
-            {
-                if (mousePosition.x < firePointPosition.x)
-                {
-                    return true;
-                }
-            }
+            return true;
         }
-        else if (player.transform.position.x < firePointPosition.x)
+        else
         {
-            // Right Side
-            if (playerPos.y < firePointPosition.y)
-            {
-                // Right Top
-                if ((mousePosition.x > firePointPosition.x) && (mousePosition.y > firePointPosition.y))
-                {
-                    return true;
-                }
-            }
-            else if (playerPos.y > firePointPosition.y)
-            {
-                // Right Bottom
-                if ((mousePosition.x > firePointPosition.x) && (mousePosition.y < firePointPosition.y))
-                {
-                    return true;
-                }
-            }
-            else
-            {
-                if (mousePosition.x > firePointPosition.x)
-                {
-                    return true;
-                }
-            }
+            return false;
         }
-        return false;
     }
 }
