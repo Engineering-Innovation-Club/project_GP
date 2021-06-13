@@ -90,11 +90,14 @@ public class ProjectileShootingScript : MonoBehaviour
         Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Vector3 playerPos = player.transform.position + new Vector3(0, player.GetComponent<CapsuleCollider2D>().bounds.size.y / 2, 0);
+        Vector2 playerPos = player.transform.position + new Vector3(0, player.GetComponent<CapsuleCollider2D>().bounds.size.y / 2);
 
-        RaycastHit2D rc = Physics2D.Raycast(firePointPosition, playerPos);
-        Debug.DrawRay(firePointPosition, playerPos, Color.red);
-        Debug.Log(playerPos + " | " + firePointPosition);
+        RaycastHit2D rc = Physics2D.Raycast(firePointPosition, -(firePointPosition - playerPos));
+        
+        if (rc.collider.tag == "Ground" || rc.collider.tag == "Wall" || rc.collider.tag == "Ladder")
+        {
+            return false;
+        }
 
         if (playerPos.x > firePointPosition.x)
         {
@@ -104,7 +107,6 @@ public class ProjectileShootingScript : MonoBehaviour
                 // Left Top
                 if ((mousePosition.x < firePointPosition.x) && (mousePosition.y > firePointPosition.y))
                 {
-                    Debug.Log("Top Left");
                     return true;
                 }
             }
@@ -113,7 +115,13 @@ public class ProjectileShootingScript : MonoBehaviour
                 // Left Bottom
                 if ((mousePosition.x < firePointPosition.x) && (mousePosition.y < firePointPosition.y))
                 {
-                    Debug.Log("Bottom Left");
+                    return true;
+                }
+            }
+            else
+            {
+                if (mousePosition.x < firePointPosition.x)
+                {
                     return true;
                 }
             }
@@ -126,7 +134,6 @@ public class ProjectileShootingScript : MonoBehaviour
                 // Right Top
                 if ((mousePosition.x > firePointPosition.x) && (mousePosition.y > firePointPosition.y))
                 {
-                    Debug.Log("Top Right");
                     return true;
                 }
             }
@@ -135,7 +142,13 @@ public class ProjectileShootingScript : MonoBehaviour
                 // Right Bottom
                 if ((mousePosition.x > firePointPosition.x) && (mousePosition.y < firePointPosition.y))
                 {
-                    Debug.Log("Bottom Right");
+                    return true;
+                }
+            }
+            else
+            {
+                if (mousePosition.x > firePointPosition.x)
+                {
                     return true;
                 }
             }
