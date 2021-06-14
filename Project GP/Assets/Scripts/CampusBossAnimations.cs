@@ -7,6 +7,7 @@ public class CampusBossAnimations : MonoBehaviour
 
     Animator anim;
     Rigidbody2D rbody;
+    BoxCollider2D coll;
 
     public Transform target;
     public Transform arms;

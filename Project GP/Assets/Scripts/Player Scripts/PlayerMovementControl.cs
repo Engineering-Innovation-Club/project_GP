@@ -117,14 +117,6 @@ public class PlayerMovementControl : MonoBehaviour
     {
         timers();
 
-        // TEMPORARY USED TO TEST DIALOGUE FUNCTIONALITY
-        if (Input.GetKey("g"))
-        {
-            Debug.Log("Pressed G");
-            dScript.AddDialogue("Speaker", "Test Message", testPortrait);
-            dScript.StartDialogue();
-        }
-
         if (!PauseMenu.isPaused && !dScript.hasDialogue)
         {
             
