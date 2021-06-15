@@ -16144,8 +16144,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6ef11b93773bc4294ac8549af0afda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bg: {fileID: 0}
+  source: {fileID: 885364281}
+  bg: {fileID: 8300000, guid: ec3f3666056fb4d4c81b2ce5cb4f3372, type: 3}
   boss: {fileID: 0}
+  labCutscene: {fileID: 0}
+  fadeIn: 0
+  fadeOut: 0
+  fadeFactor: 0.0001
+  maxVolume: 0.3
 --- !u!82 &885364281
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16158,7 +16164,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -30008,6 +30014,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  audioScript: {fileID: 885364280}
 --- !u!1 &1909848934
 GameObject:
   m_ObjectHideFlags: 0
