@@ -166,9 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99388b6ce553c9f4f8bde5821f3576b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 15
+  bulletSpeed: 20
   target: Player
   hasAnim: 1
+  damage: 2
 --- !u!114 &2060574985955460123
 MonoBehaviour:
   m_ObjectHideFlags: 0

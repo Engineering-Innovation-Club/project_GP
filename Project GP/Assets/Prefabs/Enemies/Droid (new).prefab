@@ -192,8 +192,8 @@ MonoBehaviour:
   moveSpeed: 10
   health: 0
   maxHealth: 0
-  detectionRange: 10
-  shootingRange: 6
+  detectionRange: 12
+  shootingRange: 9
 --- !u!114 &4192151693098880101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ MonoBehaviour:
   shotPoint: {fileID: 4192151691883679768}
   maxBullets: -1
   reloadSpeed: 0
-  shootSpeed: 2
+  shootSpeed: 1.3
   recoil: 0
   damage: 0
 --- !u!1 &4192151691883679769

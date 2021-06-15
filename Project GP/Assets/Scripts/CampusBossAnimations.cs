@@ -13,9 +13,9 @@ public class CampusBossAnimations : MonoBehaviour
     public Transform arms;
     public Animator leftArm;
     public Animator rightArm;
-    public float moveSpeed = 10f;
-    public float detectionRange = 10f;
-    public float shootingRange = 5f;
+    public float moveSpeed = 30f;
+    public float detectionRange = 30f;
+    public float shootingRange = 25f;
     public float shootWalkRange;
 
     [SerializeField] public LayerMask playerLayer;
@@ -23,7 +23,7 @@ public class CampusBossAnimations : MonoBehaviour
     public float currentHealth;
 
     public int chanceToRoll;
-    public float rollSpeed = 10f;
+    public float rollSpeed = 25f;
     public int shotsFiredBeforeRolling;
     public float rollDuration;
     public float rollCoolDown;
@@ -317,6 +317,7 @@ public class CampusBossAnimations : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player") && isRolling)
         {
             currentRollTime = -1;
+            target.GetComponent<PlayerHealthControl>().hit(10);
         }
     }
 }
