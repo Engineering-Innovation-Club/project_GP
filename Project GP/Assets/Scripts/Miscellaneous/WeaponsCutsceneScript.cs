@@ -21,11 +21,27 @@ public class WeaponsCutsceneScript : MonoBehaviour
     public List<string> messageList;
     public List<Image> imageList;
 
+    public AudioManagerScript audioScript;
+
+    private float timer;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCutscene();
         Invoke("PlayDialogue", (float)clip.duration);
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer >= (float)clip.duration + 1f && !audioScript.source.isPlaying) {
+            if (!dScript.hasDialogue)
+            {
+                audioScript.PlayBG();
+                timer = 0f;
+            }
+        }
     }
 
     void SwitchSprites()
