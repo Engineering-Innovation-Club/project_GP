@@ -38,6 +38,7 @@ public class PlayerAnimation : MonoBehaviour
     private const string PLAYER_INTERACT = "PlayerInteract";
     private const string PLAYER_CLIMB = "PlayerClimb";
     private const string PLAYER_SLUMP = "PlayerSlump";
+    private const string PLAYER_CLIMB_IDLE = "PlayerClimbIdle";
 
     private float epsilon = 0.01f;
 
@@ -73,10 +74,11 @@ public class PlayerAnimation : MonoBehaviour
             Invoke("FinishInteract", animationTimes[PLAYER_INTERACT]);
             return;
         }
+        // Standing on ladder
         if (_pM.isOnLadder && !_pM.isClimbing)
         {
-            //ChangeAnimationState(PLAYER_CLIMB);
-            _animator.enabled = false;
+            ChangeAnimationState(PLAYER_CLIMB_IDLE);
+            _animator.enabled = true;
             return;
         }
         // Climbing
@@ -85,7 +87,8 @@ public class PlayerAnimation : MonoBehaviour
             ChangeAnimationState(PLAYER_CLIMB);
             _animator.enabled = true;
             return;
-        } else
+        }
+        else
         {
             _animator.enabled = true;
         }        
