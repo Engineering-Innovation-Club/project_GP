@@ -1250,6 +1250,8 @@ MonoBehaviour:
   speakerList: []
   messageList: []
   imageList: []
+  animList: []
+  director: {fileID: 0}
 --- !u!1 &300533074
 GameObject:
   m_ObjectHideFlags: 0
@@ -18557,7 +18559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1176237970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29963,10 +29965,16 @@ MonoBehaviour:
   - Kanaan
   - Edi
   - Kanaan
-  - Edi
   - Kanaan
   - Edi
   - Kanaan
+  - Edi
+  - Edi
+  - Kanaan
+  - Kanaan
+  - Kanaan
+  - Edi
+  - Edi
   - Edi
   - Edi
   - Edi
@@ -29974,33 +29982,59 @@ MonoBehaviour:
   messageList:
   - Does the clutter make you more productive?
   - What do you want, Dr. Augustus?
-  - To see some real progress out of you, Little Critter
-  - Pleeeease could you stop calling me that. Need I remind you that before I began
-    my work, the Perpetual Energy Theory had never come off of the whiteboard?
+  - To see some real progress out of you!
+  - Need I remind you that before I began my work, the Perpetual Energy Theory never
+    came off of the whiteboard.
   - It's not enough. You were raised from nothing, Little Critter, like a bug on
-    the streets of Lower City. I expect you to prove your worth. Until I see that
-    this has the potential to power all of Eden's Paradise, it will never be enough.
+    the streets of Lower City.
+  - I expect you to prove your worth. Until I see that this has the potential to
+    power all of Eden's Paradise, it will never be enough.
   - Why don't you go check on JD? He's struggling to remember rudimentary physics.
-  - You better watch your tone. I was the one who taught him that.
-  - Dr. Augustus.  You already have me working overtime past standard lab hours.
-    I have consumed more nitrocaffeine in the last 3 months than I have in my entire
-    life. What you're asking of me is beyond anyone's capability on this floor. Maybe
-    even including you. So I am asking you to please bear with me.
-  - I expect preliminary diagnostics to be completed by next month! If you think
-    the work that I'm giving you is so difficult, maybe you don't have what it takes
-    to be here. And clean your workplace!
+  - Hey, watch your tone, I taught him that.
+  - Dr. Augustus. You already have me working overtime. I've consumed more nitrocaffeine
+    in the last 3 months than I have in my entire life.
+  - What you're asking of me is beyond the capabilities of everyone here. Maybe even
+    including you!
+  - I expect preliminary diagnostics to be completed by next month.
+  - If you think that the work I'm giving you is so difficult, maybe you don't have
+    what it takes to be here.
+  - And clean your workspace!
   - As if that would solve the city's energy problem! Ugh, he demands so much. But
     maybe one day...
   - At least I know that he has some faith in me. It would have taken some favors
-    with the higher-ups to get my "projectile delivery system" approved. I can't
-    forget that it's the energy source that really matters. My calculations can only
-    go so far, I need some real data... and what better way to embrace my Lower City
-    upbringing than by building a weapon in a lab!
-  - This generator has so much potential! If all goes well, it could power buildings,
-    transportation, and maybe even space expeditions!
-  - Okay calm down Edi... there's still a few diagnostics to complete before I can
-    even think about firing this thing.
+    with the higher-ups to get my "plasma delivery system" approved.
+  - I can't forget that it's the energy source that really matters.
+  - This plasma generator has so much potential!
+  - If all goes well, it could power buildings, transportation, and maybe even space
+    expeditions!
+  - Okay calm down Edi... There's still a few tests I need to run.
   imageList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  animList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

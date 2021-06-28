@@ -20,6 +20,7 @@ public class WeaponsCutsceneScript : MonoBehaviour
     public List<string> speakerList;
     public List<string> messageList;
     public List<Image> imageList;
+    public List<PlayableAsset> animList;
 
     public AudioManagerScript audioScript;
 
@@ -54,7 +55,7 @@ public class WeaponsCutsceneScript : MonoBehaviour
     {
         for (int i = 0; i < speakerList.Count; i++)
         {
-            dScript.AddDialogue(speakerList[i], messageList[i], imageList[i]);
+            dScript.AddDialogue(speakerList[i], messageList[i], imageList[i], animList[i]);
         }
     }
 

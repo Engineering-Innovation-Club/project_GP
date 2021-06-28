@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Playables;
 
 public class DialogueScript : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class DialogueScript : MonoBehaviour
     public List<string> speakerList;
     public List<string> messageList;
     public List<Image> imageList;
+    public List<PlayableAsset> animList;
+
+    public PlayableDirector director;
 
     // Start is called before the first frame update
     void Start()
@@ -64,40 +68,45 @@ public class DialogueScript : MonoBehaviour
         }
     }
 
-    public void AddDialogue(string speaker, string message, Image picture)
+    public void AddDialogue(string speaker, string message, Image picture, PlayableAsset clip)
     {
-        Debug.Log("Add Dialogue");
         speakerList.Add(speaker);
         messageList.Add(message);
         imageList.Add(picture);
+        animList.Add(clip);
     }
 
     public void StartDialogue()
     {
-        Debug.Log("Start Dialogue");
         speaker.text = speakerList[0];
         message.text = messageList[0];
         portrait = imageList[0];
+
+        if (animList[0] != null)
+        {
+            director.playableAsset = animList[0];
+            director.Play();
+        }
 
         panel.SetActive(true);
     }
 
     public void EndDialogue()
     {
-        Debug.Log("End Dialogue");
         speakerList.RemoveAt(0);
         messageList.RemoveAt(0);
         imageList.RemoveAt(0);
+        animList.RemoveAt(0);
 
         panel.SetActive(false);
     }
 
     void NextMessage()
     {
-        Debug.Log("Next Dialogue");
         speakerList.RemoveAt(0);
         messageList.RemoveAt(0);
         imageList.RemoveAt(0);
+        animList.RemoveAt(0);
 
         StartDialogue();
     }
