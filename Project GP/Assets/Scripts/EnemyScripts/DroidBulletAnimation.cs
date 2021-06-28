@@ -5,6 +5,7 @@ using UnityEngine;
 public class DroidBulletAnimation : MonoBehaviour
 {
     Animator anim;
+    Rigidbody2D rbody;
 
     private const string BULLET_LAUNCH = "droid_bullet_launch";
     private const string BULLET_TRAVEL = "droid_bullet_travel";
@@ -16,6 +17,7 @@ public class DroidBulletAnimation : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        rbody = GetComponent<Rigidbody2D>();
         getAnimationTimes();
         ChangeAnimationState(BULLET_LAUNCH);
         Invoke("PlayTravel", 0.1f);
@@ -42,13 +44,13 @@ public class DroidBulletAnimation : MonoBehaviour
         if (collision.gameObject.name != "NoEnemyCollide" && (collision.tag == "Ground" || collision.tag == "MovingPlatform" || collision.tag == "Wall" || collision.tag == "Player"))
         {
             ChangeAnimationState(BULLET_DESTROY);
+            rbody.velocity = Vector2.zero;
             Invoke("DestroyBullet", animationTimes[BULLET_DESTROY]);
         }
     }
 
     private void DestroyBullet()
     {
-        print("destoying");
         Destroy(this.gameObject);
     }
 

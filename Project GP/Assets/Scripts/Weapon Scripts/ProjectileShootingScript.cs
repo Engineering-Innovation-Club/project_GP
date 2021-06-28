@@ -16,6 +16,8 @@ public class ProjectileShootingScript : MonoBehaviour
     [SerializeField] private Transform BulletTrail;
     private Transform rotator;
 
+    public DialogueScript dScript;
+
     Animator anim;
     // Start is called before the first frame 
     void Awake()
@@ -35,7 +37,7 @@ public class ProjectileShootingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!PauseMenu.isPaused)
+        if (!PauseMenu.isPaused && !dScript.hasDialogue)
         {
             // Single Fire-Rate
             if (fireRate == 0)

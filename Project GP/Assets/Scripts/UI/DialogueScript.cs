@@ -18,7 +18,7 @@ public class DialogueScript : MonoBehaviour
     public GameObject panel;
     public List<string> speakerList;
     public List<string> messageList;
-    public List<Image> imageList;
+    public List<Sprite> imageList;
     public List<PlayableAsset> animList;
 
     public PlayableDirector director;
@@ -53,7 +53,6 @@ public class DialogueScript : MonoBehaviour
 
         if (hasDialogue && Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Click");
             if (hasDialogue)
             {
                 if (!lastMessage)
@@ -68,7 +67,7 @@ public class DialogueScript : MonoBehaviour
         }
     }
 
-    public void AddDialogue(string speaker, string message, Image picture, PlayableAsset clip)
+    public void AddDialogue(string speaker, string message, Sprite picture, PlayableAsset clip)
     {
         speakerList.Add(speaker);
         messageList.Add(message);
@@ -80,7 +79,12 @@ public class DialogueScript : MonoBehaviour
     {
         speaker.text = speakerList[0];
         message.text = messageList[0];
-        portrait = imageList[0];
+
+        if (imageList[0] != null)
+        {
+            portrait.sprite = imageList[0];
+        }
+        
 
         if (animList[0] != null)
         {

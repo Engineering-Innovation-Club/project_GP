@@ -19,7 +19,7 @@ public class WeaponsCutsceneScript : MonoBehaviour
 
     public List<string> speakerList;
     public List<string> messageList;
-    public List<Image> imageList;
+    public List<Sprite> imageList;
     public List<PlayableAsset> animList;
 
     public AudioManagerScript audioScript;
