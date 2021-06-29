@@ -39,6 +39,7 @@ public class PlayerAnimation : MonoBehaviour
     private const string PLAYER_CLIMB = "PlayerClimb";
     private const string PLAYER_SLUMP = "PlayerSlump";
     private const string PLAYER_CLIMB_IDLE = "PlayerClimbIdle";
+    private const string PLAYER_DIE = "PlayerDie";
 
     private float epsilon = 0.01f;
 
