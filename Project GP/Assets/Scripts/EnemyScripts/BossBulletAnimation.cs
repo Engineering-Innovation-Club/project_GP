@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossBulletAnimation : MonoBehaviour
 {
     Animator anim;
+    Rigidbody2D rbody;
 
     //private const string BULLET_LAUNCH = "boss_bullet_start";
     private const string BULLET_TRAVEL = "boss_bullet_travel";
@@ -16,6 +17,7 @@ public class BossBulletAnimation : MonoBehaviour
     BulletScript bs;
     void Start()
     {
+        rbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         getAnimationTimes();
         bs = GetComponent<BulletScript>();
@@ -43,6 +45,7 @@ public class BossBulletAnimation : MonoBehaviour
     {
         if (collision.gameObject.name != "NoEnemyCollide" && (collision.tag == "Ground" || collision.tag == "MovingPlatform" || collision.tag == "Wall" || collision.tag == bs.target))
         {
+            rbody.velocity = Vector2.zero;
             ChangeAnimationState(BULLET_DESTROY);
             Invoke("DestroyBullet", animationTimes[BULLET_DESTROY]);
         }
