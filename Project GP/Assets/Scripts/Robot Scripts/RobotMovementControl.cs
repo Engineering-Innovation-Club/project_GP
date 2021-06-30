@@ -39,7 +39,7 @@ public class RobotMovementControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!PauseMenu.isPaused && !dScript.hasDialogue)
+        if (!PauseMenu.isPaused && !dScript.hasDialogue && !WeaponsCutsceneScript.inCutscene)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -68,6 +68,11 @@ public class RobotMovementControl : MonoBehaviour
                 anim.SetBool("isMoving", false);
             }
             prevLocation = transform.position;
+        }
+
+        if (WeaponsCutsceneScript.inCutscene)
+        {
+            rotator.transform.position = player.transform.position + new Vector3(0, player.GetComponent<CapsuleCollider2D>().bounds.size.y / 2, 0);
         }
     }
 }

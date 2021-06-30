@@ -117,10 +117,8 @@ public class PlayerMovementControl : MonoBehaviour
     {
         timers();
 
-        if (!PauseMenu.isPaused && !dScript.hasDialogue)
+        if (!PauseMenu.isPaused && !dScript.hasDialogue && !WeaponsCutsceneScript.inCutscene)
         {
-            
-
             if (isGrounded && (Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("space")))
             {
                 rbody.constraints = RigidbodyConstraints2D.None;

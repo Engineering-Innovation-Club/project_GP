@@ -37,7 +37,7 @@ public class ProjectileShootingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!PauseMenu.isPaused && !dScript.hasDialogue)
+        if (!PauseMenu.isPaused && !dScript.hasDialogue && !WeaponsCutsceneScript.inCutscene)
         {
             // Single Fire-Rate
             if (fireRate == 0)
