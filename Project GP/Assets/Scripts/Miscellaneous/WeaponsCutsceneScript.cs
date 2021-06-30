@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Playables;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class WeaponsCutsceneScript : MonoBehaviour
 {
@@ -11,9 +12,14 @@ public class WeaponsCutsceneScript : MonoBehaviour
 
     public GameObject background;
     public GameObject glass;
+    public GameObject labBG;
 
     public Sprite destroyedBG;
     public Sprite destroyedGlass;
+    public Sprite destroyedLab;
+    public Light2D bigLight;
+    public Light2D smallLight;
+    public Light2D smolLight;
 
     public DialogueScript dScript;
 
@@ -45,10 +51,18 @@ public class WeaponsCutsceneScript : MonoBehaviour
         }
     }
 
-    void SwitchSprites()
+    void DestroyLab()
     {
         background.GetComponent<SpriteRenderer>().sprite = destroyedBG;
         glass.GetComponent<SpriteRenderer>().sprite = destroyedGlass;
+        labBG.GetComponent<SpriteRenderer>().sprite = destroyedLab;
+    }
+
+    void SwitchNight()
+    {
+        bigLight.color = new Color(173/255, 117/255, 198/255);
+        smallLight.color = new Color(132 / 255, 82 / 255, 178 / 255);
+        smolLight.color = new Color(132 / 255, 82 / 255, 178 / 255);
     }
 
     void Add()
