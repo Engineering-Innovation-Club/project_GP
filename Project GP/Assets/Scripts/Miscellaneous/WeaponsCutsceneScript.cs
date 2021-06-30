@@ -45,7 +45,7 @@ public class WeaponsCutsceneScript : MonoBehaviour
         if (timer >= (float)clip.duration + 1f && !audioScript.source.isPlaying) {
             if (!dScript.hasDialogue)
             {
-                audioScript.PlayBG();
+                audioScript.PlayIntro();
                 timer = 0f;
             }
         }

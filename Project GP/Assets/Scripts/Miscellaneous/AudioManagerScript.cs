@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class AudioManagerScript : MonoBehaviour
 {
     public AudioSource source;
+    public Slider musicSlider;
+    public AudioMixer mixer;
 
     [SerializeField]
-    AudioClip bg, boss, labCutscene;
+    AudioClip intro, bg, boss, labCutscene;
 
     public bool fadeIn;
     public bool fadeOut;
@@ -54,6 +58,18 @@ public class AudioManagerScript : MonoBehaviour
         }
     }
 
+    public void PlayIntro()
+    {
+        source.clip = intro;
+        source.Play();
+        source.loop = false;
+
+        source.volume = 0;
+        fadeIn = true;
+
+        Invoke("PlayBG", intro.length);
+    }
+
     public void PlayBG()
     {
         source.clip = bg;
@@ -61,10 +77,8 @@ public class AudioManagerScript : MonoBehaviour
         source.Play();
         source.loop = true;
 
-        source.volume = 0;
-        fadeIn = true;
-
-        
+        //source.volume = 0;
+        //fadeIn = true;
     }
 
     public void PlayBoss()
@@ -79,5 +93,10 @@ public class AudioManagerScript : MonoBehaviour
         source.clip = labCutscene;
         source.Play();
         source.loop = false;
+    }
+
+    public void SetMusicVolume()
+    {
+        mixer.SetFloat("MusicVol", Mathf.Log10(musicSlider.value) * 20);
     }
 }

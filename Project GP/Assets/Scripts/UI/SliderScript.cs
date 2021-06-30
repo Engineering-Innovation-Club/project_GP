@@ -18,6 +18,6 @@ public class SliderScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textObject.SetText(slider.value.ToString());
+        textObject.SetText(Mathf.Round((slider.value / slider.maxValue) * 100).ToString());
     }
 }
