@@ -54,7 +54,7 @@ public class DroneScript : MonoBehaviour
         moveSpeed = 3f;
 
         // If maxHealth has not been set, make the Default health 1.
-        if (maxHealth == null)
+        if (maxHealth == 0)
         {
             maxHealth = 1;
         }

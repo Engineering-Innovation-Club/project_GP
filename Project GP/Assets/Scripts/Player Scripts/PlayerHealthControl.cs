@@ -15,6 +15,9 @@ public class PlayerHealthControl : MonoBehaviour
     private float dTimer;
     private float fTimer;
 
+    PlayerManager pmScript;
+    public ChangeBoundScript bScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,7 @@ public class PlayerHealthControl : MonoBehaviour
         health = maxHealth;
 
         srend = GetComponent<SpriteRenderer>();
+        pmScript = GetComponent<PlayerManager>();
         dTimer = 0f;
         fTimer = 0f;
     }
@@ -76,5 +80,11 @@ public class PlayerHealthControl : MonoBehaviour
     public void healToFull()
     {
         health = maxHealth;
+    }
+
+    public void Die()
+    {
+        pmScript.LoadStats();
+        bScript.ResetBoundPos();
     }
 }

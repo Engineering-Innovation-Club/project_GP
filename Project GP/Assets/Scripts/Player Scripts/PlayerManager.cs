@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour
     public void SaveStats() {
         SaveManager.SavePlayerStats(pHScript, pMScript, pCScript);
     }
+
     public void LoadStats() {
         SaveData saveData = SaveManager.LoadPlayerStats();
 

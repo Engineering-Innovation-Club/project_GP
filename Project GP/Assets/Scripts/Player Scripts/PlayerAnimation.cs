@@ -7,6 +7,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private Animator _animator;
     private PlayerMovementControl _pM;
+    private PlayerHealthControl _pH;
     private Rigidbody2D rbody;
 
 
@@ -48,6 +49,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _pM = GetComponent<PlayerMovementControl>();
+        _pH = GetComponent<PlayerHealthControl>();
         rbody = GetComponent<Rigidbody2D>();
         getAnimationTimes();
         isFacingRight = true;
@@ -66,97 +68,110 @@ public class PlayerAnimation : MonoBehaviour
 
     private void animationStates()
     {
-        float vx = rbody.velocity.x - _pM.mpVel;
-
-        // Interacting 
-        if (_pM.isInteracting)
+        if (_pH.health <= 0)
         {
-            ChangeAnimationState(PLAYER_INTERACT);
-            Invoke("FinishInteract", animationTimes[PLAYER_INTERACT]);
-            return;
-        }
-        // Standing on ladder
-        if (_pM.isOnLadder && !_pM.isClimbing)
-        {
-            ChangeAnimationState(PLAYER_CLIMB_IDLE);
-            _animator.enabled = true;
-            return;
-        }
-        // Climbing
-        else if (_pM.isOnLadder && _pM.isClimbing)
-        {
-            ChangeAnimationState(PLAYER_CLIMB);
-            _animator.enabled = true;
+            ChangeAnimationState(PLAYER_DIE);
+            Invoke("Die", animationTimes[PLAYER_DIE]);
             return;
         }
         else
         {
-            _animator.enabled = true;
-        }        
-        
-        // Crouching logic
-        if (_pM.isGrounded && _pM.isCrouching)
-        {
-            if (_pM.isCrouchDown)
+            float vx = rbody.velocity.x - _pM.mpVel;
+
+            // Interacting 
+            if (_pM.isInteracting)
             {
-                if (currentAnimation == PLAYER_STANDING_ROLL)
+                ChangeAnimationState(PLAYER_INTERACT);
+                Invoke("FinishInteract", animationTimes[PLAYER_INTERACT]);
+                return;
+            }
+            // Standing on ladder
+            if (_pM.isOnLadder && !_pM.isClimbing)
+            {
+                ChangeAnimationState(PLAYER_CLIMB_IDLE);
+                _animator.enabled = true;
+                return;
+            }
+            // Climbing
+            else if (_pM.isOnLadder && _pM.isClimbing)
+            {
+                ChangeAnimationState(PLAYER_CLIMB);
+                _animator.enabled = true;
+                return;
+            }
+            else
+            {
+                _animator.enabled = true;
+            }
+
+            // Crouching logic
+            if (_pM.isGrounded && _pM.isCrouching)
+            {
+                if (_pM.isCrouchDown)
                 {
-                    _pM.isCrouchDown = false;
-                    return;
+                    if (currentAnimation == PLAYER_STANDING_ROLL)
+                    {
+                        _pM.isCrouchDown = false;
+                        return;
+                    }
+                    ChangeAnimationState(PLAYER_CROUCHDOWN);
+                    CancelInvoke("CrouchUpEnd");
+                    Invoke("CrouchDownEnd", animationTimes[PLAYER_CROUCHDOWN]);
                 }
-                ChangeAnimationState(PLAYER_CROUCHDOWN);
-                CancelInvoke("CrouchUpEnd");
-                Invoke("CrouchDownEnd", animationTimes[PLAYER_CROUCHDOWN]);
-            } else if (_pM.isCrouchUp && !_pM.isRoll)
-            {
-                ChangeAnimationState(PLAYER_CROUCHUP);
-                Invoke("CrouchUpEnd", animationTimes[PLAYER_CROUCHUP]);
-            } else
-            {
-                if (_pM.isRoll && currentAnimation != PLAYER_STANDING_ROLL)
+                else if (_pM.isCrouchUp && !_pM.isRoll)
                 {
-                    ChangeAnimationState(PLAYER_CROUCH_ROLL);
+                    ChangeAnimationState(PLAYER_CROUCHUP);
+                    Invoke("CrouchUpEnd", animationTimes[PLAYER_CROUCHUP]);
+                }
+                else
+                {
+                    if (_pM.isRoll && currentAnimation != PLAYER_STANDING_ROLL)
+                    {
+                        ChangeAnimationState(PLAYER_CROUCH_ROLL);
+                        return;
+                    }
+                    if (Mathf.Abs(vx) - epsilon > 0 && !_pM.isRoll)
+                    {
+                        ChangeAnimationState(PLAYER_CROUCH_WALK);
+                    }
+                    else if (!_pM.isRoll)
+                    {
+                        ChangeAnimationState(PLAYER_CROUCH_IDLE);
+                    }
+                }
+                return;
+            }
+
+            // On ground logic
+            if (_pM.isGrounded && isLanded)
+            {
+                if (_pM.isRoll && currentAnimation != PLAYER_CROUCH_ROLL && currentAnimation != PLAYER_CROUCHUP)
+                {
+                    ChangeAnimationState(PLAYER_STANDING_ROLL);
                     return;
                 }
                 if (Mathf.Abs(vx) - epsilon > 0 && !_pM.isRoll)
                 {
-                    ChangeAnimationState(PLAYER_CROUCH_WALK);
+                    ChangeAnimationState(PLAYER_RUN);
                 }
-                else if (!_pM.isRoll)
+                else if (!_pM.isRoll && !_pM.isCrouching)
                 {
-                    ChangeAnimationState(PLAYER_CROUCH_IDLE);
+                    ChangeAnimationState(PLAYER_IDLE);
                 }
             }
-            return;
-        }
-
-        // On ground logic
-        if (_pM.isGrounded && isLanded)
-        {
-            if (_pM.isRoll && currentAnimation != PLAYER_CROUCH_ROLL && currentAnimation != PLAYER_CROUCHUP)
+            else if (!_pM.isClimbing && !_pM.isOnLadder) // Off ground logic
             {
-                ChangeAnimationState(PLAYER_STANDING_ROLL);
-                return;
-            }
-            if (Mathf.Abs(vx) - epsilon > 0 && !_pM.isRoll)
-            {
-                ChangeAnimationState(PLAYER_RUN);
-            } else if (!_pM.isRoll && !_pM.isCrouching)
-            {
-                ChangeAnimationState(PLAYER_IDLE);
-            }
-        } else if (!_pM.isClimbing && !_pM.isOnLadder) // Off ground logic
-        {
-            if (rbody.velocity.y - epsilon > 0)
-            {
-                isLanded = false;
-                ChangeAnimationState(PLAYER_JUMP);
-            } else if (rbody.velocity.y + epsilon <= 0)
-            {
-                ChangeAnimationState(PLAYER_FALL);
+                if (rbody.velocity.y - epsilon > 0)
+                {
+                    isLanded = false;
+                    ChangeAnimationState(PLAYER_JUMP);
+                }
+                else if (rbody.velocity.y + epsilon <= 0)
+                {
+                    ChangeAnimationState(PLAYER_FALL);
+                }
             }
         }
-
     }
 
     private void getAnimationTimes()
@@ -273,5 +288,10 @@ public class PlayerAnimation : MonoBehaviour
     public void FinishInteract()
     {
         _pM.isInteracting = false;
+    }
+
+    public void Die()
+    {
+        _pH.Die();
     }
 }

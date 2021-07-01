@@ -39,8 +39,7 @@ public class ChemVatScript : MonoBehaviour
 
     private void spawn(int type)
     {
-
-        pos = new Vector3(Random.Range(gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().bounds.min.x + 5f, gameObject.transform.GetChild(numSurface - 1).GetComponent<SpriteRenderer>().bounds.max.x - 5f), pos.y, pos.z);
+        pos = new Vector3(Random.Range(gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().bounds.min.x + 5f, gameObject.transform.GetChild(numSurface - 1).GetComponent<SpriteRenderer>().bounds.max.x - 5f), pos.y - 0.25f, pos.z);
         if (type == 1)
         {
             // Big Bubble
@@ -55,6 +54,14 @@ public class ChemVatScript : MonoBehaviour
         {
             // Two Bubble
             Instantiate(twoBubble, pos, Quaternion.identity);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerHealthControl>().hit(9999);
         }
     }
 }

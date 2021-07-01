@@ -51,7 +51,7 @@ public class DroidScript : MonoBehaviour
         isMoving = false;
         moveSpeed = 5f;
 
-        maxHealth = 200;
+        maxHealth = 50;
         
         health = maxHealth;
         isAlerted = false;

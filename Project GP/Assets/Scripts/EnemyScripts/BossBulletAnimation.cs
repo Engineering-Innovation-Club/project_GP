@@ -53,7 +53,6 @@ public class BossBulletAnimation : MonoBehaviour
 
     private void DestroyBullet()
     {
-        print("destoying");
         Destroy(this.gameObject);
     }
 

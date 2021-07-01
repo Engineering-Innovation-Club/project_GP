@@ -8,6 +8,7 @@ public class AudioManagerScript : MonoBehaviour
 {
     public AudioSource source;
     public Slider musicSlider;
+    public Slider effectSlider;
     public AudioMixer mixer;
 
     [SerializeField]
@@ -76,16 +77,16 @@ public class AudioManagerScript : MonoBehaviour
 
         source.Play();
         source.loop = true;
-
-        //source.volume = 0;
-        //fadeIn = true;
     }
 
     public void PlayBoss()
     {
+        CancelInvoke();
         source.clip = boss;
         source.Play();
         source.loop = true;
+        source.volume = 0;
+        fadeIn = true;
     }
 
     public void PlayLC()
@@ -98,5 +99,10 @@ public class AudioManagerScript : MonoBehaviour
     public void SetMusicVolume()
     {
         mixer.SetFloat("MusicVol", Mathf.Log10(musicSlider.value) * 20);
+    }
+
+    public void SetEffectVolume()
+    {
+        mixer.SetFloat("EffectVol", Mathf.Log10(effectSlider.value) * 20);
     }
 }

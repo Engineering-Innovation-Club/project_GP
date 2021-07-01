@@ -6,7 +6,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    public void Play()
+    public void NewGame()
+    {
+        SceneManager.LoadScene("lab");
+    }
+
+    public void Continue()
     {
         SceneManager.LoadScene("lab");
     }
