@@ -129,7 +129,6 @@ public class CampusBossAnimations : MonoBehaviour
         // 2. Move towards Player
         if (isRolling && currentRollTime > 0f)
         {
-            print("rolling");
             ChangeAnimationState(BOSS_ROLL);
             float step = rollSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);

@@ -17,6 +17,7 @@ public class PlayerHealthControl : MonoBehaviour
 
     PlayerManager pmScript;
     public ChangeBoundScript bScript;
+    public AudioManagerScript aScript;
 
     // Start is called before the first frame update
     void Start()
@@ -86,5 +87,6 @@ public class PlayerHealthControl : MonoBehaviour
     {
         pmScript.LoadStats();
         bScript.ResetBoundPos();
+        aScript.PlayBG();
     }
 }

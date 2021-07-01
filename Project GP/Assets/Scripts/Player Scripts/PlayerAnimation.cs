@@ -19,6 +19,7 @@ public class PlayerAnimation : MonoBehaviour
 
     // Boolean that tracks which direction the player is facing
     public bool isFacingRight;
+    public GameObject bg;
     private bool isLanded;
 
     private const string PLAYER_IDLE = "PlayerIdle";
@@ -191,6 +192,10 @@ public class PlayerAnimation : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
 
+        // flip bg back
+        Vector3 bgScale = bg.transform.localScale;
+        bgScale.x *= -1;
+        bg.transform.localScale = bgScale;
     }
 
     public void ChangeAnimationState(string newState)
