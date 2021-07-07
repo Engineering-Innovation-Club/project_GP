@@ -344,7 +344,7 @@ public class PlayerMovementControl : MonoBehaviour
     private void roll()
     {
         // If player is not currently rolling and there has been sufficient time since last roll
-        if (!isRoll && rollDelay <= 0)
+        if ((Input.GetKey("d") || Input.GetKey("a")) && !isRoll && rollDelay <= 0)
         {
             isRoll = true;
             isInvincible = true;
@@ -445,6 +445,21 @@ public class PlayerMovementControl : MonoBehaviour
         }
     }
 
+    private bool checkCrouchUp()
+    {
+        RaycastHit2D upRightRay = Physics2D.Raycast(transform.position + new Vector3((coll.bounds.size.x / 2f), 0), Vector2.up, collSizeY * 2, groundLayer);
+        RaycastHit2D upLeftRay = Physics2D.Raycast(transform.position - new Vector3((coll.bounds.size.x / 2f), 0), Vector2.up, collSizeY * 2, groundLayer);
+
+        //Debug.DrawRay(transform.position + new Vector3((coll.bounds.size.x / 2f), 0), Vector3.up * collSizeY * 2, Color.red);
+        //Debug.DrawRay(transform.position - new Vector3((coll.bounds.size.x / 2f), 0), Vector3.up * collSizeY * 2, Color.red);
+
+        if (upRightRay.collider != null || upLeftRay.collider != null)
+        {
+            return false;
+        }
+        return true;
+    }
+
     // Function called in Update() checking the crouching
     private void checkCrouch()
     {
@@ -475,19 +490,22 @@ public class PlayerMovementControl : MonoBehaviour
         }
 
         // Check if crouch key is no longer being pressed
-        if (Input.GetKeyUp(KeyCode.LeftControl))
+        if (Input.GetKeyUp(KeyCode.LeftControl) && checkCrouchUp())
         {
             if (toggleCrouch == -1) // if toggle crouch is not on
             {
                 crouch(false);
             }
         }
-        else if (toggleCrouch == 0) // toggle crouch is on and currently crouched
+        else if (toggleCrouch == 0 && checkCrouchUp()) // toggle crouch is on and currently crouched
         {
             if (toggleCrouch == 0)
             {
                 toggleCrouch = -1;  // set toggle to none
             }
+            crouch(false);
+        } else if (toggleCrouch == -1 && !Input.GetKey(KeyCode.LeftControl) && checkCrouchUp() && isCrouching)
+        {
             crouch(false);
         }
     }
