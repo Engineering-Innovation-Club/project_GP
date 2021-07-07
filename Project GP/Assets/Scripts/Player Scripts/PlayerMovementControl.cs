@@ -480,7 +480,7 @@ public class PlayerMovementControl : MonoBehaviour
         }
 
         // Check if crouch key is being pressed
-        if (Input.GetKeyDown(KeyCode.LeftControl) && toggleCrouch != 1) // if crouch is pressed and toggle crouch not currently active
+        if (Input.GetKeyDown(KeyCode.LeftControl) && toggleCrouch != 1 && !isCrouching) // if crouch is pressed and toggle crouch not currently active
         {
             crouch(true);
         }
