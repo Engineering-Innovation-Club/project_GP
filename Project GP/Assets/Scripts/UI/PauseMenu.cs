@@ -22,6 +22,8 @@ public class PauseMenu : MonoBehaviour
     private Vector3 oldPos;
     private Vector3 newPos;
 
+    public GameObject dialogue;
+
     private void Start()
     {
         isPaused = false;
@@ -33,7 +35,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !dialogue.GetComponent<DialogueScript>().hasDialogue)
         {
             if (isPaused)
             {

@@ -7,6 +7,11 @@ public class FadeToBlackScript : MonoBehaviour
 {
     public static bool fading;
 
+    private void Start()
+    {
+        GetComponent<Image>().color = new Color(0, 0, 0, 1);
+    }
+
     private void Update()
     {
         if (fading)
