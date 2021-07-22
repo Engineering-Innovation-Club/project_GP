@@ -74,7 +74,7 @@ public class BulletScript : MonoBehaviour
         }
 
         // Check if bullet hits enemy
-        else if (collision.tag == "Player")
+        else if (collision.tag == "Player" && target == "Player")
         {
             PlayerHealthControl playerScript = collision.gameObject.GetComponent<PlayerHealthControl>();
             playerScript.hit(1);
