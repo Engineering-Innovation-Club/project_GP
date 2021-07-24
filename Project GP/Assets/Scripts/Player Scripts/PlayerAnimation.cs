@@ -160,10 +160,11 @@ public class PlayerAnimation : MonoBehaviour
                     ChangeAnimationState(PLAYER_IDLE);
                 }
             }
-            else if (!_pM.isClimbing && !_pM.isOnLadder) // Off ground logic
+            else if (!_pM.isClimbing && !_pM.isOnLadder && !_pM.isGrounded) // Off ground logic
             {
                 if (rbody.velocity.y - epsilon > 0)
                 {
+                    CancelInvoke();
                     isLanded = false;
                     ChangeAnimationState(PLAYER_JUMP);
                 }
