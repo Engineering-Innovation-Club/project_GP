@@ -333,9 +333,15 @@ public class PlayerMovementControl : MonoBehaviour
     private void jump()
     {
         // Check if player is currently touching the ground
-        if (isGrounded)
+        if (isGrounded && !onStairs && rbody.velocity.y == 0)
         {
             // Retain current x-axis velocity, while adding a bit of y-axis velocity
+            rbody.velocity = new Vector2(rbody.velocity.x, jumpVel);
+        }
+
+        // Check if player is touching ground and stairs
+        if (isGrounded && onStairs && rbody.velocity.y != jumpVel)
+        {
             rbody.velocity = new Vector2(rbody.velocity.x, jumpVel);
         }
     }
@@ -344,7 +350,7 @@ public class PlayerMovementControl : MonoBehaviour
     private void roll()
     {
         // If player is not currently rolling and there has been sufficient time since last roll
-        if ((Input.GetKey("d") || Input.GetKey("a")) && !isRoll && rollDelay <= 0)
+        if ((Input.GetKey("d") || Input.GetKey("a")) && !isRoll && rollDelay <= 0 && isGrounded)
         {
             isRoll = true;
             isInvincible = true;
