@@ -100,7 +100,7 @@ public class CampusBossAnimations : MonoBehaviour
         timeSinceLastShot += Time.deltaTime;
         // condition for rolling: boss under 50% hp and fired x shots and rng chance to roll
         if (currentHealth != 0 && currentHealth/health <= 0.5f && shotsFired >= shotsFiredBeforeRolling 
-            && !prepRolling && !isRolling && timeSinceLastRoll > rollCoolDown)
+            && !prepRolling && !isRolling && timeSinceLastRoll > rollCoolDown && target.position.y < this.gameObject.transform.position.y)
         {
             if (Random.Range(0, 100) < chanceToRoll)
             {
