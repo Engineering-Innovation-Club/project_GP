@@ -84,3 +84,6 @@ TagManager:
   - name: Rocks
     uniqueID: 1750219019
     locked: 0
+  - name: AlwaysLit
+    uniqueID: 2281085035
+    locked: 0

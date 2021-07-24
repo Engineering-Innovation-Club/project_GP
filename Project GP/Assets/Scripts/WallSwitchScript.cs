@@ -12,18 +12,26 @@ public class WallSwitchScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        state = true;
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-   
+        if (!state)
+        {
+            GetComponent<GuidePopUpScript>().shouldPop = false;
+        }
+        else if (state)
+        {
+            GetComponent<GuidePopUpScript>().shouldPop = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && collision.gameObject.transform.position.x > transform.position.x)
         {
             PlayerMovementControl pScript = collision.gameObject.GetComponent<PlayerMovementControl>();
             pScript.touchWallSwitch = true;
