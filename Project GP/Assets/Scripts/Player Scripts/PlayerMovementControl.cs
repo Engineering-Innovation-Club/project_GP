@@ -403,7 +403,6 @@ public class PlayerMovementControl : MonoBehaviour
             {
                 isClimbing = true;
                 rbody.velocity = new Vector3(0, 5);
-                print("climbing");
             }
             // Checks if the "s" key is being pressed
             else if (Input.GetKey("s"))
