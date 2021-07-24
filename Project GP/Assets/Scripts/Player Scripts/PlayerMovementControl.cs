@@ -12,6 +12,7 @@ public class PlayerMovementControl : MonoBehaviour
     CapsuleCollider2D coll;
 
     // Player states
+    public bool canMove;
     public bool isCrouching;
     public bool isRoll;
     public bool isGrounded;
@@ -74,9 +75,6 @@ public class PlayerMovementControl : MonoBehaviour
     // Public variable to hold the scene it should load
     public int sceneNum;
 
-    public DialogueScript dScript;
-    public Image testPortrait;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +85,7 @@ public class PlayerMovementControl : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
 
         // Initializing states
+        canMove = true;
         isCrouching = false;
         isRoll = false;
         isGrounded = false;
@@ -117,7 +116,7 @@ public class PlayerMovementControl : MonoBehaviour
     {
         timers();
 
-        if (!PauseMenu.isPaused && !dScript.hasDialogue && !WeaponsCutsceneScript.inCutscene)
+        if (!PauseMenu.isPaused && canMove)
         {
             if (isGrounded && (Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("space")))
             {

@@ -164,6 +164,7 @@ public class PlayerAnimation : MonoBehaviour
             {
                 if (rbody.velocity.y - epsilon > 0)
                 {
+                    CancelInvoke();
                     isLanded = false;
                     ChangeAnimationState(PLAYER_JUMP);
                 }

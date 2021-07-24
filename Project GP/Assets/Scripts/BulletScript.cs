@@ -69,6 +69,7 @@ public class BulletScript : MonoBehaviour
             // If done incorrectly it could destroy the entire prefab, meaning the game wouldn't be able to spawn in any more bullets until the game restarts
             // Destroy this bullet
             rbody.velocity = Vector2.zero;
+            rbody.constraints = RigidbodyConstraints2D.FreezeAll;
             if (!hasAnim) // Leave destroy logic to animation portion
                 Destroy(this.gameObject);
         }
@@ -79,22 +80,22 @@ public class BulletScript : MonoBehaviour
             PlayerHealthControl playerScript = collision.gameObject.GetComponent<PlayerHealthControl>();
             playerScript.hit(1);
         }
-        else if (collision.tag == "Droid")
+        else if (collision.tag == "Droid" && target == "Enemy")
         {
             DroidScript droidEnemy = collision.gameObject.GetComponent<DroidScript>();
             droidEnemy.hit(damage);
         }
-        else if (collision.tag == "Drone")
+        else if (collision.tag == "Drone" && target == "Enemy")
         {
             DroneScript droneEnemy = collision.gameObject.GetComponent<DroneScript>();
             droneEnemy.hit(damage);
         }
-        else if (collision.tag == "CampusBoss")
+        else if (collision.tag == "CampusBoss" && target == "Enemy")
         {
             CampusBossAnimations boss = collision.gameObject.GetComponent<CampusBossAnimations>();
             boss.hit(damage);
         }
-        else if (collision.tag == "SuicideRobot")
+        else if (collision.tag == "SuicideRobot" && target == "Enemy")
         {
             SRScript sr = collision.gameObject.GetComponent<SRScript>();
             sr.hit(damage);

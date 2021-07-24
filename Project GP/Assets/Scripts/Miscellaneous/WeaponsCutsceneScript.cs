@@ -51,6 +51,7 @@ public class WeaponsCutsceneScript : MonoBehaviour
     {
         fade = false;
         StartCutscene();
+        player.GetComponent<PlayerMovementControl>().canMove = false;
         Invoke("Part1Dialogue", (float)part1.duration);
     }
 
@@ -124,6 +125,7 @@ public class WeaponsCutsceneScript : MonoBehaviour
             afterLights.SetActive(true);
             player.transform.localScale = new Vector2(-player.transform.localScale.x, player.transform.localScale.y);
             kanaan.SetActive(false);
+            player.GetComponent<PlayerMovementControl>().canMove = true;
         }
     }
 
