@@ -22,7 +22,7 @@ public class LadderScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             pScript = collision.gameObject.GetComponent<PlayerMovementControl>();
-            pScript.isOnLadder = true;
+            pScript.isTouchingLadder = true;
         }
     }
 
@@ -31,7 +31,7 @@ public class LadderScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             pScript = collision.gameObject.GetComponent<PlayerMovementControl>();
-            pScript.isOnLadder = true;
+            pScript.isTouchingLadder = true;
         }
     }
 
@@ -40,6 +40,7 @@ public class LadderScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             pScript = collision.gameObject.GetComponent<PlayerMovementControl>();
+            pScript.isTouchingLadder = false;
             pScript.isOnLadder = false;
         }
     }

@@ -21,6 +21,7 @@ public class PlayerMovementControl : MonoBehaviour
     public bool touchWallSwitch;
     public bool touchSign;
     public bool isOnLadder;
+    public bool isTouchingLadder;
     public bool isClimbing;
     public bool isInteracting;
     public bool canMoveLeft;
@@ -91,6 +92,7 @@ public class PlayerMovementControl : MonoBehaviour
         isGrounded = false;
         isInvincible = false;
         isOnLadder = false;
+        isTouchingLadder = false;
         canMoveLeft = true;
         canMoveRight = true;
         onStairs = false;
@@ -124,7 +126,7 @@ public class PlayerMovementControl : MonoBehaviour
                 rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
                 rbody.velocity = new Vector2(rbody.velocity.x, 0);
             }
-            else if (isGrounded && !onMovingPlatform && !Input.GetKey("d") && !Input.GetKey("a") && !Input.GetKey("space"))
+            else if (isGrounded && !onMovingPlatform && !isOnLadder && !Input.GetKey("d") && !Input.GetKey("a") && !Input.GetKey("space"))
             {
                 rbody.constraints = RigidbodyConstraints2D.FreezeAll;
             }
@@ -133,6 +135,10 @@ public class PlayerMovementControl : MonoBehaviour
                 rbody.constraints = RigidbodyConstraints2D.None;
                 rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
                 rbody.velocity = new Vector2(mpVel, 0);
+            } else if (isGrounded && isOnLadder)
+            {
+                rbody.constraints = RigidbodyConstraints2D.None;
+                rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
             else if (!isGrounded)
             {
@@ -386,7 +392,11 @@ public class PlayerMovementControl : MonoBehaviour
 
     private void checkLadder()
     {
-        if (isOnLadder && !isGrounded)
+        if (isTouchingLadder && Input.GetKey("w"))
+        {
+            isOnLadder = true;
+        }
+        if (isOnLadder)
         {
             // Checks if the "w" key is being pressed
             if (Input.GetKey("w"))
