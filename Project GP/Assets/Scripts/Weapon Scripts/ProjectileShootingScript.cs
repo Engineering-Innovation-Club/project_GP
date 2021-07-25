@@ -17,6 +17,7 @@ public class ProjectileShootingScript : MonoBehaviour
     private Transform rotator;
 
     public DialogueScript dScript;
+    public GameObject player;
 
     Animator anim;
     // Start is called before the first frame 
@@ -37,7 +38,7 @@ public class ProjectileShootingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!PauseMenu.isPaused && !dScript.hasDialogue && !WeaponsCutsceneScript.inCutscene)
+        if (!PauseMenu.isPaused && !dScript.hasDialogue && !WeaponsCutsceneScript.inCutscene && !player.GetComponent<PlayerMovementControl>().isOnLadder)
         {
             // Single Fire-Rate
             if (fireRate == 0)
