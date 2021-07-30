@@ -31,6 +31,7 @@ public class PlayerMovementControl : MonoBehaviour
     public bool hidBot;
     public bool onBotShell;
     public bool onTeleporter;
+    public bool isKnockBack;
 
     // Speed on moving platforms and regular move speed
     public float moveSpeed;
@@ -45,6 +46,7 @@ public class PlayerMovementControl : MonoBehaviour
     private float rollTimer;
     private float rollDelay;
     const float rollDuration = 0.5f;
+    private float knockBackTimer = 0.5f;
 
     // Collider variables for changing collider on crouch
     float collSizeY;
@@ -99,6 +101,7 @@ public class PlayerMovementControl : MonoBehaviour
         hidBot = false;
         onBotShell = false;
         onTeleporter = false;
+        isKnockBack = false;
 
         moveSpeed = 8.5f;
         rollDelay = 0f;
@@ -146,8 +149,13 @@ public class PlayerMovementControl : MonoBehaviour
                 rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
 
+            if (isKnockBack && (knockBackTimer < 0))
+            {
+                isKnockBack = false;
+            }
+
             // Checks if the "d" key is being pressed
-            if (Input.GetKey("d") && !isRoll && canMoveRight)
+            if (Input.GetKey("d") && !isRoll && canMoveRight && !isKnockBack)
             {
                 // Changes the x-axis velocity of the player while retaining the y-axis velocity
                 if (isCrouching)
@@ -165,7 +173,7 @@ public class PlayerMovementControl : MonoBehaviour
                 }
             }
             // Checks if the "a" key is being pressed
-            else if (Input.GetKey("a") && !isRoll && canMoveLeft)
+            else if (Input.GetKey("a") && !isRoll && canMoveLeft && !isKnockBack)
             {
                 // Changes the x-axis velocity of the player while retaining the y-axis velocity
                 if (isCrouching)
@@ -182,7 +190,7 @@ public class PlayerMovementControl : MonoBehaviour
                     pAnimScript.flip();
                 }
             }
-            else if (!Input.anyKey && !onMovingPlatform)
+            else if (!Input.anyKey && !onMovingPlatform && !isKnockBack)
             {
                 rbody.velocity = new Vector2(0, rbody.velocity.y);
             }
@@ -546,6 +554,14 @@ public class PlayerMovementControl : MonoBehaviour
             rollTimer = rollDuration;
             isInvincible = false;
         }
+
+        if (isKnockBack && knockBackTimer > 0)
+        {
+            knockBackTimer -= Time.deltaTime;
+        } else
+        {
+            knockBackTimer = 0.5f;
+        }
     }
 
     // Function that returns the pass-through platform if there is one
@@ -621,8 +637,19 @@ public class PlayerMovementControl : MonoBehaviour
         else if (collision.gameObject.tag == "passThroughBlock")
         {
             currentPassThroughBlock = collision.gameObject;
-        }
-        else
+        } else if (collision.gameObject.tag == "CampusBoss")
+        {
+            Vector2 pushForce = new Vector2(0.1f, 0.1f);
+
+            if (transform.position.x < collision.gameObject.transform.position.x)
+            {
+                pushForce.x = -pushForce.x;
+            }
+            print("adding force");
+            isKnockBack = true;
+            rbody.velocity = Vector2.zero;
+            rbody.AddForce(pushForce, ForceMode2D.Impulse);
+        } else
         {
             currentPassThroughBlock = null;
         }

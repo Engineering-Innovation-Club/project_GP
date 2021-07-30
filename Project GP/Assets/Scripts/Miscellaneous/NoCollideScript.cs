@@ -13,6 +13,14 @@ public class NoCollideScript : MonoBehaviour
     {
         Physics2D.IgnoreCollision(thing.GetComponent<BoxCollider2D>(), GetComponent<CompositeCollider2D>());
         Physics2D.IgnoreCollision(thing.GetComponent<BoxCollider2D>(), GetComponent<TilemapCollider2D>());
+        try
+        {
+            Physics2D.IgnoreCollision(thing.GetComponent<CircleCollider2D>(), GetComponent<CompositeCollider2D>());
+            Physics2D.IgnoreCollision(thing.GetComponent<CircleCollider2D>(), GetComponent<TilemapCollider2D>());
+        } catch
+        {
+            
+        }
 
         Physics2D.IgnoreCollision(bullet.GetComponent<BoxCollider2D>(), GetComponent<CompositeCollider2D>());
         Physics2D.IgnoreCollision(bullet.GetComponent<BoxCollider2D>(), GetComponent<TilemapCollider2D>());
