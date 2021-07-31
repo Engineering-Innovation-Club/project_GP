@@ -66,6 +66,11 @@ public class CampusBossAnimations : MonoBehaviour
 
     Weapon weapon;
 
+    private BoxCollider2D boxCollider;
+    private CircleCollider2D circleCollider;
+    private Vector2 circleColliderPos;
+    private float circleColliderRadius;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,6 +90,11 @@ public class CampusBossAnimations : MonoBehaviour
         getAnimationTimes();
         currentRollTime = rollDuration;
         timeSinceLastShot = shootCoolDown;
+
+        boxCollider = GetComponent<BoxCollider2D>();
+        circleCollider = GetComponent<CircleCollider2D>();
+        circleColliderPos = circleCollider.offset;
+        circleColliderRadius = circleCollider.radius;
     }
 
     // Update is called once per frame
@@ -119,6 +129,9 @@ public class CampusBossAnimations : MonoBehaviour
         {
             arms.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             arms.gameObject.SetActive(false);
+            boxCollider.enabled = false;
+            circleCollider.offset = new Vector2(-0.33f, -1.05f);
+            circleCollider.radius = 1.03f;
             ChangeAnimationState(BOSS_BALL);
             Invoke("doneRollPrep", animationTimes[BOSS_BALL]);
             return;
@@ -307,6 +320,9 @@ public class CampusBossAnimations : MonoBehaviour
     {
         isRolling = false;
         arms.gameObject.SetActive(true);
+        boxCollider.enabled = true;
+        circleCollider.radius = circleColliderRadius;
+        circleCollider.offset = circleColliderPos;
         currentRollTime = rollDuration;
         timeSinceLastRoll = 0;
     }

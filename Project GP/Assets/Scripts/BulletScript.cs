@@ -33,6 +33,8 @@ public class BulletScript : MonoBehaviour
         {
             shootDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             shootDirection.z = 0;
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), player.GetComponent<CapsuleCollider2D>());
         } else if (target == "Player")
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
