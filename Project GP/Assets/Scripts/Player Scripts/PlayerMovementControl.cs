@@ -129,9 +129,12 @@ public class PlayerMovementControl : MonoBehaviour
                 rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
                 rbody.velocity = new Vector2(rbody.velocity.x, 0);
             }
-            else if (isGrounded && !onMovingPlatform && !isOnLadder && !Input.GetKey("d") && !Input.GetKey("a") && !Input.GetKey("space"))
+            else if (isGrounded && !onMovingPlatform && !isOnLadder && !Input.GetKey("d") && !Input.GetKey("a") && !Input.GetKey("space") && !isKnockBack)
             {
+                print(rbody.velocity);
+                print("freexing");
                 rbody.constraints = RigidbodyConstraints2D.FreezeAll;
+                print(rbody.velocity);
             }
             else if (isGrounded && onMovingPlatform && !Input.GetKey("d") && !Input.GetKey("a") && !Input.GetKey("space"))
             {
@@ -637,18 +640,19 @@ public class PlayerMovementControl : MonoBehaviour
         else if (collision.gameObject.tag == "passThroughBlock")
         {
             currentPassThroughBlock = collision.gameObject;
-        } else if (collision.gameObject.tag == "CampusBoss")
+        } else if (collision.gameObject.tag == "CampusBoss" && !isKnockBack)
         {
-            Vector2 pushForce = new Vector2(0.1f, 0.1f);
+            Vector2 pushForce = new Vector2(10, 5);
 
             if (transform.position.x < collision.gameObject.transform.position.x)
             {
                 pushForce.x = -pushForce.x;
             }
-            print("adding force");
             isKnockBack = true;
+            rbody.constraints = RigidbodyConstraints2D.None;
+            rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
             rbody.velocity = Vector2.zero;
-            rbody.AddForce(pushForce, ForceMode2D.Impulse);
+            rbody.AddForce(pushForce, ForceMode2D.Force);
         } else
         {
             currentPassThroughBlock = null;
@@ -660,6 +664,19 @@ public class PlayerMovementControl : MonoBehaviour
         if (collision.gameObject.tag == "MovingPlatform")
         {
             mpVel = collision.gameObject.GetComponent<Rigidbody2D>().velocity.x;
+        } else if (collision.gameObject.tag == "CampusBoss" && !isKnockBack)
+        {
+            Vector2 pushForce = new Vector2(10, 5);
+
+            if (transform.position.x < collision.gameObject.transform.position.x)
+            {
+                pushForce.x = -pushForce.x;
+            }
+            isKnockBack = true;
+            rbody.constraints = RigidbodyConstraints2D.None;
+            rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            rbody.velocity = Vector2.zero;
+            rbody.AddForce(pushForce, ForceMode2D.Force);
         }
     }
 

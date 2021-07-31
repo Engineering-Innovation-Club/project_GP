@@ -33,6 +33,8 @@ public class BulletScript : MonoBehaviour
         {
             shootDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             shootDirection.z = 0;
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), player.GetComponent<CapsuleCollider2D>());
         } else if (target == "Player")
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -60,6 +62,7 @@ public class BulletScript : MonoBehaviour
     // This is a built in unity function that checks when the object collides with another object
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print(collision.tag);
         // Check if the tag of the object it collides with is "Ground"
         // Bullet will still go through "passThroughPlatforms" 
         if ((collision.tag == "Ground" || collision.tag == "MovingPlatform" || collision.tag == "Wall") && collision.gameObject.name != "NoEnemyCollide")
