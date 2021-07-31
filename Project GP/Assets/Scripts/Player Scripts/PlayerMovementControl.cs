@@ -131,10 +131,7 @@ public class PlayerMovementControl : MonoBehaviour
             }
             else if (isGrounded && !onMovingPlatform && !isOnLadder && !Input.GetKey("d") && !Input.GetKey("a") && !Input.GetKey("space") && !isKnockBack)
             {
-                print(rbody.velocity);
-                print("freexing");
                 rbody.constraints = RigidbodyConstraints2D.FreezeAll;
-                print(rbody.velocity);
             }
             else if (isGrounded && onMovingPlatform && !Input.GetKey("d") && !Input.GetKey("a") && !Input.GetKey("space"))
             {

@@ -62,7 +62,6 @@ public class BulletScript : MonoBehaviour
     // This is a built in unity function that checks when the object collides with another object
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.tag);
         // Check if the tag of the object it collides with is "Ground"
         // Bullet will still go through "passThroughPlatforms" 
         if ((collision.tag == "Ground" || collision.tag == "MovingPlatform" || collision.tag == "Wall") && collision.gameObject.name != "NoEnemyCollide")
