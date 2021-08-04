@@ -199,12 +199,12 @@ public class DroidScript : MonoBehaviour
         return false;
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(transform.position + Vector3.up * coll.bounds.size.y / 2, detectionRange);
-        Gizmos.DrawWireSphere(transform.position + Vector3.up * coll.bounds.size.y / 2, shootingRange);
+    //private void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.DrawWireSphere(transform.position + Vector3.up * coll.bounds.size.y / 2, detectionRange);
+    //    Gizmos.DrawWireSphere(transform.position + Vector3.up * coll.bounds.size.y / 2, shootingRange);
 
-    }
+    //}
 
     private void finishShoot()
     {

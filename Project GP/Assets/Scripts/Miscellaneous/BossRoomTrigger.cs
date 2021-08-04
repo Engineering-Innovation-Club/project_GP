@@ -8,6 +8,8 @@ public class BossRoomTrigger : MonoBehaviour
     public AudioManagerScript aScript;
 
     public GameObject player;
+    public GameObject boss;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class BossRoomTrigger : MonoBehaviour
         {
             door.SetActive(true);
             aScript.PlayBoss();
+            boss.SetActive(true);
         }
     }
 }
