@@ -29,6 +29,9 @@ TextureImporter:
   - first:
       213: -6782769444358622021
     second: edi-crouch-Sheet_8
+  - first:
+      213: 1398461560599913029
+    second: edi-crouch-Sheet_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -188,6 +191,69 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+      name: edi-crouch-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 84
+        height: 192
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cf1ebd7eb8c419a0800000000000000
+      internalID: -6263160461286563903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-crouch-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 84
+        height: 180
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 908a2b730852501c0800000000000000
+      internalID: -4538179816885409783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-crouch-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 90
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c41600eb290a61470800000000000000
+      internalID: 8365049910000640332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: edi-crouch-Sheet_3
       rect:
         serializedVersion: 2
@@ -202,8 +268,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66af4721d93e5ab40800000000000000
-      internalID: 5451013187760880230
+      spriteID: 542a8974165586310800000000000000
+      internalID: 1398461560599913029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-crouch-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 0
+        width: 78
+        height: 126
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4435911eec241420800000000000000
+      internalID: 2599752285908448334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-crouch-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 0
+        width: 78
+        height: 180
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48a27d772a4afea60800000000000000
+      internalID: 7705558505156455044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-crouch-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 0
+        width: 84
+        height: 192
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd0887199aee5ac80800000000000000
+      internalID: -8311975125184904996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-crouch-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 0
+        width: 84
+        height: 192
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65defff43ffcb7a20800000000000000
+      internalID: 3061269015654559062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-crouch-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 0
+        width: 84
+        height: 192
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb471a38023ced1a0800000000000000
+      internalID: -6782769444358622021
       vertices: []
       indices: 
       edges: []
