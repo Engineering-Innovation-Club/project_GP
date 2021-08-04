@@ -26,6 +26,27 @@ TextureImporter:
   - first:
       213: -8102284312061371854
     second: edi-run-Sheet_7
+  - first:
+      213: -6463092490310465371
+    second: edi-run-Sheet_0
+  - first:
+      213: -6160175227010314566
+    second: edi-run-Sheet_1
+  - first:
+      213: -4070539889706895849
+    second: edi-run-Sheet_2
+  - first:
+      213: -4302862220964096182
+    second: edi-run-Sheet_3
+  - first:
+      213: 2056632417631969273
+    second: edi-run-Sheet_4
+  - first:
+      213: -873132512151278143
+    second: edi-run-Sheet_5
+  - first:
+      213: -642937978207621441
+    second: edi-run-Sheet_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -185,13 +206,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edi-run-Sheet_0
+      name: edi-run-Sheet_7
       rect:
         serializedVersion: 2
-        x: 48
-        y: 6
-        width: 102
-        height: 180
+        x: 1488
+        y: 0
+        width: 84
+        height: 192
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,8 +220,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7189197e7ba62ec90800000000000000
-      internalID: -7142028720959547369
+      spriteID: 23a9c5e8857ee8f80800000000000000
+      internalID: -8102284312061371854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-run-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 108
+        height: 186
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a8cc8c7f9b7e46a0800000000000000
+      internalID: -6463092490310465371
       vertices: []
       indices: 
       edges: []
@@ -209,9 +251,9 @@ TextureImporter:
       name: edi-run-Sheet_1
       rect:
         serializedVersion: 2
-        x: 276
+        x: 246
         y: 0
-        width: 102
+        width: 90
         height: 174
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -220,8 +262,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d79be3aa3fd1aa400800000000000000
-      internalID: 336114054563019133
+      spriteID: abe83efd449a28aa0800000000000000
+      internalID: -6160175227010314566
       vertices: []
       indices: 
       edges: []
@@ -230,7 +272,49 @@ TextureImporter:
       name: edi-run-Sheet_2
       rect:
         serializedVersion: 2
-        x: 510
+        x: 462
+        y: 0
+        width: 84
+        height: 180
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71676f579898287c0800000000000000
+      internalID: -4070539889706895849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-run-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 0
+        width: 78
+        height: 192
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a479cf98b992944c0800000000000000
+      internalID: -4302862220964096182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-run-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 858
         y: 0
         width: 90
         height: 186
@@ -241,50 +325,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ccc50eef24071cc0800000000000000
-      internalID: -3740516361604576059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: edi-run-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 732
-        y: 0
-        width: 96
-        height: 198
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b7caa25e4eabcfb0800000000000000
-      internalID: -4626412540775446600
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: edi-run-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 954
-        y: 18
-        width: 102
-        height: 168
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83a9b34568095eee0800000000000000
-      internalID: -1232420016402752968
+      spriteID: 9ff918e8940aa8c10800000000000000
+      internalID: 2056632417631969273
       vertices: []
       indices: 
       edges: []
@@ -293,9 +335,9 @@ TextureImporter:
       name: edi-run-Sheet_5
       rect:
         serializedVersion: 2
-        x: 1182
+        x: 1062
         y: 0
-        width: 114
+        width: 102
         height: 174
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -304,8 +346,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32218c01b91880550800000000000000
-      internalID: 6127289796039021091
+      spriteID: 1cde0633b9202e3f0800000000000000
+      internalID: -873132512151278143
       vertices: []
       indices: 
       edges: []
@@ -314,10 +356,10 @@ TextureImporter:
       name: edi-run-Sheet_6
       rect:
         serializedVersion: 2
-        x: 1422
+        x: 1278
         y: 0
-        width: 96
-        height: 180
+        width: 90
+        height: 174
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -325,29 +367,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 774ab6fa2bba89140800000000000000
-      internalID: 4726716592860931191
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: edi-run-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 1650
-        y: 0
-        width: 96
-        height: 198
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23a9c5e8857ee8f80800000000000000
-      internalID: -8102284312061371854
+      spriteID: fbea354b053d317f0800000000000000
+      internalID: -642937978207621441
       vertices: []
       indices: 
       edges: []
