@@ -1,13 +1,55 @@
 fileFormatVersion: 2
-guid: 857be3ef757daec4490e27c9690c264c
+guid: fd02ecd091fdc174780124ee38961302
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4145230049500398627
-    second: edi-crouchidle-Sheet_0
+      213: 4969811724695095144
+    second: edi-jump-land-Sheet_0
   - first:
-      213: 9030795817753605173
-    second: edi-crouchidle-Sheet_1
+      213: 6616653636163457773
+    second: edi-jump-land-Sheet_1
+  - first:
+      213: 4983755420732425267
+    second: edi-jump-land-Sheet_2
+  - first:
+      213: -4151245147714173837
+    second: edi-jump-land-Sheet_3
+  - first:
+      213: 6708931150225590337
+    second: edi-jump-land-Sheet_4
+  - first:
+      213: 3070325766438293274
+    second: edi-jump-land-Sheet_5
+  - first:
+      213: 7846987074962181886
+    second: edi-jump-land-Sheet_6
+  - first:
+      213: -4491363265680283218
+    second: edi-jump-land-Sheet_7
+  - first:
+      213: -399239184703577801
+    second: edi-jump-land-Sheet_8
+  - first:
+      213: 1746071960201259278
+    second: edi-jump-land-Sheet_9
+  - first:
+      213: 4432861726507183929
+    second: edi-jump-land-Sheet_10
+  - first:
+      213: 5090019382025222237
+    second: edi-jump-land-Sheet_11
+  - first:
+      213: -3796964865697798033
+    second: edi-jump-land-Sheet_12
+  - first:
+      213: 8185343614709415702
+    second: edi-jump-land-Sheet_13
+  - first:
+      213: 3845083412536470178
+    second: edi-jump-land-Sheet_14
+  - first:
+      213: 25114229056887129
+    second: edi-jump-land-Sheet_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -167,13 +209,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edi-crouchidle-Sheet_0
+      name: edi-jump-land-Sheet_5
       rect:
         serializedVersion: 2
-        x: 0
+        x: 954
         y: 0
-        width: 84
-        height: 114
+        width: 120
+        height: 192
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +223,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddbf04b7b3f2976c0800000000000000
-      internalID: -4145230049500398627
+      spriteID: a1f884d640dfb9a20800000000000000
+      internalID: 3070325766438293274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edi-crouchidle-Sheet_1
+      name: edi-jump-land-Sheet_6
       rect:
         serializedVersion: 2
-        x: 90
+        x: 1146
         y: 0
-        width: 84
-        height: 114
+        width: 132
+        height: 192
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,8 +244,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5347944f2f4d35d70800000000000000
-      internalID: 9030795817753605173
+      spriteID: efec3386b2916ec60800000000000000
+      internalID: 7846987074962181886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-jump-land-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 0
+        width: 174
+        height: 192
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e09e01c523b4b3810800000000000000
+      internalID: 1746071960201259278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-jump-land-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1506
+        y: 0
+        width: 114
+        height: 192
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f68a17362987e4bc0800000000000000
+      internalID: -3796964865697798033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-jump-land-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 0
+        width: 84
+        height: 192
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aaabf7ddfa7c5530800000000000000
+      internalID: 3845083412536470178
       vertices: []
       indices: 
       edges: []

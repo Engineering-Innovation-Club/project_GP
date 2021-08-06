@@ -1,13 +1,55 @@
 fileFormatVersion: 2
-guid: 857be3ef757daec4490e27c9690c264c
+guid: 8ae89aa3d120e16418b2ee5bffcb1575
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4145230049500398627
-    second: edi-crouchidle-Sheet_0
+      213: -6432558219717431992
+    second: edi-jump-fall-Sheet_0
   - first:
-      213: 9030795817753605173
-    second: edi-crouchidle-Sheet_1
+      213: -4067675114989551941
+    second: edi-jump-fall-Sheet_1
+  - first:
+      213: 8264452222595845455
+    second: edi-jump-fall-Sheet_2
+  - first:
+      213: 8733507488864030269
+    second: edi-jump-fall-Sheet_3
+  - first:
+      213: -3999727995527064329
+    second: edi-jump-fall-Sheet_4
+  - first:
+      213: 8690458635838161959
+    second: edi-jump-fall-Sheet_5
+  - first:
+      213: -2097796407203228711
+    second: edi-jump-fall-Sheet_6
+  - first:
+      213: 492975753343362453
+    second: edi-jump-fall-Sheet_7
+  - first:
+      213: -5386141166389440186
+    second: edi-jump-fall-Sheet_8
+  - first:
+      213: 8386494736247061853
+    second: edi-jump-fall-Sheet_9
+  - first:
+      213: 3347227875657920563
+    second: edi-jump-fall-Sheet_10
+  - first:
+      213: -5765381879266312916
+    second: edi-jump-fall-Sheet_11
+  - first:
+      213: 2068014138406350547
+    second: edi-jump-fall-Sheet_12
+  - first:
+      213: 8397396533639220775
+    second: edi-jump-fall-Sheet_13
+  - first:
+      213: 5134700811888455101
+    second: edi-jump-fall-Sheet_14
+  - first:
+      213: 8028782699110352755
+    second: edi-jump-fall-Sheet_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -167,13 +209,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edi-crouchidle-Sheet_0
+      name: edi-jump-fall-Sheet_4
       rect:
         serializedVersion: 2
-        x: 0
+        x: 780
         y: 0
-        width: 84
-        height: 114
+        width: 96
+        height: 192
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +223,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddbf04b7b3f2976c0800000000000000
-      internalID: -4145230049500398627
+      spriteID: 7f49c6c549c1e78c0800000000000000
+      internalID: -3999727995527064329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edi-crouchidle-Sheet_1
+      name: edi-jump-fall-Sheet_5
       rect:
         serializedVersion: 2
-        x: 90
+        x: 954
         y: 0
-        width: 84
-        height: 114
+        width: 120
+        height: 192
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,8 +244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5347944f2f4d35d70800000000000000
-      internalID: 9030795817753605173
+      spriteID: 7240c54d516ba9870800000000000000
+      internalID: 8690458635838161959
       vertices: []
       indices: 
       edges: []
