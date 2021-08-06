@@ -1,13 +1,25 @@
 fileFormatVersion: 2
-guid: 857be3ef757daec4490e27c9690c264c
+guid: 16d914bdcce74b04c9cb88931c19ebb8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4145230049500398627
-    second: edi-crouchidle-Sheet_0
+      213: -7359007036031917779
+    second: edi-jump-run-link-Sheet (2)_0
   - first:
-      213: 9030795817753605173
-    second: edi-crouchidle-Sheet_1
+      213: 7599302111913005323
+    second: edi-jump-run-link-Sheet (2)_1
+  - first:
+      213: 6248024383158676446
+    second: edi-jump-run-link-Sheet (2)_2
+  - first:
+      213: 1768569705825010452
+    second: edi-jump-run-link-Sheet (2)_3
+  - first:
+      213: -4079151395399189431
+    second: edi-jump-run-link-Sheet (2)_4
+  - first:
+      213: -8880053736945249952
+    second: edi-jump-run-link-Sheet (2)_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -167,13 +179,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edi-crouchidle-Sheet_0
+      name: edi-jump-run-link-Sheet (2)_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 7
         y: 0
-        width: 84
-        height: 114
+        width: 174
+        height: 138
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddbf04b7b3f2976c0800000000000000
-      internalID: -4145230049500398627
+      spriteID: edbe622b21175b650800000000000000
+      internalID: 6248024383158676446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edi-crouchidle-Sheet_1
+      name: edi-jump-run-link-Sheet (2)_4
       rect:
         serializedVersion: 2
-        x: 90
+        x: 246
         y: 0
-        width: 84
-        height: 114
+        width: 90
+        height: 162
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,8 +214,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5347944f2f4d35d70800000000000000
-      internalID: 9030795817753605173
+      spriteID: 94c313c0b61f367c0800000000000000
+      internalID: -4079151395399189431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-jump-run-link-Sheet (2)_5
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 0
+        width: 108
+        height: 186
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0619ffebc26b3c480800000000000000
+      internalID: -8880053736945249952
       vertices: []
       indices: 
       edges: []

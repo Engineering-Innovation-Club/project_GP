@@ -1,13 +1,25 @@
 fileFormatVersion: 2
-guid: 857be3ef757daec4490e27c9690c264c
+guid: edd46aa7961643048828523dc72905ba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4145230049500398627
-    second: edi-crouchidle-Sheet_0
+      213: -3571222544489499120
+    second: edi-crouch-walk-Sheet_0
   - first:
-      213: 9030795817753605173
-    second: edi-crouchidle-Sheet_1
+      213: 3221961861501186406
+    second: edi-crouch-walk-Sheet_1
+  - first:
+      213: 4152306936499071241
+    second: edi-crouch-walk-Sheet_2
+  - first:
+      213: 792493011748896924
+    second: edi-crouch-walk-Sheet_3
+  - first:
+      213: -4260269859098332543
+    second: edi-crouch-walk-Sheet_4
+  - first:
+      213: -8391259064956034807
+    second: edi-crouch-walk-Sheet_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -167,12 +179,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edi-crouchidle-Sheet_0
+      name: edi-crouch-walk-Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 0
-        width: 84
+        width: 78
         height: 114
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -181,17 +193,59 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddbf04b7b3f2976c0800000000000000
-      internalID: -4145230049500398627
+      spriteID: 01636d55408707ec0800000000000000
+      internalID: -3571222544489499120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edi-crouchidle-Sheet_1
+      name: edi-crouch-walk-Sheet_1
       rect:
         serializedVersion: 2
-        x: 90
+        x: 102
+        y: 0
+        width: 78
+        height: 114
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66172aa0e35b6bc20800000000000000
+      internalID: 3221961861501186406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-crouch-walk-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 78
+        height: 114
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 909ea6ca825ff9930800000000000000
+      internalID: 4152306936499071241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-crouch-walk-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 294
         y: 0
         width: 84
         height: 114
@@ -202,8 +256,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5347944f2f4d35d70800000000000000
-      internalID: 9030795817753605173
+      spriteID: c90c54402308ffa00800000000000000
+      internalID: 792493011748896924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-crouch-walk-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 78
+        height: 114
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 182f321922b70e4c0800000000000000
+      internalID: -4260269859098332543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-crouch-walk-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 0
+        width: 78
+        height: 114
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 901e407d6524c8b80800000000000000
+      internalID: -8391259064956034807
       vertices: []
       indices: 
       edges: []

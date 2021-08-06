@@ -1,13 +1,73 @@
 fileFormatVersion: 2
-guid: 857be3ef757daec4490e27c9690c264c
+guid: eb072eb0920c0174e94e84d84dc4efce
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4145230049500398627
-    second: edi-crouchidle-Sheet_0
+      213: 4960155690526574899
+    second: edi-roll1-Sheet_0
   - first:
-      213: 9030795817753605173
-    second: edi-crouchidle-Sheet_1
+      213: -1890437638656730734
+    second: edi-roll1-Sheet_1
+  - first:
+      213: -485647836002716670
+    second: edi-roll1-Sheet_2
+  - first:
+      213: 6968863321738426017
+    second: edi-roll1-Sheet_2
+  - first:
+      213: -5431207041185751502
+    second: edi-roll1-Sheet_4
+  - first:
+      213: 9023406677008059885
+    second: edi-roll1-Sheet_5
+  - first:
+      213: -8257742260078859809
+    second: edi-roll1-Sheet_6
+  - first:
+      213: 8919570340354922911
+    second: edi-roll1-Sheet_4
+  - first:
+      213: -9009421601072436821
+    second: edi-roll1-Sheet_5
+  - first:
+      213: 9092511811432416862
+    second: edi-roll1-Sheet_6
+  - first:
+      213: 3067859417515968937
+    second: edi-roll1-Sheet_10
+  - first:
+      213: -777091697741182616
+    second: edi-roll1-Sheet_11
+  - first:
+      213: 5470721567767810711
+    second: edi-roll1-Sheet_3
+  - first:
+      213: -3184726635755332473
+    second: edi-roll1-Sheet_13
+  - first:
+      213: -100554621388939022
+    second: edi-roll1-Sheet_14
+  - first:
+      213: -8459931664898542243
+    second: edi-roll1-Sheet_15
+  - first:
+      213: -6318537154349027748
+    second: edi-roll1-Sheet_16
+  - first:
+      213: -7942785034296872669
+    second: edi-roll1-Sheet_17
+  - first:
+      213: 5779000736940102396
+    second: edi-roll1-Sheet_18
+  - first:
+      213: -374447198883051558
+    second: edi-roll1-Sheet_19
+  - first:
+      213: 2540149935451013534
+    second: edi-roll1-Sheet_20
+  - first:
+      213: 7693741520101308571
+    second: edi-roll1-Sheet_21
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -167,13 +227,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edi-crouchidle-Sheet_0
+      name: edi-roll1-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 84
-        height: 114
+        height: 192
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,17 +241,101 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddbf04b7b3f2976c0800000000000000
-      internalID: -4145230049500398627
+      spriteID: 339087c025306d440800000000000000
+      internalID: 4960155690526574899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edi-crouchidle-Sheet_1
+      name: edi-roll1-Sheet_1
       rect:
         serializedVersion: 2
-        x: 90
+        x: 522
+        y: 0
+        width: 120
+        height: 156
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29956ddcbf0d3c5e0800000000000000
+      internalID: -1890437638656730734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-roll1-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 0
+        width: 240
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a6b77cb44066b060800000000000000
+      internalID: 6968863321738426017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-roll1-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2154
+        y: 0
+        width: 210
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9917f577fda8cb70800000000000000
+      internalID: 8919570340354922911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-roll1-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2670
+        y: 0
+        width: 204
+        height: 126
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba9a85ca9ca18f280800000000000000
+      internalID: -9009421601072436821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-roll1-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3306
         y: 0
         width: 84
         height: 114
@@ -202,8 +346,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5347944f2f4d35d70800000000000000
-      internalID: 9030795817753605173
+      spriteID: e56097c71571f2e70800000000000000
+      internalID: 9092511811432416862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edi-roll1-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 0
+        width: 270
+        height: 114
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7925edfd748ebeb40800000000000000
+      internalID: 5470721567767810711
       vertices: []
       indices: 
       edges: []

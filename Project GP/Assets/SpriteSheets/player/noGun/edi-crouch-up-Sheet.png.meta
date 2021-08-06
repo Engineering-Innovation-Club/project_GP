@@ -1,13 +1,34 @@
 fileFormatVersion: 2
-guid: 857be3ef757daec4490e27c9690c264c
+guid: 1574e31abf64d0f46b40942fe03319ef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4145230049500398627
-    second: edi-crouchidle-Sheet_0
+      213: 6895944957358785318
+    second: edi-crouch-up-Sheet_0
   - first:
-      213: 9030795817753605173
-    second: edi-crouchidle-Sheet_1
+      213: -3157483994257384858
+    second: edi-crouch-up-Sheet_1
+  - first:
+      213: -5312921225505773969
+    second: edi-crouch-up-Sheet_2
+  - first:
+      213: 3528915057584768572
+    second: edi-crouch-up-Sheet_3
+  - first:
+      213: -1873511377400615712
+    second: edi-crouch-up-Sheet_4
+  - first:
+      213: -502189266504665493
+    second: edi-crouch-up-Sheet_5
+  - first:
+      213: 8611901176390679164
+    second: edi-crouch-up-Sheet_6
+  - first:
+      213: -1121744946865686560
+    second: edi-crouch-up-Sheet_7
+  - first:
+      213: 5829321127515361826
+    second: edi-crouch-up-Sheet_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -167,13 +188,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edi-crouchidle-Sheet_0
+      name: edi-crouch-up-Sheet_5
       rect:
         serializedVersion: 2
-        x: 0
+        x: 606
         y: 0
-        width: 84
-        height: 114
+        width: 78
+        height: 180
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +202,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddbf04b7b3f2976c0800000000000000
-      internalID: -4145230049500398627
+      spriteID: b66b9f7d58dd709f0800000000000000
+      internalID: -502189266504665493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edi-crouchidle-Sheet_1
+      name: edi-crouch-up-Sheet_6
       rect:
         serializedVersion: 2
-        x: 90
+        x: 726
         y: 0
         width: 84
-        height: 114
+        height: 192
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5347944f2f4d35d70800000000000000
-      internalID: 9030795817753605173
+      spriteID: c7af88bfd7e938770800000000000000
+      internalID: 8611901176390679164
       vertices: []
       indices: 
       edges: []
